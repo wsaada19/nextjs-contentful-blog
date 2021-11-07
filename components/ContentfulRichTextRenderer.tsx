@@ -33,5 +33,5 @@ type ContentfulRichTextRendererProps = {
 };
 
 export const ContentfulRichTextRenderer = ({ richText }: ContentfulRichTextRendererProps) => {
-  return <>documentToReactComponents(richText, options)</>;
+  return <>{documentToReactComponents(richText, options)}</>;
 };

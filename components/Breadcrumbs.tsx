@@ -1,9 +1,8 @@
-// breadcrumbs component for nextjs blog site
 import React from 'react';
+import { Link } from '../types/link';
 
-// BreadcrumbsProps interface
 interface BreadcrumbsProps {
-  crumbs: string[];
+  crumbs: Link[];
 }
 
 export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {

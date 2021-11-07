@@ -1,1 +1,1 @@
-This is my blog: I'm working on using Next.js and Contentful.
+A blog and portfolio website build with Next.js and Contentful. I'm working on moving all of the personalized content to Contentful so this can be reused by anyone with your own Contentful environment.

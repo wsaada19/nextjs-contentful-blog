@@ -7,20 +7,21 @@ import { About } from '../components/About';
 import { getEntriesOfType } from '../services/contentfulService';
 import { Post } from '../types/posts';
 import React from 'react';
-import ReactEmbededGist from 'react-embed-gist';
-import { GistCode } from '../components/GistCode';
+import { HomePage } from '../types/homePage';
 
 type HomeProps = {
   allPostsData: Post[];
+  homePageData: HomePage;
 };
 
-export default function Home({ allPostsData }: HomeProps) {
+export default function Home({ allPostsData, homePageData }: HomeProps) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <About />
+      <h1 className="text-3xl font-bold mb-2">{homePageData.name}</h1>
+      <About aboutText={homePageData.about} />
       <section>
         <h2 className="text-xl font-bold mb-2">Blog</h2>
         <ul className="">
@@ -43,10 +44,12 @@ export default function Home({ allPostsData }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const postContentfulData = await getEntriesOfType('post');
+  const homePage = await getEntriesOfType('homePage');
   const posts = postContentfulData.items.map((item) => item.fields);
   return {
     props: {
       allPostsData: posts,
+      homePageData: homePage.items[0].fields,
     },
   };
 };

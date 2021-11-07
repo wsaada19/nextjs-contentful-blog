@@ -11,14 +11,13 @@ export default function Layout({ children, home }: { children: ReactNode; home?:
   return (
     <div className={`${styles.container} max-w-4xl px-8`}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <meta name="description" content="Learn how to build a personal website using Next.js" />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header>
         <Navigation />
-        {home && <h1 className="text-3xl font-bold mb-2">{name}</h1>}
       </header>
       <main>{children}</main>
       {!home && (
