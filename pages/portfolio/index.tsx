@@ -1,0 +1,48 @@
+import Layout from '../../components/Layout';
+import Head from 'next/head';
+import Date from '../../components/date';
+import { GetStaticProps } from 'next';
+import { ProjectInfo } from '../../types/projects';
+import React from 'react';
+import Link from 'next/link';
+import { getEntriesOfType } from '../../services/contentfulService';
+
+type ShowcasePageProps = {
+  projects: ProjectInfo[];
+};
+
+export default function ProjectShowcase({ projects }: ShowcasePageProps) {
+  return (
+    <Layout>
+      <Head>
+        <title>Project Showcase</title>
+      </Head>
+      <article>
+        <h1 className="text-4xl font-bold mb-6">Projects</h1>
+        <ul className="list-none">
+          {projects.map(({ projectTitle, slug, publishDate, shortSummary }) => (
+            <li className="mb-4" key={slug}>
+              <Link href={`/portfolio/${slug}`}>
+                <a className="text-xl mb-2 block">{projectTitle}</a>
+              </Link>
+              <p className="text-sm">{shortSummary}</p>
+              <small className="text-xsm italic">
+                <Date dateString={publishDate} />
+              </small>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </Layout>
+  );
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const projectContentfulData = await getEntriesOfType('projectShowcase');
+  const projects = projectContentfulData.items.map((item) => item.fields);
+  return {
+    props: {
+      projects,
+    },
+  };
+};
