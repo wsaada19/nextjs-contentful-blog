@@ -60,7 +60,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
 
   const image = await getAssetById(project.fields.summaryImage.sys.id);
-  console.log(image);
   return {
     props: {
       project: project.fields,

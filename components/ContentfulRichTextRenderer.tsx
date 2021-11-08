@@ -12,11 +12,13 @@ const options: any = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-base py-1">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
-      <h3 className="text-xl font-medium my-3">{children}</h3>;
+      return <h3 className="text-xl font-medium my-3">{children}</h3>;
+    },
+    [BLOCKS.HEADING_4]: (node, children) => {
+      return <h4 className="text-lg font-medium my-3">{children}</h4>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
       if (node.data.uri.includes('api.github.com') && node.content[0].value) {
-        console.log(node);
         return <GistCode gistId={node.data.uri} fileName={node.content[0].value} />;
       }
       return (

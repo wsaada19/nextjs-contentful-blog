@@ -20,7 +20,7 @@ export const GistCode = ({ gistId, fileName }: GistCodeProps) => {
   }, [gistId, fileName]);
 
   return (
-    <div className="my-4 max-h-64 overflow-y-auto">
+    <div className="my-4">
       <CodeBlock text={code} language={'typescript'} showLineNumbers={false} theme={atomOneDark} />
     </div>
   );

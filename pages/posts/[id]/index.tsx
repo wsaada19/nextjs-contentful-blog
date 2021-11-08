@@ -55,20 +55,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-function sortBy<T>(selector: (value: T) => string | number, array: T[]) {
-  return array.sort((a, b) => {
-    const aValue = selector(a);
-    const bValue = selector(b);
-    if (aValue < bValue) {
-      return -1;
-    }
-    if (aValue > bValue) {
-      return 1;
-    }
-    return 0;
-  });
-}
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const projectContentfulData = await getEntriesOfType('post');
   const project = projectContentfulData.items.find((item) => {
