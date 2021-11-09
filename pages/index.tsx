@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/Layout';
 import Link from 'next/link';
-import Date from '../components/date';
+import { Date } from '../components/Date';
 import { GetStaticProps } from 'next';
 import { About } from '../components/About';
 import { getEntriesOfType } from '../services/contentfulService';

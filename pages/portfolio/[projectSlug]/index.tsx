@@ -14,14 +14,14 @@ type ProjectPage = {
 };
 
 export default function Project({ project, image }: ProjectPage) {
-  const { projectTitle, shortSummary, publishDate, summaryImage, summary } = project;
+  const { projectTitle, shortSummary, publishDate, summary } = project;
   return (
     <Layout>
       <Head>
         <title>{projectTitle}</title>
         <meta property="description" content={shortSummary}></meta>
       </Head>
-      <article className="px-4">
+      <article>
         <h1 className="text-4xl font-medium mb-6 text-center">{projectTitle}</h1>
         <Image
           src={`https://${image.file.url}`}

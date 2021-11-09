@@ -1,15 +1,13 @@
 import Head from 'next/head';
-import styles from './layout.module.css';
 import Link from 'next/link';
 import React, { ReactNode } from 'react';
 import { Navigation } from './Navigation';
 
-const name = 'Will Saada';
 export const siteTitle = 'Will Saadas porfolio and programming blog';
 
 export default function Layout({ children, home }: { children: ReactNode; home?: boolean }) {
   return (
-    <div className={`${styles.container} max-w-4xl px-8`}>
+    <div className="mt-4 mx-auto mb-24 max-w-4xl px-8">
       <Head>
         <link rel="icon" href="/favicon.png" />
         <meta name="description" content="Learn how to build a personal website using Next.js" />

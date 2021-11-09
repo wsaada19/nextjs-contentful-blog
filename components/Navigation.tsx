@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+
 export const Navigation = () => {
   return (
     <nav className="mt-2 mb-6 text-lg">

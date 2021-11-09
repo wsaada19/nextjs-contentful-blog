@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import Head from 'next/head';
-import Date from '../../components/date';
+import { Date } from '../../components/Date';
 import { GetStaticProps } from 'next';
 import { Post } from '../../types/posts';
 import React from 'react';
@@ -15,10 +15,10 @@ export default function BlogPosts({ projects }: ShowcasePageProps) {
   return (
     <Layout>
       <Head>
-        <title>Project Showcase</title>
+        <title>All Blog Posts</title>
       </Head>
       <article>
-        <h1 className="text-4xl font-bold mb-6">Projects</h1>
+        <h1 className="text-4xl font-bold mb-6">My Blog Posts</h1>
         <ul className="list-none">
           {projects.map(({ title, slug, publishDate, shortSummary }) => (
             <li className="mb-4" key={slug}>

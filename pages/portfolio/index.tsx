@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import Head from 'next/head';
-import Date from '../../components/date';
+import { Date } from '../../components/Date';
 import { GetStaticProps } from 'next';
 import { ProjectInfo } from '../../types/projects';
 import React from 'react';

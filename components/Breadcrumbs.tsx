@@ -7,13 +7,13 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
   return (
-    <div className="">
+    <div>
       {crumbs.map((crumb, index) => {
         return (
-          <span key={index}>
-            {crumb}
+          <a href={crumb.href} key={crumb.label}>
+            {crumb.label}
             {index < crumbs.length - 1 ? ' > ' : ''}
-          </span>
+          </a>
         );
       })}
     </div>

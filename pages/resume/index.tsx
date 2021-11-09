@@ -1,14 +1,16 @@
+import Head from 'next/head';
 import React from 'react';
 import Layout from '../../components/Layout';
 
 export default function Resume() {
   return (
     <Layout>
-      <div className="rounded-lg border p-4 border-solid border-gray-400">
-        <h1 className="text-5xl pb-4 text-blue-800">
-          Will <span className="text-blue-600">Saada</span>
-        </h1>
-        <h2 className="text-2xl pb-3 text-blue-600">Full Stack Software Engineer</h2>
+      <Head>
+        <title>Resume</title>
+      </Head>
+      <div className="rounded-lg border p-4 border-solid border-gray-400 mt-2">
+        <h1 className="text-5xl pb-3 text-blue-700">Will Saada</h1>
+        <h2 className="text-2xl pb-2 text-blue-500">Full Stack Software Engineer</h2>
         <div className="grid grid-cols-3 gap-4">
           <div className="col-span-1">
             <Section title="Relevant Skills">
@@ -26,6 +28,9 @@ export default function Resume() {
               <List
                 items={['Game Dev & Modding', 'DevOps & Testing', 'Cleveland Sports', 'Running']}
               />
+            </Section>
+            <Section title="Contact">
+              <a href="mailto:willsaada19@gmail.com">willsaada19@gmail.com</a>
             </Section>
           </div>
           <div className="col-span-2">
@@ -49,8 +54,8 @@ type SectionProps = {
 const Section = ({ title, children }: SectionProps) => {
   return (
     <>
-      <h3 className="text-xl py-1 text-blue-800 font-semibold">{title}</h3>
-      <hr className="bg-blue-600 h-0.5 mb-0.5" />
+      <h3 className="text-xl py-1 text-blue-700 font-semibold">{title}</h3>
+      <hr className="bg-blue-500 h-0.5 mb-0.5" />
       {children}
     </>
   );
