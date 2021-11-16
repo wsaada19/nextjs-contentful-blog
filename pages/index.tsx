@@ -26,12 +26,12 @@ export default function Home({ allPostsData, homePageData }: HomeProps) {
         <h2 className="text-xl font-bold mb-2">Blog</h2>
         <ul className="">
           {allPostsData.map(({ title, publishDate, slug }) => (
-            <li className="mb-4" key={slug}>
+            <li className="mb-4 shadow-md p-3 rounded-lg border border-gray-300" key={slug}>
               <Link href={`/posts/${slug}`}>
                 <a>{title}</a>
               </Link>
               <br />
-              <small className="">
+              <small>
                 <Date dateString={publishDate} />
               </small>
             </li>

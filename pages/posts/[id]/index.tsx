@@ -7,6 +7,7 @@ import { ContentfulRichTextRenderer } from '../../../components/ContentfulRichTe
 import { ContentfulImage } from '../../../types/contentful';
 import Image from 'next/image';
 import { Post } from '../../../types/posts';
+import { contenfulLoader } from '../../../utilities/loaders';
 
 type ProjectPage = {
   post: Post;
@@ -30,6 +31,7 @@ export default function Project({ post, image }: ProjectPage) {
             width={500}
             height={250}
             layout="responsive"
+            loader={contenfulLoader}
           />
         )}
         <div className="my-4">

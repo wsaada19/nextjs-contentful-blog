@@ -7,6 +7,7 @@ import { getAssetById, getEntriesOfType } from '../../../services/contentfulServ
 import { ContentfulRichTextRenderer } from '../../../components/ContentfulRichTextRenderer';
 import { ContentfulImage } from '../../../types/contentful';
 import Image from 'next/image';
+import { contenfulLoader } from '../../../utilities/loaders';
 
 type ProjectPage = {
   project: ProjectInfo;
@@ -29,6 +30,7 @@ export default function Project({ project, image }: ProjectPage) {
           width={500}
           height={250}
           layout="responsive"
+          loader={contenfulLoader}
         />
         <div className="my-4">
           <ContentfulRichTextRenderer richText={summary} />
