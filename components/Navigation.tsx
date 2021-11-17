@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Navigation = () => {
   return (
-    <nav className="mt-2 mb-6 text-lg">
+    <nav className="mt-2 mb-6 text-base">
       <a className="pr-4" href="/">
         Home
       </a>

@@ -13,7 +13,7 @@ type ShowcasePageProps = {
 
 export default function BlogPosts({ projects }: ShowcasePageProps) {
   return (
-    <Layout>
+    <Layout description="List of all my blog posts">
       <Head>
         <title>All Blog Posts</title>
       </Head>

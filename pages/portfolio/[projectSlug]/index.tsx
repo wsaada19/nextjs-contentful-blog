@@ -17,10 +17,9 @@ type ProjectPage = {
 export default function Project({ project, image }: ProjectPage) {
   const { projectTitle, shortSummary, publishDate, summary } = project;
   return (
-    <Layout>
+    <Layout description={shortSummary}>
       <Head>
         <title>{projectTitle}</title>
-        <meta property="description" content={shortSummary}></meta>
       </Head>
       <article>
         <h1 className="text-3xl font-medium mb-6 text-center">{projectTitle}</h1>
@@ -28,7 +27,7 @@ export default function Project({ project, image }: ProjectPage) {
           src={`https://${image.file.url}`}
           alt={image.description}
           width={400}
-          height={250}
+          height={200}
           layout="responsive"
           loader={contenfulLoader}
         />

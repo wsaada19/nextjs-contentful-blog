@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 
 export default function Resume() {
   return (
-    <Layout>
+    <Layout description="My resume">
       <Head>
         <title>Resume</title>
       </Head>

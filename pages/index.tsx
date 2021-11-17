@@ -15,16 +15,17 @@ type HomeProps = {
 };
 
 export default function Home({ allPostsData, homePageData }: HomeProps) {
+  const { name, about } = homePageData;
   return (
-    <Layout home>
+    <Layout description={`${name}'s blog and personal website'`} home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <h1 className="text-3xl font-bold mb-2">{homePageData.name}</h1>
-      <About aboutText={homePageData.about} />
+      <h1 className="text-3xl font-bold mb-2">{name}</h1>
+      <About aboutText={about} />
       <section>
         <h2 className="text-xl font-bold mb-2">Blog</h2>
-        <ul className="">
+        <ul>
           {allPostsData.map(({ title, publishDate, slug }) => (
             <li className="mb-4 shadow-md p-3 rounded-lg border border-gray-300" key={slug}>
               <Link href={`/posts/${slug}`}>
