@@ -23,11 +23,11 @@ export default function Project({ project, image }: ProjectPage) {
         <meta property="description" content={shortSummary}></meta>
       </Head>
       <article>
-        <h1 className="text-4xl font-medium mb-6 text-center">{projectTitle}</h1>
+        <h1 className="text-3xl font-medium mb-6 text-center">{projectTitle}</h1>
         <Image
           src={`https://${image.file.url}`}
           alt={image.description}
-          width={500}
+          width={400}
           height={250}
           layout="responsive"
           loader={contenfulLoader}

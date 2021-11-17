@@ -18,7 +18,7 @@ export default function BlogPosts({ projects }: ShowcasePageProps) {
         <title>All Blog Posts</title>
       </Head>
       <article>
-        <h1 className="text-4xl font-bold mb-6">My Blog Posts</h1>
+        <h1 className="text-3xl font-semibold mb-6">My Blog Posts</h1>
         <ul className="list-none">
           {projects.map(({ title, slug, publishDate, shortSummary }) => (
             <li className="mb-4" key={slug}>
