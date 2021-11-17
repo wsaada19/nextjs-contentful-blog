@@ -21,7 +21,7 @@ export default function Home({ allPostsData, homePageData }: HomeProps) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <h1 className="text-3xl font-bold mb-2">{name}</h1>
+      <h1 className="text-3xl font-bold mb-2 text-center md:text-left">{name}</h1>
       <About aboutText={about} />
       <section>
         <h2 className="text-xl font-bold mb-2">Blog</h2>

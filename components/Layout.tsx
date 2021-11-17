@@ -13,7 +13,7 @@ type LayoutProps = {
 
 export default function Layout({ children, home, description }: LayoutProps) {
   return (
-    <div className="mt-4 mx-auto mb-24 max-w-4xl px-8">
+    <div className="mt-4 mx-auto mb-24 max-w-4xl px-6 md:px-8">
       <Head>
         <link rel="icon" href="/favicon.png" />
         <meta name="description" content={description} />
