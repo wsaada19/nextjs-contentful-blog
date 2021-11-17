@@ -21,9 +21,9 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
         <h1 className="text-4xl font-semibold mb-6">Projects</h1>
         <ul className="list-none">
           {projects.map(({ projectTitle, slug, publishDate, shortSummary }) => (
-            <li className="mb-4" key={slug}>
+            <li className="p-4 mb-4 rounded-lg bg-blue-800 text-white" key={slug}>
               <Link href={`/portfolio/${slug}`}>
-                <a className="text-xl mb-2 block">{projectTitle}</a>
+                <a className="text-xl mb-2 block text-white">{projectTitle}</a>
               </Link>
               <p className="text-sm">{shortSummary}</p>
               <small className="text-xsm italic">
