@@ -26,9 +26,6 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
                 <a className="text-xl mb-2 block text-white">{projectTitle}</a>
               </Link>
               <p className="text-sm">{shortSummary}</p>
-              <small className="text-xsm italic">
-                <Date dateString={publishDate} />
-              </small>
             </li>
           ))}
         </ul>

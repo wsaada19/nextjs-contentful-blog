@@ -19,6 +19,10 @@ export const GistCode = ({ gistId, fileName }: GistCodeProps) => {
     fetchGist();
   }, [gistId, fileName]);
 
+  if (!code) {
+    return <></>;
+  }
+
   return (
     <div className="my-4">
       <CodeBlock text={code} language={'typescript'} showLineNumbers={false} theme={atomOneDark} />
