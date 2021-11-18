@@ -5,8 +5,7 @@ import { GetStaticProps } from 'next';
 import { Post } from '@types';
 import React from 'react';
 import Link from 'next/link';
-import { getEntriesOfType } from '../../services/contentful/contentfulService';
-import { ContentfulEntryType } from '../../services/contentful/contentfulEntries';
+import { getEntriesOfType, ContentfulEntryType } from '@services/contentful';
 
 type ShowcasePageProps = {
   projects: Post[];

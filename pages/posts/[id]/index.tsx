@@ -2,12 +2,11 @@ import Layout from '../../../components/Layout';
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import React from 'react';
-import { getAssetById, getEntriesOfType } from '../../../services/contentful/contentfulService';
 import { ContentfulRichTextRenderer } from '../../../components/ContentfulRichTextRenderer';
 import Image from 'next/image';
 import { Post, ContentfulImage } from '@types';
-import { contenfulLoader } from '@utilities/loaders';
-import { ContentfulEntryType } from '../../../services/contentful/contentfulEntries';
+import { contenfulLoader } from '@utilities';
+import { ContentfulEntryType, getAssetById, getEntriesOfType } from '@services/contentful';
 
 type ProjectPage = {
   post: Post;

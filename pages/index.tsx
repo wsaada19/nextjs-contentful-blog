@@ -4,10 +4,9 @@ import Link from 'next/link';
 import { Date } from '../components/Date';
 import { GetStaticProps } from 'next';
 import { About } from '../components/About';
-import { getEntriesOfType } from '../services/contentful/contentfulService';
 import React from 'react';
 import { HomePage, ProjectInfo, Post } from '@types';
-import { ContentfulEntryType } from '../services/contentful/contentfulEntries';
+import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
 
 type HomeProps = {
   allPostsData: Post[];

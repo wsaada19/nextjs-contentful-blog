@@ -16,8 +16,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@utilities/*": ["utilities/*"],
-      "@types": ["types"]
+      "@utilities": ["utilities"],
+      "@types": ["types"],
+      "@services/*": ["services/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
