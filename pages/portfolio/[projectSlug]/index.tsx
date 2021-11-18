@@ -1,13 +1,13 @@
 import Layout from '../../../components/Layout';
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { ProjectInfo } from '../../../types/projects';
 import React from 'react';
-import { getAssetById, getEntriesOfType } from '../../../services/contentfulService';
+import { getAssetById, getEntriesOfType } from '../../../services/contentful/contentfulService';
 import { ContentfulRichTextRenderer } from '../../../components/ContentfulRichTextRenderer';
-import { ContentfulImage } from '../../../types/contentful';
+import { ContentfulImage, ProjectInfo } from '@types';
 import Image from 'next/image';
-import { contenfulLoader } from '../../../utilities/loaders';
+import { contenfulLoader } from '@utilities/loaders';
+import { ContentfulEntryType } from '../../../services/contentful/contentfulEntries';
 
 type ProjectPage = {
   project: ProjectInfo;
@@ -15,7 +15,7 @@ type ProjectPage = {
 };
 
 export default function Project({ project, image }: ProjectPage) {
-  const { projectTitle, shortSummary, publishDate, summary } = project;
+  const { projectTitle, shortSummary, summary } = project;
   return (
     <Layout description={shortSummary}>
       <Head>
@@ -40,7 +40,7 @@ export default function Project({ project, image }: ProjectPage) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projectContentfulData = await getEntriesOfType('projectShowcase');
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
   const paths = projectContentfulData.items.map((item) => {
     return {
       params: {
@@ -55,7 +55,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const projectContentfulData = await getEntriesOfType('projectShowcase');
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
   const project = projectContentfulData.items.find((item) => {
     return item.fields.slug == params.projectSlug;
   });

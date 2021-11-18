@@ -4,17 +4,18 @@ import Link from 'next/link';
 import { Date } from '../components/Date';
 import { GetStaticProps } from 'next';
 import { About } from '../components/About';
-import { getEntriesOfType } from '../services/contentfulService';
-import { Post } from '../types/posts';
+import { getEntriesOfType } from '../services/contentful/contentfulService';
 import React from 'react';
-import { HomePage } from '../types/homePage';
+import { HomePage, ProjectInfo, Post } from '@types';
+import { ContentfulEntryType } from '../services/contentful/contentfulEntries';
 
 type HomeProps = {
   allPostsData: Post[];
   homePageData: HomePage;
+  projects: ProjectInfo[];
 };
 
-export default function Home({ allPostsData, homePageData }: HomeProps) {
+export default function Home({ allPostsData, homePageData, projects }: HomeProps) {
   const { name, about } = homePageData;
   return (
     <Layout description={`${name}'s blog and personal website'`} home>
@@ -39,18 +40,36 @@ export default function Home({ allPostsData, homePageData }: HomeProps) {
           ))}
         </ul>
       </section>
+      <section>
+        <h2 className="text-xl font-bold mb-2">Projects</h2>
+        <ul className="flex justify-between">
+          {projects.map(({ projectTitle, slug }) => (
+            <li className="mb-4 shadow-md p-4 rounded-lg bg-blue-800" key={slug}>
+              <a className="text-white" href={`/portfolio/${slug}`}>
+                {projectTitle}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postContentfulData = await getEntriesOfType('post');
-  const homePage = await getEntriesOfType('homePage');
+  const postContentfulData = await getEntriesOfType(ContentfulEntryType.POST);
   const posts = postContentfulData.items.map((item) => item.fields);
+
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
+  const projects = projectContentfulData.items.map((item) => item.fields);
+
+  const homePage = await getEntriesOfType(ContentfulEntryType.HOME_PAGE);
+
   return {
     props: {
       allPostsData: posts,
       homePageData: homePage.items[0].fields,
+      projects,
     },
   };
 };

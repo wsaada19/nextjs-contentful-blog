@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../types/link';
+import { Link } from '@types';
 
 interface BreadcrumbsProps {
   crumbs: Link[];
@@ -12,7 +12,7 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
         return (
           <a href={crumb.href} key={crumb.label}>
             {crumb.label}
-            {index < crumbs.length - 1 ? ' > ' : ''}
+            {index < crumbs.length - 1 ? ' / ' : ''}
           </a>
         );
       })}

@@ -1,11 +1,11 @@
 import Layout from '../../components/Layout';
 import Head from 'next/head';
-import { Date } from '../../components/Date';
 import { GetStaticProps } from 'next';
-import { ProjectInfo } from '../../types/projects';
+import { ProjectInfo } from '@types';
 import React from 'react';
 import Link from 'next/link';
-import { getEntriesOfType } from '../../services/contentfulService';
+import { getEntriesOfType } from '../../services/contentful/contentfulService';
+import { ContentfulEntryType } from '../../services/contentful/contentfulEntries';
 
 type ShowcasePageProps = {
   projects: ProjectInfo[];
@@ -35,7 +35,7 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projectContentfulData = await getEntriesOfType('projectShowcase');
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
   const projects = projectContentfulData.items.map((item) => item.fields);
   return {
     props: {

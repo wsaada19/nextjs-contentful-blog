@@ -2,12 +2,12 @@ import Layout from '../../../components/Layout';
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import React from 'react';
-import { getAssetById, getEntriesOfType } from '../../../services/contentfulService';
+import { getAssetById, getEntriesOfType } from '../../../services/contentful/contentfulService';
 import { ContentfulRichTextRenderer } from '../../../components/ContentfulRichTextRenderer';
-import { ContentfulImage } from '../../../types/contentful';
 import Image from 'next/image';
-import { Post } from '../../../types/posts';
-import { contenfulLoader } from '../../../utilities/loaders';
+import { Post, ContentfulImage } from '@types';
+import { contenfulLoader } from '@utilities/loaders';
+import { ContentfulEntryType } from '../../../services/contentful/contentfulEntries';
 
 type ProjectPage = {
   post: Post;
@@ -22,7 +22,8 @@ export default function Project({ post, image }: ProjectPage) {
         <title>{title}</title>
       </Head>
       <article className="px-4">
-        <h1 className="text-4xl font-medium mb-6 text-center px-12">{title}</h1>
+        <h1 className="text-4xl font-medium mb-6 text-center px-8">{title}</h1>
+        <h2 className="text-lg font-normal">{shortSummary}</h2>
         {summaryImage && (
           <Image
             src={`https://${image.file.url}`}
@@ -42,7 +43,7 @@ export default function Project({ post, image }: ProjectPage) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projectContentfulData = await getEntriesOfType('post');
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.POST);
   const paths = projectContentfulData.items.map((item) => {
     return {
       params: {
@@ -57,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const projectContentfulData = await getEntriesOfType('post');
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.POST);
   const project = projectContentfulData.items.find((item) => {
     return item.fields.slug == params.id;
   });
