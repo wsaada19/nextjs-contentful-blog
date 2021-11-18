@@ -1,6 +1,6 @@
 # About
 
-My blog and portfolio website built with Next.js and Contentful. I'm working on moving all of the personalized content to Contentful so this can be reused by anyone by substituting your own Contentful envrionment and data.
+My blog and portfolio website built using Next.js, Contentful and Tailwind CSS. I'm working on moving all of the personalized content to Contentful so this can be reused by anyone by substituting your own Contentful envrionment and data. [See it live](https://www.willsaada.com/).
 
 ## :zap: Running Locally
 
