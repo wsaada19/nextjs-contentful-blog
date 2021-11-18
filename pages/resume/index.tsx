@@ -11,7 +11,14 @@ export default function Resume() {
       <div className="rounded-lg border p-4 border-solid border-gray-400 mt-2">
         <h1 className="text-5xl pb-3 text-blue-700">Will Saada</h1>
         <h2 className="text-2xl pb-2 text-blue-500">Full Stack Software Engineer</h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="md:grid grid-cols-3 gap-4">
+          <div className="col-span-2">
+            <Section title="Work Experience">
+              {jobs.map((job) => {
+                return <Job key={job.title} {...job} />;
+              })}
+            </Section>
+          </div>
           <div className="col-span-1">
             <Section title="Relevant Skills">
               <h4 className="text-lg font-semibold">Advanced</h4>
@@ -31,13 +38,6 @@ export default function Resume() {
             </Section>
             <Section title="Contact">
               <a href="mailto:willsaada19@gmail.com">willsaada19@gmail.com</a>
-            </Section>
-          </div>
-          <div className="col-span-2">
-            <Section title="Work Experience">
-              {jobs.map((job) => {
-                return <Job key={job.title} {...job} />;
-              })}
             </Section>
           </div>
         </div>
