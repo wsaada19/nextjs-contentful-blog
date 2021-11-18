@@ -15,14 +15,14 @@ type ProjectPage = {
 };
 
 export default function Project({ post, image }: ProjectPage) {
-  const { title, shortSummary, publishDate, summaryImage, summary } = post;
+  const { title, shortSummary, summaryImage, summary } = post;
   return (
     <Layout description={shortSummary}>
       <Head>
         <title>{title}</title>
       </Head>
       <article className="px-4">
-        <h1 className="text-4xl font-medium mb-6 text-center px-8">{title}</h1>
+        <h1 className="text-3xl font-medium mb-6 text-center md:px-8 md:text-4xl">{title}</h1>
         <h2 className="text-lg font-normal">{shortSummary}</h2>
         {summaryImage && (
           <Image
