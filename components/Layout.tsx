@@ -25,6 +25,7 @@ export default function Layout({ children, description, title }: LayoutProps) {
       </header>
       <main>{children}</main>
       <div className="mt-4 text-base">
+        <hr className="border-gray-300 mb-4" />
         <a className="text-sm" href="https://github.com/wsaada19/nextjs-contentful-blog">
           View source code on GitHub →
         </a>
