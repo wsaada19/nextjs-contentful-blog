@@ -17,7 +17,7 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
             key={crumb.label}
           >
             {crumb.label}
-            {isLast ? '' : ' / '}
+            <span className="hover:no-underline">{isLast ? '' : ' / '}</span>
           </a>
         );
       })}

@@ -9,8 +9,8 @@ export default function Resume() {
         <title>Resume</title>
       </Head>
       <div className="rounded-lg border p-4 border-solid border-gray-400 mt-2">
-        <h1 className="text-5xl pb-3 text-blue-700">Will Saada</h1>
-        <h2 className="text-2xl pb-2 text-blue-500">Full Stack Software Engineer</h2>
+        <h1 className="text-5xl pb-3 ">Will Saada</h1>
+        <h2 className="text-2xl pb-2 text-blue-600">Full Stack Software Engineer</h2>
         <div className="md:grid grid-cols-3 gap-4">
           <div className="col-span-2">
             <Section title="Work Experience">
@@ -54,8 +54,8 @@ type SectionProps = {
 const Section = ({ title, children }: SectionProps) => {
   return (
     <>
-      <h3 className="text-xl py-1 text-blue-700 font-semibold">{title}</h3>
-      <hr className="bg-blue-500 h-0.5 mb-0.5" />
+      <h3 className="text-xl py-1 font-semibold">{title}</h3>
+      <hr className="bg-blue-600 h-0.5 mb-0.5" />
       {children}
     </>
   );

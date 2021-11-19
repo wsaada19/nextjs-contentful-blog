@@ -21,7 +21,7 @@ export default function Project({ project, image }: ProjectPage) {
         <title>{projectTitle}</title>
       </Head>
       <article className="px-2 md:px-8">
-        <h1 className="text-4xl font-medium mb-6 text-center text-blue-800">{projectTitle}</h1>
+        <h1 className="text-4xl font-medium mb-6 text-center">{projectTitle}</h1>
         <Image
           src={`https://${image.file.url}`}
           alt={image.description}

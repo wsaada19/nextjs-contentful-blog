@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Post, ContentfulImage } from '@types';
 import { contenfulLoader } from '@utilities';
 import { ContentfulEntryType, getAssetById, getEntriesOfType } from '@services/contentful';
+import { Breadcrumbs } from 'components/Breadcrumbs';
 
 type ProjectPage = {
   post: Post;
@@ -14,13 +15,20 @@ type ProjectPage = {
 };
 
 export default function Project({ post, image }: ProjectPage) {
-  const { title, shortSummary, summaryImage, summary } = post;
+  const { title, shortSummary, summaryImage, summary, slug } = post;
   return (
     <Layout description={shortSummary}>
       <Head>
         <title>{title}</title>
       </Head>
       <article className="px-2 md:px-8">
+        {/* <Breadcrumbs
+          crumbs={[
+            { href: '/', label: 'home' },
+            { href: '/posts', label: 'blog' },
+            { href: `/posts/${slug}`, label: slug },
+          ]}
+        /> */}
         <h1 className="text-4xl font-medium mb-6 text-center md:px-8 md:text-4xl">{title}</h1>
         <h2 className="text-lg font-normal">{shortSummary}</h2>
         {summaryImage && (

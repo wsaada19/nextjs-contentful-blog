@@ -21,10 +21,10 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <h1 className="text-3xl font-bold mb-2 text-center md:text-left">{name}</h1>
+      <h1 className="text-4xl mb-2 font-semibold text-center md:text-left">{name}</h1>
       <About aboutText={about} />
       <section>
-        <h2 className="text-xl font-bold mb-2">Blog</h2>
+        <h2 className="text-2xl font-semibold mb-3">Blog</h2>
         <ul>
           {allPostsData.map(({ title, publishDate, slug }) => (
             <li className="mb-4 shadow-md p-3 rounded-lg border border-gray-300" key={slug}>
@@ -40,7 +40,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         </ul>
       </section>
       <section>
-        <h2 className="text-xl font-bold mb-2">Projects</h2>
+        <h2 className="text-2xl font-semibold mb-3">Projects</h2>
         <ul className="flex justify-between flex-wrap">
           {projects.map(({ projectTitle, slug }) => (
             <li className="mb-4 shadow-md p-4 rounded-lg bg-blue-600" key={slug}>
