@@ -1,13 +1,9 @@
-import Head from 'next/head';
 import React from 'react';
 import Layout from '../../components/Layout';
 
 export default function Resume() {
   return (
-    <Layout description="My resume">
-      <Head>
-        <title>Resume</title>
-      </Head>
+    <Layout description="My resume" title="Resume">
       <div className="rounded-lg border p-4 border-solid border-gray-400 mt-2">
         <h1 className="text-5xl pb-3 ">Will Saada</h1>
         <h2 className="text-2xl pb-2 text-blue-600">Full Stack Software Engineer</h2>

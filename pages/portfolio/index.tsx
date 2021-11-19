@@ -1,5 +1,4 @@
 import Layout from '../../components/Layout';
-import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { ProjectInfo } from '@types';
 import React from 'react';
@@ -12,10 +11,7 @@ type ShowcasePageProps = {
 
 export default function ProjectShowcase({ projects }: ShowcasePageProps) {
   return (
-    <Layout description="List of my projects">
-      <Head>
-        <title>Project Showcase</title>
-      </Head>
+    <Layout description="List of my projects" title="Project Showcase">
       <article>
         <h1 className="text-4xl font-semibold mb-6">Projects</h1>
         <ul className="list-none">

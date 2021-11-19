@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Layout, { siteTitle } from '../components/Layout';
 import Link from 'next/link';
 import { Date } from '../components/Date';
@@ -17,10 +16,7 @@ type HomeProps = {
 export default function Home({ allPostsData, homePageData, projects }: HomeProps) {
   const { name, about } = homePageData;
   return (
-    <Layout description={`${name}'s blog and personal website'`} home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout description={`${name}'s blog and personal website'`} title={siteTitle} home>
       <h1 className="text-4xl mb-2 font-semibold text-center md:text-left">{name}</h1>
       <About aboutText={about} />
       <section>

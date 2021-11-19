@@ -9,12 +9,14 @@ type LayoutProps = {
   children: ReactNode;
   home?: boolean;
   description: string;
+  title: string;
 };
 
-export default function Layout({ children, home, description }: LayoutProps) {
+export default function Layout({ children, home, description, title }: LayoutProps) {
   return (
     <div className="mt-4 mx-auto mb-24 max-w-4xl px-6 md:px-8">
       <Head>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.png" />
         <meta name="description" content={description} />
         <meta name="og:title" content={siteTitle} />

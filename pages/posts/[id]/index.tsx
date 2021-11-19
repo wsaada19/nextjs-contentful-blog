@@ -1,5 +1,4 @@
 import Layout from '../../../components/Layout';
-import Head from 'next/head';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import React from 'react';
 import { ContentfulRichTextRenderer } from '../../../components/ContentfulRichTextRenderer';
@@ -17,10 +16,7 @@ type ProjectPage = {
 export default function Project({ post, image }: ProjectPage) {
   const { title, shortSummary, summaryImage, summary, slug } = post;
   return (
-    <Layout description={shortSummary}>
-      <Head>
-        <title>{title}</title>
-      </Head>
+    <Layout description={shortSummary} title={title}>
       <article className="px-2 md:px-8">
         {/* <Breadcrumbs
           crumbs={[

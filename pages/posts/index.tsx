@@ -1,5 +1,4 @@
 import Layout from '../../components/Layout';
-import Head from 'next/head';
 import { Date } from '../../components/Date';
 import { GetStaticProps } from 'next';
 import { Post } from '@types';
@@ -13,10 +12,10 @@ type ShowcasePageProps = {
 
 export default function BlogPosts({ projects }: ShowcasePageProps) {
   return (
-    <Layout description="List of all my blog posts">
-      <Head>
-        <title>All Blog Posts</title>
-      </Head>
+    <Layout
+      description="List of all my blog posts"
+      title="Blog posts about programming and technology!"
+    >
       <article>
         <h1 className="text-3xl font-semibold mb-6">My Blog Posts</h1>
         <ul className="list-none">
