@@ -20,7 +20,7 @@ export default function BlogPosts({ projects }: ShowcasePageProps) {
         <h1 className="text-3xl font-semibold mb-6">My Blog Posts</h1>
         <ul className="list-none">
           {projects.map(({ title, slug, publishDate, shortSummary }) => (
-            <li className="mb-4" key={slug}>
+            <li className="mb-4 shadow-md p-3 rounded-lg border border-gray-300" key={slug}>
               <Link href={`/posts/${slug}`}>
                 <a className="text-xl mb-2 block">{title}</a>
               </Link>
