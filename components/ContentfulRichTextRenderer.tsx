@@ -10,7 +10,7 @@ const options: any = {
     [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-base py-1">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
       return <h3 className="text-xl font-medium my-3">{children}</h3>;
     },

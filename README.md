@@ -4,6 +4,8 @@ My blog and portfolio website built using Next.js, Contentful and Tailwind CSS. 
 
 ## :zap: Running Locally
 
+You'll need to setup a Contentful Envrionment using right content types to be able to run this website. I'm working on a simple guide to help setup an environment and import my content types into your application.
+
 For the application to run you'll need to add an API key and URL for Contentful. When testing and in QA/DEV environments you should use the [preview environment](https://www.contentful.com/developers/docs/references/content-preview-api/). For production environments you should use the [delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
 
 ```local

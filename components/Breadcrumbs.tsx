@@ -7,15 +7,20 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
   return (
-    <div>
+    <>
       {crumbs.map((crumb, index) => {
+        const isLast = index === crumbs.length - 1;
         return (
-          <a href={crumb.href} key={crumb.label}>
+          <a
+            className={isLast ? 'text-gray-400' : 'text-black'}
+            href={crumb.href}
+            key={crumb.label}
+          >
             {crumb.label}
-            {index < crumbs.length - 1 ? ' / ' : ''}
+            {isLast ? '' : ' / '}
           </a>
         );
       })}
-    </div>
+    </>
   );
 };
