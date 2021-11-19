@@ -12,12 +12,12 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
         const isLast = index === crumbs.length - 1;
         return (
           <a
-            className={isLast ? 'text-gray-400' : 'text-black'}
+            className={`hover:no-underline ${isLast ? 'text-gray-400' : 'text-black'}`}
             href={crumb.href}
             key={crumb.label}
           >
             {crumb.label}
-            <span className="hover:no-underline">{isLast ? '' : ' / '}</span>
+            {isLast ? '' : ' / '}
           </a>
         );
       })}
