@@ -26,7 +26,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         <ul>
           {allPostsData.map(({ title, publishDate, slug }) => (
             <li key={slug}>
-              <Card className="mb-4 mx-2">
+              <Card className="mb-4">
                 <Link href={`/posts/${slug}`}>
                   <a>{title}</a>
                 </Link>

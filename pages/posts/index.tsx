@@ -22,7 +22,7 @@ export default function BlogPosts({ posts }: BlogProps) {
         <ul className="list-none">
           {posts.map(({ title, slug, publishDate, shortSummary }) => (
             <li key={title}>
-              <Card className="cursor-pointer mb-4 mx-2">
+              <Card className="cursor-pointer mb-4">
                 <Link href={`/posts/${slug}`}>
                   <a className="text-xl mb-2 block">{title}</a>
                 </Link>
