@@ -8,4 +8,5 @@ export type ProjectInfo = {
   link: string;
   summaryImage: any;
   publishDate: string;
+  weight: number;
 };

@@ -6,6 +6,7 @@ import { About } from '../components/About';
 import React from 'react';
 import { HomePage, ProjectInfo, Post } from '@types';
 import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
+import { sortBy } from '@utilities';
 
 type HomeProps = {
   allPostsData: Post[];
@@ -56,7 +57,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = postContentfulData.items.map((item) => item.fields);
 
   const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
-  const projects = projectContentfulData.items.map((item) => item.fields);
+  const projects = sortBy<ProjectInfo>(
+    (project) => project.weight,
+    projectContentfulData.items.map((item) => item.fields)
+  );
 
   const homePage = await getEntriesOfType(ContentfulEntryType.HOME_PAGE);
 
