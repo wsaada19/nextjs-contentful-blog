@@ -1,7 +1,7 @@
-import Layout from '../../../components/Layout';
+import Layout from 'components/Layout';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import React from 'react';
-import { ContentfulRichTextRenderer } from '../../../components/ContentfulRichTextRenderer';
+import { ContentfulRichTextRenderer } from 'components/ContentfulRichTextRenderer';
 import Image from 'next/image';
 import { Post, ContentfulImage } from '@types';
 import { contenfulLoader } from '@utilities';

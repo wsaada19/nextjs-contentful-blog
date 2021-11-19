@@ -1,16 +1,17 @@
-import Layout from '../../components/Layout';
-import { Date } from '../../components/Date';
+import Layout from 'components/Layout';
+import { Date } from 'components/Date';
 import { GetStaticProps } from 'next';
 import { Post } from '@types';
 import React from 'react';
 import Link from 'next/link';
 import { getEntriesOfType, ContentfulEntryType } from '@services/contentful';
+import { Card } from 'components/Card';
 
-type ShowcasePageProps = {
-  projects: Post[];
+type BlogProps = {
+  posts: Post[];
 };
 
-export default function BlogPosts({ projects }: ShowcasePageProps) {
+export default function BlogPosts({ posts }: BlogProps) {
   return (
     <Layout
       description="List of all my blog posts"
@@ -19,15 +20,15 @@ export default function BlogPosts({ projects }: ShowcasePageProps) {
       <article>
         <h1 className="text-3xl font-semibold mb-6">My Blog Posts</h1>
         <ul className="list-none">
-          {projects.map(({ title, slug, publishDate, shortSummary }) => (
-            <li className="mb-4 shadow-md p-3 rounded-lg border border-gray-300" key={slug}>
-              <Link href={`/posts/${slug}`}>
-                <a className="text-xl mb-2 block">{title}</a>
-              </Link>
-              <p className="text-sm">{shortSummary}</p>
-              <small className="text-xsm italic">
+          {posts.map(({ title, slug, publishDate, shortSummary }) => (
+            <li key={title}>
+              <Card className="cursor-pointer mb-4 mx-2">
+                <Link href={`/posts/${slug}`}>
+                  <a className="text-xl mb-2 block">{title}</a>
+                </Link>
+                <p className="text-sm">{shortSummary}</p>
                 <Date dateString={publishDate} />
-              </small>
+              </Card>
             </li>
           ))}
         </ul>
@@ -37,11 +38,11 @@ export default function BlogPosts({ projects }: ShowcasePageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.POST);
-  const projects = projectContentfulData.items.map((item) => item.fields);
+  const contentfulPosts = await getEntriesOfType(ContentfulEntryType.POST);
+  const posts = contentfulPosts.items.map((item) => item.fields);
   return {
     props: {
-      projects,
+      posts,
     },
   };
 };

@@ -12,6 +12,9 @@ module.exports = {
       '2xl': '1536px',
     },
     extend: {
+      scale: {
+        1025: '1.025',
+      },
       colors: {
         blue: {
           600: '#2565C7',

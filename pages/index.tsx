@@ -1,12 +1,13 @@
 import Layout, { siteTitle } from '../components/Layout';
 import Link from 'next/link';
-import { Date } from '../components/Date';
+import { Date } from 'components/Date';
 import { GetStaticProps } from 'next';
-import { About } from '../components/About';
+import { About } from 'components/About';
 import React from 'react';
 import { HomePage, ProjectInfo, Post } from '@types';
 import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
 import { sortBy } from '@utilities';
+import { Card } from 'components/Card';
 
 type HomeProps = {
   allPostsData: Post[];
@@ -17,21 +18,21 @@ type HomeProps = {
 export default function Home({ allPostsData, homePageData, projects }: HomeProps) {
   const { name, about } = homePageData;
   return (
-    <Layout description={`${name}'s blog and personal website'`} title={siteTitle} home>
+    <Layout description={`${name}'s blog and personal website'`} title={siteTitle}>
       <h1 className="text-4xl mb-2 font-semibold text-center md:text-left">{name}</h1>
       <About aboutText={about} />
       <section>
         <h2 className="text-2xl font-semibold mb-3">Blog</h2>
         <ul>
           {allPostsData.map(({ title, publishDate, slug }) => (
-            <li className="mb-4 shadow-md p-3 rounded-lg border border-gray-300" key={slug}>
-              <Link href={`/posts/${slug}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small>
+            <li key={slug}>
+              <Card className="mb-4 mx-2">
+                <Link href={`/posts/${slug}`}>
+                  <a>{title}</a>
+                </Link>
+                <br />
                 <Date dateString={publishDate} />
-              </small>
+              </Card>
             </li>
           ))}
         </ul>
@@ -40,10 +41,12 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         <h2 className="text-2xl font-semibold mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap lg:justify-between">
           {projects.map(({ projectTitle, slug }) => (
-            <li className="mb-4 mx-2 shadow-md p-4 rounded-lg bg-blue-700" key={slug}>
-              <a className="text-white" href={`/portfolio/${slug}`}>
-                {projectTitle}
-              </a>
+            <li className="mr-2" key={slug}>
+              <Card className="w-full mb-4 text-center bg-blue-700 md:w-auto md:text-left">
+                <a className="text-white md:text-left" href={`/portfolio/${slug}`}>
+                  {projectTitle}
+                </a>
+              </Card>
             </li>
           ))}
         </ul>

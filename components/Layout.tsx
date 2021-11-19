@@ -7,14 +7,13 @@ export const siteTitle = 'Will Saadas porfolio and programming blog';
 
 type LayoutProps = {
   children: ReactNode;
-  home?: boolean;
   description: string;
   title: string;
 };
 
-export default function Layout({ children, home, description, title }: LayoutProps) {
+export default function Layout({ children, description, title }: LayoutProps) {
   return (
-    <div className="mt-4 mx-auto mb-24 max-w-4xl px-6 md:px-8">
+    <div className="mt-4 mx-auto mb-8 max-w-4xl px-6 md:px-8">
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.png" />
@@ -25,13 +24,11 @@ export default function Layout({ children, home, description, title }: LayoutPro
         <Navigation />
       </header>
       <main>{children}</main>
-      {!home && (
-        <div className="mt-8 text-base">
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
+      <div className="mt-6 text-base">
+        <a className="text-sm" href="https://github.com/wsaada19/nextjs-contentful-blog">
+          View source code
+        </a>
+      </div>
     </div>
   );
 }
