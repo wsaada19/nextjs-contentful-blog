@@ -28,7 +28,7 @@ export default function Project({ post, image }: ProjectPage) {
         <h1 className="text-4xl font-medium mb-6 text-center md:px-8 md:text-4xl">{title}</h1>
         {/* <h2 className="text-lg font-normal">{shortSummary}</h2> */}
         {summaryImage && (
-          <div className="lg:mx-20">
+          <div className="lg:mx-16">
             <Image
               src={`https://${image.file.url}`}
               alt={image.description}

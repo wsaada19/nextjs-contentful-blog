@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import React, { ReactNode } from 'react';
 import { Navigation } from './Navigation';
 
@@ -19,13 +18,14 @@ export default function Layout({ children, description, title }: LayoutProps) {
         <link rel="icon" href="/favicon.png" />
         <meta name="description" content={description} />
         <meta name="og:title" content={siteTitle} />
+        <meta name="og:image" content="/favicon.png" />
       </Head>
       <header>
         <Navigation />
       </header>
       <main>{children}</main>
       <div className="mt-4 text-base">
-        <hr className="border-gray-300 mb-4" />
+        <hr className="border-gray-300 mb-2" />
         <a className="text-sm" href="https://github.com/wsaada19/nextjs-contentful-blog">
           View source code on GitHub →
         </a>
