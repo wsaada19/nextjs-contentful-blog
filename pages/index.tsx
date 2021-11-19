@@ -41,8 +41,8 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         <h2 className="text-2xl font-semibold mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap lg:justify-between">
           {projects.map(({ projectTitle, slug }) => (
-            <li className="mr-2" key={slug}>
-              <Card className="w-full mb-4 text-center bg-blue-700 md:w-auto md:text-left">
+            <li className="w-full text-center mr-2 md:w-auto md:text-left" key={slug}>
+              <Card className="mb-4 bg-blue-700">
                 <a className="text-white md:text-left" href={`/portfolio/${slug}`}>
                   {projectTitle}
                 </a>
