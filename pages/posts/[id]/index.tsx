@@ -17,7 +17,7 @@ export default function Project({ post, image }: ProjectPage) {
   const { title, shortSummary, summaryImage, summary, slug } = post;
   return (
     <Layout description={shortSummary} title={title}>
-      <article className="px-2 md:px-8">
+      <article className="md:px-8">
         {/* <Breadcrumbs
           crumbs={[
             { href: '/', label: 'home' },

@@ -16,7 +16,7 @@ export default function Project({ project, image }: ProjectPage) {
   const { projectTitle, shortSummary, summary } = project;
   return (
     <Layout description={shortSummary} title={projectTitle}>
-      <article className="px-2 md:px-8">
+      <article className="md:px-8">
         <h1 className="text-4xl font-medium mb-6 text-center">{projectTitle}</h1>
         <div className="lg:mx-20">
           <Image
