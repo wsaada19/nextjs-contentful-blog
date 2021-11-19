@@ -38,9 +38,9 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
       </section>
       <section>
         <h2 className="text-2xl font-semibold mb-3">Projects</h2>
-        <ul className="flex justify-between flex-wrap">
+        <ul className="flex justify-start flex-wrap lg:justify-between">
           {projects.map(({ projectTitle, slug }) => (
-            <li className="mb-4 shadow-md p-4 rounded-lg bg-blue-600" key={slug}>
+            <li className="mb-4 mx-2 shadow-md p-4 rounded-lg bg-blue-700" key={slug}>
               <a className="text-white" href={`/portfolio/${slug}`}>
                 {projectTitle}
               </a>

@@ -28,14 +28,16 @@ export default function Project({ post, image }: ProjectPage) {
         <h1 className="text-4xl font-medium mb-6 text-center md:px-8 md:text-4xl">{title}</h1>
         {/* <h2 className="text-lg font-normal">{shortSummary}</h2> */}
         {summaryImage && (
-          <Image
-            src={`https://${image.file.url}`}
-            alt={image.description}
-            width={400}
-            height={200}
-            layout="responsive"
-            loader={contenfulLoader}
-          />
+          <div className="lg:mx-20">
+            <Image
+              src={`https://${image.file.url}`}
+              alt={image.description}
+              width={400}
+              height={250}
+              layout="responsive"
+              loader={contenfulLoader}
+            />
+          </div>
         )}
         <div className="my-4">
           <ContentfulRichTextRenderer richText={summary} />
