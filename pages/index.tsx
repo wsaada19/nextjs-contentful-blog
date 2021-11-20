@@ -19,7 +19,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
   const { name, about } = homePageData;
   return (
     <Layout description={`${name}'s blog and personal website'`} title={siteTitle}>
-      <h1 className="text-4xl mb-2 font-semibold text-center md:text-left">{name}</h1>
+      <h1 className="text-3xl mb-2 font-semibold text-center md:text-left">{name}</h1>
       <About aboutText={about} />
       <section>
         <h2 className="text-2xl font-semibold mb-3">Blog</h2>

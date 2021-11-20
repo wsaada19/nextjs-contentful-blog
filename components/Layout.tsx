@@ -27,7 +27,10 @@ export default function Layout({ children, description, title }: LayoutProps) {
       <div className="mt-4 text-base">
         <hr className="border-gray-300 mb-2" />
         <a className="text-sm" href="https://github.com/wsaada19/nextjs-contentful-blog">
-          View source code on GitHub →
+          View source code
+        </a>
+        <a className="text-sm pl-4" href="/resume">
+          My resume
         </a>
       </div>
     </div>

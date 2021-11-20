@@ -14,7 +14,7 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
   return (
     <Layout description="List of my projects" title="Project Showcase">
       <article>
-        <h1 className="text-4xl font-semibold mb-6">Projects</h1>
+        <h1 className="text-3xl font-semibold mb-6 text-center md:text-left">Projects</h1>
         <ul className="list-none">
           {projects.map(({ projectTitle, slug, shortSummary }) => (
             <li key={slug}>

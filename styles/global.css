@@ -38,9 +38,3 @@ h5,
 h6 {
   color: #123b77;
 }
-
-.card :child {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-}

@@ -28,6 +28,7 @@ export default function Project({ project, image }: ProjectPage) {
             loader={contenfulLoader}
           />
         </div>
+        <h2 className="text-lg font-normal mt-4">{shortSummary}</h2>
         <div className="my-4">
           <ContentfulRichTextRenderer richText={summary} />
         </div>
