@@ -15,10 +15,10 @@ export const Navigation = () => {
       </a>
       <span className="float-right">
         <a className="px-2" href="https://github.com/wsaada19">
-          <Image src="/images/github.svg" height={24} width={24}></Image>
+          <Image src="/images/github.svg" height={24} width={24} alt="Github logo"></Image>
         </a>
         <a className="px-2" href="https://www.linkedin.com/in/william-saada/">
-          <Image src="/images/linkedin.svg" height={24} width={24}></Image>
+          <Image src="/images/linkedin.svg" height={24} width={24} alt="Linkedin logo"></Image>
         </a>
       </span>
     </nav>
