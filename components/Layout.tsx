@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import React, { ReactNode } from 'react';
 import { Navigation } from './Navigation';
 
@@ -29,9 +30,9 @@ export default function Layout({ children, description, title }: LayoutProps) {
         <a className="text-sm" href="https://github.com/wsaada19/nextjs-contentful-blog">
           View source code
         </a>
-        <a className="text-sm pl-4" href="/resume">
-          My resume
-        </a>
+        <Link href="/resume">
+          <a className="text-sm pl-4">My resume</a>
+        </Link>
       </div>
     </div>
   );
