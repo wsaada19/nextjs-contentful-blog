@@ -103,7 +103,8 @@ const jobs = [
     bullets: [
       'Rebuilt sections of the website to improve SEO performance.',
       'Integrated Contentful a CMS platform into the website and built tools to help content editors add content and articles to the website.',
-      'Built new web application using Next.js to improve page performance and Core Web Vitals on experiences to drive sales through SEO performance.',
+      'Built a new web application using Next.js to improve page performance and Core Web Vitals to drive sales through SEO.',
+      'Worked with and mentored interns and new hires.',
     ],
   },
   {

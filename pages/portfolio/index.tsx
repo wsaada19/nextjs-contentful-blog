@@ -5,6 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getEntriesOfType, ContentfulEntryType } from '@services/contentful';
 import { Card } from 'components/Card';
+import { sortBy } from '@utilities';
 
 type ShowcasePageProps = {
   projects: ProjectInfo[];
@@ -34,7 +35,10 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
-  const projects = projectContentfulData.items.map((item) => item.fields);
+  const projects = sortBy<ProjectInfo>(
+    (project) => project.weight,
+    projectContentfulData.items.map((item) => item.fields)
+  );
   return {
     props: {
       projects,
