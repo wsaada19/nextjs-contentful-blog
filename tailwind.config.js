@@ -1,7 +1,10 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: {
+    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+    safelist: ['bg-blue-400', 'bg-yellow-700'], // TODO remove this and just use hex codes for custom colors
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
