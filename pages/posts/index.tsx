@@ -18,7 +18,7 @@ export default function BlogPosts({ posts }: BlogProps) {
       title="Blog posts about programming and technology!"
     >
       <article>
-        <h1 className="text-3xl font-semibold mb-6 text-center md:text-left">My Blog Posts</h1>
+        <h1 className="text-3xl font-semibold mb-6 text-center md:text-left">Blog Posts</h1>
         <ul className="list-none">
           {posts.map(({ title, slug, publishDate, shortSummary }) => (
             <li key={title}>

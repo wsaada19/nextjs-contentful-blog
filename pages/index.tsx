@@ -1,4 +1,4 @@
-import Layout, { siteTitle } from '../components/Layout';
+import Layout from '../components/Layout';
 import Link from 'next/link';
 import { Date } from 'components/Date';
 import { GetStaticProps } from 'next';
@@ -16,9 +16,9 @@ type HomeProps = {
 };
 
 export default function Home({ allPostsData, homePageData, projects }: HomeProps) {
-  const { name, about } = homePageData;
+  const { name, about, description } = homePageData;
   return (
-    <Layout description={`${name}'s blog and personal website'`} title={siteTitle}>
+    <Layout description={description} title={`${name} | Full stack developer blog and portfolio`}>
       <h1 className="text-3xl mb-2 font-semibold text-center md:text-left">{name}</h1>
       <About aboutText={about} />
       <section>
@@ -38,11 +38,11 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         </ul>
       </section>
       <section>
-        <h2 className="text-2xl font-semibold mb-3">Projects</h2>
+        <h2 className="text-2xl font-semibold mt-5 mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap lg:justify-between">
-          {projects.map(({ projectTitle, slug }) => (
+          {projects.map(({ projectTitle, slug, color }) => (
             <li className="w-full text-center mr-2 md:w-auto md:text-left" key={slug}>
-              <Card className="mb-4 bg-blue-700">
+              <Card className={`mb-4 ${color ?? 'bg-blue-700'}`}>
                 <a className="text-white md:text-left" href={`/portfolio/${slug}`}>
                   {projectTitle}
                 </a>

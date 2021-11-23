@@ -17,8 +17,8 @@ export default function Project({ project, image }: ProjectPage) {
   return (
     <Layout description={shortSummary} title={projectTitle}>
       <article className="md:px-8">
-        <h1 className="text-4xl font-medium mb-6 text-center">{projectTitle}</h1>
-        <div className="lg:mx-16">
+        <h1 className="text-4xl font-semibold mb-6 text-center">{projectTitle}</h1>
+        <div className="lg:mx-8">
           <Image
             src={`https://${image.file.url}`}
             alt={image.description}
@@ -28,7 +28,7 @@ export default function Project({ project, image }: ProjectPage) {
             loader={contenfulLoader}
           />
         </div>
-        <h2 className="text-lg font-normal mt-4">{shortSummary}</h2>
+        <h2 className="text-base font-normal mt-4 text-black font-sans">{shortSummary}</h2>
         <div className="my-4">
           <ContentfulRichTextRenderer richText={summary} />
         </div>

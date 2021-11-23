@@ -15,11 +15,11 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
   return (
     <Layout description="List of my projects" title="Project Showcase">
       <article>
-        <h1 className="text-3xl font-semibold mb-6 text-center md:text-left">Projects</h1>
+        <h1 className="text-3xl font-semibold mb-6 text-center md:text-left">Portfolio</h1>
         <ul className="list-none">
-          {projects.map(({ projectTitle, slug, shortSummary }) => (
+          {projects.map(({ projectTitle, slug, shortSummary, color }) => (
             <li key={slug}>
-              <Card className="bg-blue-700 text-white mb-4">
+              <Card className={`${color ?? 'bg-blue-700'} text-white mb-4`}>
                 <Link href={`/portfolio/${slug}`}>
                   <a className="text-xl mb-2 block text-white">{projectTitle}</a>
                 </Link>

@@ -17,9 +17,9 @@ export default function Project({ post, image }: ProjectPage) {
   return (
     <Layout description={shortSummary} title={title}>
       <article className="md:px-8">
-        <h1 className="text-4xl font-medium mb-6 text-center md:px-8 md:text-4xl">{title}</h1>
+        <h1 className="text-4xl font-semibold mb-6 text-center md:px-8 md:text-4xl">{title}</h1>
         {summaryImage && (
-          <div className="lg:mx-16">
+          <div className="lg:mx-8">
             <Image
               src={`https://${image.file.url}`}
               alt={image.description}
@@ -30,7 +30,7 @@ export default function Project({ post, image }: ProjectPage) {
             />
           </div>
         )}
-        <h2 className="text-lg font-normal mt-4">{shortSummary}</h2>
+        <h2 className="text-base font-normal mt-4 text-black font-sans">{shortSummary}</h2>
         <div className="my-4">
           <ContentfulRichTextRenderer richText={summary} />
         </div>

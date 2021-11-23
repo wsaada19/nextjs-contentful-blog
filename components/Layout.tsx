@@ -3,8 +3,6 @@ import Link from 'next/link';
 import React, { ReactNode } from 'react';
 import { Navigation } from './Navigation';
 
-export const siteTitle = 'Will Saadas porfolio and programming blog';
-
 type LayoutProps = {
   children: ReactNode;
   description: string;
@@ -18,7 +16,7 @@ export default function Layout({ children, description, title }: LayoutProps) {
         <title>{title}</title>
         <link rel="icon" href="/favicon.png" />
         <meta name="description" content={description} />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="og:title" content={title} />
         <meta name="og:image" content="/favicon.png" />
       </Head>
       <header>
