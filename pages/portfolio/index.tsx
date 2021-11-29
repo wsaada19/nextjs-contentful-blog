@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { getEntriesOfType, ContentfulEntryType } from '@services/contentful';
 import { Card } from 'components/Card';
 import { sortBy } from '@utilities';
+import { Typography } from 'components/Typography';
 
 type ShowcasePageProps = {
   projects: ProjectInfo[];
@@ -13,22 +14,22 @@ type ShowcasePageProps = {
 
 export default function ProjectShowcase({ projects }: ShowcasePageProps) {
   return (
-    <Layout description="List of my projects" title="Project Showcase">
-      <article>
-        <h1 className="text-3xl font-semibold mb-6 text-center md:text-left">Portfolio</h1>
-        <ul className="list-none">
-          {projects.map(({ projectTitle, slug, shortSummary, color }) => (
-            <li key={slug}>
-              <Card className={`${color ?? 'bg-blue-700'} text-white mb-4`}>
-                <Link href={`/portfolio/${slug}`}>
-                  <a className="text-xl mb-2 block text-white">{projectTitle}</a>
-                </Link>
-                <p className="text-sm">{shortSummary}</p>
-              </Card>
-            </li>
-          ))}
-        </ul>
-      </article>
+    <Layout description="List of my projects" title="Portfolio">
+      <Typography className="mb-6 text-center md:text-left" type="h1">
+        Portfolio
+      </Typography>
+      <ul className="list-none">
+        {projects.map(({ projectTitle, slug, shortSummary, color }) => (
+          <li key={slug}>
+            <Card className={`${color ?? 'bg-blue-700'} text-white mb-4`}>
+              <Link href={`/portfolio/${slug}`}>
+                <a className="text-xl mb-2 block text-white">{projectTitle}</a>
+              </Link>
+              <p className="text-sm">{shortSummary}</p>
+            </Card>
+          </li>
+        ))}
+      </ul>
     </Layout>
   );
 }

@@ -3,9 +3,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import React from 'react';
 import { ContentfulRichTextRenderer } from 'components/ContentfulRichTextRenderer';
 import { ContentfulImage, ProjectInfo } from '@types';
-import Image from 'next/image';
-import { contenfulLoader } from '@utilities';
 import { ContentfulEntryType, getAssetById, getEntriesOfType } from '@services/contentful';
+import { HeroBanner } from 'components/HeroBanner';
 
 type ProjectPage = {
   project: ProjectInfo;
@@ -17,18 +16,7 @@ export default function Project({ project, image }: ProjectPage) {
   return (
     <Layout description={shortSummary} title={projectTitle}>
       <article className="md:px-8">
-        <h1 className="text-4xl font-semibold mb-6 text-center">{projectTitle}</h1>
-        <div className="lg:mx-8">
-          <Image
-            src={`https://${image.file.url}`}
-            alt={image.description}
-            width={400}
-            height={200}
-            layout="responsive"
-            loader={contenfulLoader}
-          />
-        </div>
-        <h2 className="text-base font-normal mt-4 text-black font-sans">{shortSummary}</h2>
+        <HeroBanner title={projectTitle} image={image} summary={shortSummary} />
         <div className="my-4">
           <ContentfulRichTextRenderer richText={summary} />
         </div>

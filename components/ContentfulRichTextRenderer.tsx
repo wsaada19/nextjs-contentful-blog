@@ -2,6 +2,7 @@ import React from 'react';
 import { BLOCKS, MARKS, Document, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { GistCode } from './GistCode';
+import { Typography } from './Typography';
 
 const Bold = ({ children }) => <span className="bold">{children}</span>;
 
@@ -12,10 +13,18 @@ const options: any = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
-      return <h3 className="text-2xl font-medium my-3">{children}</h3>;
+      return (
+        <Typography type="h3" className="my-3">
+          {children}
+        </Typography>
+      );
     },
     [BLOCKS.HEADING_4]: (node, children) => {
-      return <h4 className="text-xl font-medium my-3">{children}</h4>;
+      return (
+        <Typography type="h4" className="my-3">
+          {children}
+        </Typography>
+      );
     },
     [INLINES.HYPERLINK]: (node, children) => {
       if (node.data.uri.includes('api.github.com') && node.content[0].value) {
