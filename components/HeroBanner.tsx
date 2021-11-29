@@ -16,7 +16,7 @@ export const HeroBanner = ({ title, image, summary }: HeroBannerProps) => {
       <Typography type="h1" className="mb-6 text-center">
         {title}
       </Typography>
-      {image && (
+      {image.file.url && (
         <Image
           src={`https://${image.file.url}`}
           alt={image.description}
