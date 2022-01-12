@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { ReactNode, useEffect } from 'react';
+import Script from 'next/script';
 import { Navigation } from './Navigation';
 
 type LayoutProps = {
@@ -10,17 +11,6 @@ type LayoutProps = {
 };
 
 export default function Layout({ children, description, title }: LayoutProps) {
-  useEffect(() => {
-    // TODO - make this toggleable
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
   return (
     <div className="dark:bg-blue-900 dark:text-white min-h-full">
       <div className="pt-4 mx-auto pb-8 max-w-4xl px-6 md:px-8">
@@ -31,6 +21,18 @@ export default function Layout({ children, description, title }: LayoutProps) {
           <meta name="og:title" content={title} />
           <meta name="og:image" content="/favicon.png" />
         </Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }`,
+          }}
+        ></script>
         <header>
           <Navigation />
         </header>
