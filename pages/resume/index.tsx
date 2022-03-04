@@ -115,7 +115,7 @@ const jobs = [
     bullets: [
       'Leveraged a modern Identity as a Service Platform to replace our legacy CIAM solution using industry best practices such as OAuth and OpenId Connect.',
       'Developed a custom UI for a knowledge based authentication system using React, Azure and .Net Core.',
-      'Worked on transitioning our team"s CI/CD pipelines to Azure DevOps, fully automating our deployment process.',
+      "Worked on transitioning our team's CI/CD pipelines to Azure DevOps, fully automating our deployment process.",
       'Built acceptance tests using Puppeteer and Specflow to improve our confidence in releasing code frequently into production.',
     ],
   },
