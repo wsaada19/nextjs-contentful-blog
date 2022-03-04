@@ -102,8 +102,8 @@ const jobs = [
     date: 'March 2021 - Present',
     bullets: [
       'Rebuilt sections of the website to improve SEO performance.',
-      'Integrated Contentful a CMS platform into the website and built tools to help content editors add content and articles to the website.',
-      'Built a new web application using Next.js to improve page performance and Core Web Vitals to drive sales through SEO.',
+      'Integrated our website with Contentful a CMS platform and developed tools to assist content editors using the platform.',
+      'Created a web application using Next.js to improve page performance and Core Web Vitals to improve SEO.',
       'Worked with and mentored interns and new hires.',
     ],
   },
@@ -120,7 +120,7 @@ const jobs = [
     ],
   },
   {
-    title: 'IT Innovation Intern',
+    title: 'Software Developer Intern',
     company: 'UDig',
     location: 'Richmond, VA',
     date: 'June 2018 - December 2018',
