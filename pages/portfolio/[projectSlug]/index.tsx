@@ -1,10 +1,11 @@
-import Layout from 'components/Layout';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import React from 'react';
-import { ContentfulRichTextRenderer } from 'components/ContentfulRichTextRenderer';
-import { ContentfulImage, ProjectInfo } from '@types';
 import { ContentfulEntryType, getAssetById, getEntriesOfType } from '@services/contentful';
+import { ContentfulImage, ProjectInfo } from '@types';
+import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { ContentfulRichTextRenderer } from 'components/ContentfulRichTextRenderer';
 import { HeroBanner } from 'components/HeroBanner';
+import Layout from 'components/Layout';
+import React from 'react';
 
 type ProjectPage = {
   project: ProjectInfo;
@@ -26,7 +27,7 @@ export default function Project({ project, image }: ProjectPage) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Project);
   const paths = projectContentfulData.items.map((item) => {
     return {
       params: {
@@ -41,10 +42,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
-  const project = projectContentfulData.items.find((item) => {
-    return item.fields.slug == params.projectSlug;
-  });
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Project);
+  const project = projectContentfulData.items.find(
+    (item) => item.fields.slug == params.projectSlug
+  );
 
   const image = await getAssetById(project.fields.summaryImage.sys.id);
   return {

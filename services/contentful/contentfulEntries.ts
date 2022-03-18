@@ -1,5 +1,5 @@
 export enum ContentfulEntryType {
-  POST = 'post',
-  PROJECT = 'projectShowcase',
-  HOME_PAGE = 'homePage',
+  Post = 'post',
+  Project = 'projectShowcase',
+  HomePage = 'homePage',
 }

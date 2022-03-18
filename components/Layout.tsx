@@ -1,7 +1,7 @@
+import React, { ReactNode, useEffect } from 'react';
+
 import Head from 'next/head';
 import Link from 'next/link';
-import React, { ReactNode, useEffect } from 'react';
-import Script from 'next/script';
 import { Navigation } from './Navigation';
 
 type LayoutProps = {

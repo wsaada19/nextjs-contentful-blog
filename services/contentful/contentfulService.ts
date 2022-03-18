@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { ContentfulEntryType } from './contentfulEntries';
+import axios from 'axios';
 
 const baseUrl = process.env.CONTENTFUL_URL;
 const token = process.env.CONTENTFUL_API_KEY;

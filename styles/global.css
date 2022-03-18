@@ -30,12 +30,36 @@ img {
   display: block;
 }
 
+h1 {
+  @apply text-3xl font-semibold;
+}
+
+h2 {
+  @apply text-2xl font-semibold;
+}
+
+h3 {
+  @apply text-2xl font-medium;
+}
+
+h4 {
+  @apply text-xl font-medium;
+}
+
+h5 {
+  @apply text-base font-normal;
+}
+
+h6 {
+  @apply text-base font-normal;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #123b77;
   font-family: Whyte, sans-serif;
+  @apply text-blue-800 dark:text-white;
 }
