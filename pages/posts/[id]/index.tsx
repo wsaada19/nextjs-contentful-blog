@@ -18,9 +18,7 @@ export default function Project({ post, image }: ProjectPage) {
     <Layout description={shortSummary} title={title}>
       <article className="md:px-8">
         <HeroBanner title={title} image={image} summary={shortSummary} />
-        <div className="my-4">
-          <ContentfulRichTextRenderer richText={summary} />
-        </div>
+        <ContentfulRichTextRenderer richText={summary} />
       </article>
     </Layout>
   );
