@@ -1,12 +1,12 @@
-import Layout from 'components/Layout';
-import { Date } from 'components/Date';
+import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
+
+import { Card } from '@components/Card';
+import { Date } from '@components/Date';
 import { GetStaticProps } from 'next';
+import Layout from '@components/Layout';
+import Link from 'next/link';
 import { Post } from '@types';
 import React from 'react';
-import Link from 'next/link';
-import { getEntriesOfType, ContentfulEntryType } from '@services/contentful';
-import { Card } from 'components/Card';
-import { Typography } from 'components/Typography';
 
 type BlogProps = {
   posts: Post[];
@@ -18,9 +18,7 @@ export default function BlogPosts({ posts }: BlogProps) {
       description="List of all my blog posts"
       title="Blog posts about programming and technology!"
     >
-      <Typography type="h1" className="mb-6 text-center md:text-left">
-        Blog Posts
-      </Typography>
+      <h1 className="mb-6 text-center md:text-left">Blog posts</h1>
       <ul className="list-none">
         {posts.map(({ title, slug, publishDate, shortSummary }) => (
           <li key={title}>
@@ -39,7 +37,7 @@ export default function BlogPosts({ posts }: BlogProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const contentfulPosts = await getEntriesOfType(ContentfulEntryType.POST);
+  const contentfulPosts = await getEntriesOfType(ContentfulEntryType.Post);
   const posts = contentfulPosts.items.map((item) => item.fields);
   return {
     props: {

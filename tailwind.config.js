@@ -5,7 +5,7 @@ module.exports = {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     safelist: ['bg-blue-400', 'bg-yellow-700'], // TODO remove this and just use hex codes for custom colors
   },
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     screens: {
       sm: '640px',

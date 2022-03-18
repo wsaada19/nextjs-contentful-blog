@@ -1,8 +1,7 @@
-import React from 'react';
-import { Typography } from './Typography';
-import Image from 'next/image';
-import { contenfulLoader } from '@utilities';
 import { ContentfulImage } from '@types';
+import Image from 'next/image';
+import React from 'react';
+import { contenfulLoader } from '@utilities';
 
 type HeroBannerProps = {
   title: string;
@@ -13,9 +12,7 @@ type HeroBannerProps = {
 export const HeroBanner = ({ title, image, summary }: HeroBannerProps) => {
   return (
     <>
-      <Typography type="h1" className="mb-6 text-center">
-        {title}
-      </Typography>
+      <h1 className="mb-6 text-center">{title}</h1>
       {image.file && (
         <Image
           src={`https://${image.file.url}`}

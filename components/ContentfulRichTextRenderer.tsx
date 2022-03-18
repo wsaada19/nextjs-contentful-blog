@@ -1,30 +1,20 @@
-import React from 'react';
-import { BLOCKS, MARKS, Document, INLINES } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { GistCode } from './GistCode';
-import { Typography } from './Typography';
+import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types';
 
-const Bold = ({ children }) => <span className="bold">{children}</span>;
+import { GistCode } from './GistCode';
+import React from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const options: any = {
   renderMark: {
-    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+    [MARKS.BOLD]: (text) => <span className="bold">{text}</span>,
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
-      return (
-        <Typography type="h3" className="my-3">
-          {children}
-        </Typography>
-      );
+      return <h3 className="my-3">{children}</h3>;
     },
     [BLOCKS.HEADING_4]: (node, children) => {
-      return (
-        <Typography type="h4" className="my-3">
-          {children}
-        </Typography>
-      );
+      return <h4 className="my-3">{children}</h4>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
       if (node.data.uri.includes('api.github.com') && node.content[0].value) {

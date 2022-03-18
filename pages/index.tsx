@@ -1,14 +1,14 @@
-import Layout from '../components/Layout';
-import Link from 'next/link';
-import { Date } from 'components/Date';
-import { GetStaticProps } from 'next';
-import { About } from 'components/About';
-import React from 'react';
-import { HomePage, ProjectInfo, Post } from '@types';
 import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
+import { HomePage, Post, ProjectInfo } from '@types';
+
+import { About } from '@components/About';
+import { Card } from '@components/Card';
+import { Date } from '@components/Date';
+import { GetStaticProps } from 'next';
+import Layout from '@components/Layout';
+import Link from 'next/link';
+import React from 'react';
 import { sortBy } from '@utilities';
-import { Card } from 'components/Card';
-import { Typography } from 'components/Typography';
 
 type HomeProps = {
   allPostsData: Post[];
@@ -20,14 +20,10 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
   const { name, about, pageDescription, pageTitle } = homePageData;
   return (
     <Layout description={pageDescription} title={`${name} | ${pageTitle}`}>
-      <Typography type="h1" className="mb-2 text-center md:text-left">
-        {name}
-      </Typography>
+      <h1 className="mb-2 text-center md:text-left">{name}</h1>
       <About aboutText={about} />
       <section>
-        <Typography type="h2" className="mb-3">
-          Blog
-        </Typography>
+        <h2 className="mb-3">Blog</h2>
         <ul>
           {allPostsData.map(({ title, publishDate, slug }) => (
             <li key={slug}>
@@ -43,13 +39,11 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         </ul>
       </section>
       <section>
-        <Typography type="h2" className="mt-5 mb-3">
-          Projects
-        </Typography>
+        <h2 className="mt-5 mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap lg:justify-between">
           {projects.map(({ projectTitle, slug, color }) => (
             <li className="w-full text-center mr-2 md:w-auto md:text-left" key={slug}>
-              <Card className={`mb-4 ${color ?? 'bg-blue-700'}`}>
+              <Card className={`mb-4 ${color ?? 'bg-blue-600'}`}>
                 <a className="text-white md:text-left" href={`/portfolio/${slug}`}>
                   {projectTitle}
                 </a>
@@ -63,16 +57,16 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postContentfulData = await getEntriesOfType(ContentfulEntryType.POST);
+  const postContentfulData = await getEntriesOfType(ContentfulEntryType.Post);
   const posts = postContentfulData.items.map((item) => item.fields);
 
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Project);
   const projects = sortBy<ProjectInfo>(
     (project) => project.weight,
     projectContentfulData.items.map((item) => item.fields)
   );
 
-  const homePage = await getEntriesOfType(ContentfulEntryType.HOME_PAGE);
+  const homePage = await getEntriesOfType(ContentfulEntryType.HomePage);
 
   return {
     props: {

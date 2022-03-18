@@ -18,7 +18,9 @@ export default function Resume() {
           <div className="col-span-1">
             <Section title="Relevant Skills">
               <h4 className="text-lg font-semibold">Advanced</h4>
-              <List items={['C# & .NET', 'JavaScript', 'React', 'Azure', 'HTML/CSS']} />
+              <List
+                items={['JavaScript', 'React', 'Azure', 'C#', 'HTML/CSS', 'DevOps & Testing']}
+              />
               <h4 className="text-lg font-semibold">Experience with</h4>
               <List items={['Next.js', 'Node & Express', 'CosmosDB & SQL', 'Docker', 'Unity']} />
             </Section>
@@ -29,7 +31,12 @@ export default function Resume() {
             </Section>
             <Section title="Interests">
               <List
-                items={['Game Dev & Modding', 'DevOps & Testing', 'Cleveland Sports', 'Running']}
+                items={[
+                  'Game Dev & Modding',
+                  'DevOps & Testing',
+                  'The Cleveland Cavaliers',
+                  'Running',
+                ]}
               />
             </Section>
             <Section title="Contact">
@@ -99,7 +106,7 @@ const jobs = [
     title: 'Software Engineer II',
     company: 'CarMax',
     location: 'Richmond, VA',
-    date: 'March 2021 - Present',
+    date: '2021 - 2022',
     bullets: [
       'Rebuilt sections of the website to improve SEO performance.',
       'Integrated our website with Contentful a CMS platform and developed tools to assist content editors using the platform.',
@@ -111,11 +118,10 @@ const jobs = [
     title: 'Software Engineer I',
     company: 'CarMax',
     location: 'Richmond, VA',
-    date: 'June 2019 - March 2021',
+    date: '2019 - 2021',
     bullets: [
-      'Leveraged a modern Identity as a Service Platform to replace our legacy CIAM solution using industry best practices such as OAuth and OpenId Connect.',
-      'Developed a custom UI for a knowledge based authentication system using React, Azure and .Net Core.',
-      "Worked on transitioning our team's CI/CD pipelines to Azure DevOps, fully automating our deployment process.",
+      'Developed a UI for a Knowledge Based Authentication system using React, Azure and .Net Core.',
+      "Created our team's DevOps pipelines from scratch with Azure DevOps, fully automating our code integration and deployment process.",
       'Built acceptance tests using Puppeteer and Specflow to improve our confidence in releasing code frequently into production.',
     ],
   },
@@ -123,10 +129,10 @@ const jobs = [
     title: 'Software Developer Intern',
     company: 'UDig',
     location: 'Richmond, VA',
-    date: 'June 2018 - December 2018',
+    date: '2018',
     bullets: [
       'Developed a dashboard application using React and Redux on the front-end and Node JS, Express, SQL and Redis on the back-end for internal company use.',
-      'Learned the importance of teamwork and communication while following standard software development protocols while learning from senior engineers within the company.',
+      'Learned how to design and build and application following agile software development best practices.',
     ],
   },
 ];

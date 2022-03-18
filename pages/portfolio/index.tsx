@@ -1,12 +1,12 @@
-import Layout from 'components/Layout';
+import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
+
+import { Card } from '@components/Card';
 import { GetStaticProps } from 'next';
+import Layout from '@components/Layout';
+import Link from 'next/link';
 import { ProjectInfo } from '@types';
 import React from 'react';
-import Link from 'next/link';
-import { getEntriesOfType, ContentfulEntryType } from '@services/contentful';
-import { Card } from 'components/Card';
 import { sortBy } from '@utilities';
-import { Typography } from 'components/Typography';
 
 type ShowcasePageProps = {
   projects: ProjectInfo[];
@@ -15,9 +15,7 @@ type ShowcasePageProps = {
 export default function ProjectShowcase({ projects }: ShowcasePageProps) {
   return (
     <Layout description="List of my projects" title="Portfolio">
-      <Typography className="mb-6 text-center md:text-left" type="h1">
-        Portfolio
-      </Typography>
+      <h1 className="mb-6 text-center md:text-left">Portfolio</h1>
       <ul className="list-none">
         {projects.map(({ projectTitle, slug, shortSummary, color }) => (
           <li key={slug}>
@@ -35,11 +33,12 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.PROJECT);
+  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Project);
   const projects = sortBy<ProjectInfo>(
     (project) => project.weight,
     projectContentfulData.items.map((item) => item.fields)
   );
+
   return {
     props: {
       projects,
