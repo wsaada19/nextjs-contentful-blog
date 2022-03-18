@@ -6,6 +6,9 @@ type DateProps = {
 
 export const Date = ({ dateString }: DateProps): JSX.Element => {
   const date = parseISO(dateString);
+  if (!date) {
+    return <></>;
+  }
   return (
     <small className="text-xsm italic">
       <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>

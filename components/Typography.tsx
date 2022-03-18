@@ -2,11 +2,11 @@ import React, { ReactNode } from 'react';
 
 type TypographyProps = {
   children: ReactNode;
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
   className?: string;
 };
 
-const stylesMap = {
+const stylesByTag = {
   h1: 'text-3xl font-semibold',
   h2: 'text-2xl font-semibold',
   h3: 'text-2xl font-medium',
@@ -15,13 +15,11 @@ const stylesMap = {
   h6: 'text-base font-normal',
 };
 
-const headingBaseStyles = 'text-blue-800 dark:text-white';
+const textColor = 'text-blue-800 dark:text-white';
 export const Typography = ({ children, type, className }: TypographyProps) => {
   const Component = type ?? 'p';
 
   return (
-    <Component className={`${stylesMap[type]} ${className} ${headingBaseStyles}`}>
-      {children}
-    </Component>
+    <Component className={`${stylesByTag[type]} ${className} ${textColor}`}>{children}</Component>
   );
 };
