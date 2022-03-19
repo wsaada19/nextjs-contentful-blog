@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -20,6 +20,10 @@ export default function Layout({ children, description, title }: LayoutProps) {
           <meta name="description" content={description} />
           <meta name="og:title" content={title} />
           <meta name="og:image" content="/favicon.png" />
+          <meta
+            name="google-site-verification"
+            content="6vJhvAxISHZIcwJgzmbpHGvL6Op6sxHxJoNuyJWMIlw"
+          />
         </Head>
         <script
           dangerouslySetInnerHTML={{
