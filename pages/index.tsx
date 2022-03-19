@@ -27,13 +27,15 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         <ul>
           {allPostsData.map(({ title, publishDate, slug }) => (
             <li key={slug}>
-              <Card className="mb-4 dark:bg-blue-700">
-                <Link href={`/posts/${slug}`}>
-                  <a className="dark:text-white">{title}</a>
-                </Link>
-                <br />
-                <Date dateString={publishDate} />
-              </Card>
+              <Link href={`/posts/${slug}`}>
+                <a className="dark:text-white">
+                  <Card className="mb-4 dark:bg-blue-700">
+                    {title}
+                    <br />
+                    <Date dateString={publishDate} />
+                  </Card>
+                </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -43,11 +45,9 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         <ul className="flex justify-start flex-wrap lg:justify-between">
           {projects.map(({ projectTitle, slug, color }) => (
             <li className="w-full text-center mr-2 md:w-auto md:text-left" key={slug}>
-              <Card className={`mb-4 ${color ?? 'bg-blue-600'}`}>
-                <a className="text-white md:text-left" href={`/portfolio/${slug}`}>
-                  {projectTitle}
-                </a>
-              </Card>
+              <a className="text-white md:text-left" href={`/portfolio/${slug}`}>
+                <Card className={`mb-4 ${color ?? 'bg-blue-600'}`}>{projectTitle}</Card>
+              </a>
             </li>
           ))}
         </ul>

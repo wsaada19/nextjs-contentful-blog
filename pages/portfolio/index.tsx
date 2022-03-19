@@ -19,12 +19,14 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
       <ul className="list-none">
         {projects.map(({ projectTitle, slug, shortSummary, color }) => (
           <li key={slug}>
-            <Card className={`${color ?? 'bg-blue-700'} text-white mb-4`}>
-              <Link href={`/portfolio/${slug}`}>
-                <a className="text-xl mb-2 block text-white">{projectTitle}</a>
-              </Link>
-              <p className="text-sm">{shortSummary}</p>
-            </Card>
+            <Link href={`/portfolio/${slug}`}>
+              <a className="text-xl mb-2 block text-white">
+                <Card className={`${color ?? 'bg-blue-700'} text-white mb-4`}>
+                  {projectTitle}
+                  <p className="text-sm">{shortSummary}</p>
+                </Card>
+              </a>
+            </Link>
           </li>
         ))}
       </ul>

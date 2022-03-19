@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from '@types';
+import React from 'react';
 
 interface BreadcrumbsProps {
   crumbs: Link[];
@@ -12,7 +12,7 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
         const isLast = index === crumbs.length - 1;
         return (
           <a
-            className={`hover:no-underline ${isLast ? 'text-gray-400' : 'text-black'}`}
+            className={`${isLast ? 'text-gray-400' : 'text-black'}`}
             href={crumb.href}
             key={crumb.label}
           >

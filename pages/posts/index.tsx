@@ -22,13 +22,15 @@ export default function BlogPosts({ posts }: BlogProps) {
       <ul className="list-none">
         {posts.map(({ title, slug, publishDate, shortSummary }) => (
           <li key={title}>
-            <Card className="cursor-pointer mb-4 dark:bg-blue-700">
-              <Link href={`/posts/${slug}`}>
-                <a className="text-xl mb-2 block dark:text-white">{title}</a>
-              </Link>
-              <p className="text-sm">{shortSummary}</p>
-              <Date dateString={publishDate} />
-            </Card>
+            <Link href={`/posts/${slug}`}>
+              <a className="text-xl mb-2 block dark:text-white">
+                <Card className="mb-4 dark:bg-blue-700">
+                  {title}
+                  <p className="text-sm">{shortSummary}</p>
+                  <Date dateString={publishDate} />
+                </Card>
+              </a>
+            </Link>
           </li>
         ))}
       </ul>
