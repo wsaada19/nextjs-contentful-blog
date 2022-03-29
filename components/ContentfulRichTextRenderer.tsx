@@ -20,7 +20,11 @@ const options: any = {
       if (node.data.uri.includes('api.github.com') && node.content[0].value) {
         return <GistCode gistId={node.data.uri} fileName={node.content[0].value} />;
       }
-      return <a href={node.data.uri}>{children}</a>;
+      return (
+        <a className="hover:underline" href={node.data.uri}>
+          {children}
+        </a>
+      );
     },
   },
 };

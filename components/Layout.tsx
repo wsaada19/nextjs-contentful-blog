@@ -1,16 +1,17 @@
 import React, { ReactNode } from 'react';
 
+import { Footer } from './Footer';
 import Head from 'next/head';
-import Link from 'next/link';
 import { Navigation } from './Navigation';
 
 type LayoutProps = {
   children: ReactNode;
   description: string;
   title: string;
+  hideLinks?: boolean;
 };
 
-export default function Layout({ children, description, title }: LayoutProps) {
+export default function Layout({ children, description, title, hideLinks = false }: LayoutProps) {
   return (
     <div className="dark:bg-blue-900 dark:text-white min-h-full">
       <div className="pt-4 mx-auto pb-8 max-w-4xl px-6 md:px-8">
@@ -38,21 +39,10 @@ export default function Layout({ children, description, title }: LayoutProps) {
           }}
         ></script>
         <header>
-          <Navigation />
+          <Navigation hideLinks={hideLinks} />
         </header>
         <main>{children}</main>
-        <div className="mt-6 text-base">
-          <hr className="border-gray-300 mb-2" />
-          <a
-            className="text-sm hover:underline"
-            href="https://github.com/wsaada19/nextjs-contentful-blog"
-          >
-            View source code
-          </a>
-          <Link href="/resume">
-            <a className="text-sm pl-4 hover:underline">My resume</a>
-          </Link>
-        </div>
+        <Footer />
       </div>
     </div>
   );

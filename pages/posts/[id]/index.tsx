@@ -2,6 +2,7 @@ import { ContentfulEntryType, getAssetById, getEntriesOfType } from '@services/c
 import { ContentfulImage, Post } from '@types';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
+import { Breadcrumbs } from '@components/Breadcrumbs';
 import { ContentfulRichTextRenderer } from '@components/ContentfulRichTextRenderer';
 import { HeroBanner } from '@components/HeroBanner';
 import Layout from '@components/Layout';
@@ -15,8 +16,15 @@ type ProjectPage = {
 export default function Project({ post, image }: ProjectPage) {
   const { title, shortSummary, summary } = post;
   return (
-    <Layout description={shortSummary} title={title}>
+    <Layout description={shortSummary} title={title} hideLinks>
       <article className="md:px-8">
+        <Breadcrumbs
+          crumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Posts', href: '/posts' },
+            { label: post.title, href: post.slug },
+          ]}
+        />
         <HeroBanner title={title} image={image} summary={shortSummary} />
         <ContentfulRichTextRenderer richText={summary} />
       </article>
