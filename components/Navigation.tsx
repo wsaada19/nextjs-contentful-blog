@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Switch } from './Switch';
+import { Switch } from './switch';
 
 type NavigationProps = {
   hideLinks: boolean;
