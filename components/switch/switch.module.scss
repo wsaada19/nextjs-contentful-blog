@@ -1,0 +1,8 @@
+.toggleSwitch::after {
+  content: '';
+  @apply h-6 w-6 rounded-full bg-gray-800 dark:bg-gray-400 absolute left-0 transform scale-90 duration-200;
+}
+
+.toggleSwitch:checked::after {
+  @apply transform scale-90 translate-x-6;
+}
