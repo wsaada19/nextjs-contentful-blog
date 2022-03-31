@@ -1,5 +1,5 @@
-import React from 'react';
 import Layout from 'components/Layout';
+import React from 'react';
 
 export default function Resume() {
   return (
@@ -31,12 +31,7 @@ export default function Resume() {
             </Section>
             <Section title="Interests">
               <List
-                items={[
-                  'Game Dev & Modding',
-                  'DevOps & Testing',
-                  'The Cleveland Cavaliers',
-                  'Running',
-                ]}
+                items={['Game Dev & Modding', 'Collectible Markets', 'Cleveland Sports', 'Running']}
               />
             </Section>
             <Section title="Contact">

@@ -1,10 +1,11 @@
 import { BreadcrumbsLd } from './schema/BreadcrumbsLd';
-import { Link } from '@types';
+import { LinkType } from '@types';
 import React from 'react';
+import Link from 'next/link';
 
-export interface BreadcrumbsProps {
-  crumbs: Link[];
-}
+export type BreadcrumbsProps = {
+  crumbs: LinkType[];
+};
 
 export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
   return (
@@ -14,18 +15,12 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1;
           return (
-            <a
-              className={`${
-                isLast
-                  ? 'text-gray-400 cursor-default pointer-events-none'
-                  : 'text-black dark:text-white'
-              }`}
-              href={crumb.href}
-              key={crumb.label}
-            >
-              {crumb.label}
-              <span className="text-gray-400">{isLast ? '' : ' / '}</span>
-            </a>
+            <Link href={crumb.href} key={crumb.label}>
+              <a className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}>
+                {crumb.label}
+                <span className="text-gray-400 px-1">{isLast ? '' : ' / '}</span>
+              </a>
+            </Link>
           );
         })}
       </div>

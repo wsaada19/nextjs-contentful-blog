@@ -11,7 +11,7 @@ export const Footer = (): JSX.Element => {
         View source code
       </a>
       <Link href="/resume">
-        <a className="text-sm pl-4 hover:underline">My resume</a>
+        <a className="text-sm px-2 hover:underline">My resume</a>
       </Link>
     </footer>
   );

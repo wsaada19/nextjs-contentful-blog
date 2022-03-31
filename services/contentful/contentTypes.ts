@@ -1,4 +1,4 @@
-export enum ContentfulEntryType {
+export enum ContentfulContentType {
   Post = 'post',
   Project = 'projectShowcase',
   HomePage = 'homePage',

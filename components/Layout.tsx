@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-
 import { Footer } from './Footer';
 import Head from 'next/head';
 import { Navigation } from './Navigation';

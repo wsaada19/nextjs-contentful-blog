@@ -1,5 +1,4 @@
 import { Generic, JSONLD } from 'react-structured-data';
-
 import { BreadcrumbsProps } from '@components/Breadcrumbs';
 
 export const BreadcrumbsLd = ({ crumbs }: BreadcrumbsProps) => {

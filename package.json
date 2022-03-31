@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.5.1",
@@ -21,6 +22,8 @@
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.20",
     "autoprefixer": "^10.3.7",
+    "eslint": "8.12.0",
+    "eslint-config-next": "12.1.2",
     "postcss": "^8.3.11",
     "react-code-blocks": "^0.0.9-0",
     "react-embed-gist": "^1.0.12",

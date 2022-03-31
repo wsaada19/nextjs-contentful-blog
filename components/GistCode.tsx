@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import { CodeBlock, atomOneDark } from 'react-code-blocks';
+import React, { useEffect, useState } from 'react';
 
 type GistCodeProps = {
   gistId: string;

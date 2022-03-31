@@ -15,6 +15,7 @@ module.exports = {
       '2xl': '1536px',
     },
     extend: {
+      backgroundColor: ['checked'],
       minHeight: {
         full: '100vh',
       },

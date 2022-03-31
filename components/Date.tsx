@@ -11,8 +11,8 @@ export const Date = ({ dateString, className }: DateProps): JSX.Element => {
   }
   const date = parseISO(dateString);
   return (
-    <small className={`text-xsm italic ${className}`}>
-      <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
-    </small>
+    <time className={`text-xs italic ${className}`} dateTime={dateString}>
+      {format(date, 'LLLL d, yyyy')}
+    </time>
   );
 };

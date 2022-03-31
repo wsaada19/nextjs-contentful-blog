@@ -1,9 +1,7 @@
-import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
-
-import { Card } from '@components/Card';
+import { ContentfulContentType, getEntriesOfType } from '@services/contentful';
+import { LinkCard } from '@components/Card';
 import { GetStaticProps } from 'next';
 import Layout from '@components/Layout';
-import Link from 'next/link';
 import { ProjectInfo } from '@types';
 import React from 'react';
 import { sortBy } from '@utilities';
@@ -19,14 +17,13 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
       <ul className="list-none">
         {projects.map(({ projectTitle, slug, shortSummary, color }) => (
           <li key={slug}>
-            <Link href={`/portfolio/${slug}`}>
-              <a className="text-xl mb-2 block text-white">
-                <Card className={`${color ?? 'bg-blue-700'} text-white mb-4`}>
-                  {projectTitle}
-                  <p className="text-sm">{shortSummary}</p>
-                </Card>
-              </a>
-            </Link>
+            <LinkCard
+              href={`/portfolio/${slug}`}
+              className={`text-xl mb-2 block text-white ${color ?? 'bg-blue-700'} text-white mb-4`}
+            >
+              {projectTitle}
+              <p className="text-sm">{shortSummary}</p>
+            </LinkCard>
           </li>
         ))}
       </ul>
@@ -35,7 +32,7 @@ export default function ProjectShowcase({ projects }: ShowcasePageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Project);
+  const projectContentfulData = await getEntriesOfType(ContentfulContentType.Project);
   const projects = sortBy<ProjectInfo>(
     (project) => project.weight,
     projectContentfulData.items.map((item) => item.fields)

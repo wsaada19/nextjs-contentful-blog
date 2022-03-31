@@ -1,12 +1,10 @@
-import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
+import { ContentfulContentType, getEntriesOfType } from '@services/contentful';
 import { HomePage, Post, ProjectInfo } from '@types';
-
 import { About } from '@components/About';
-import { Card } from '@components/Card';
+import { LinkCard } from '@components/Card';
 import { Date } from '@components/Date';
 import { GetStaticProps } from 'next';
 import Layout from '@components/Layout';
-import Link from 'next/link';
 import React from 'react';
 import { sortBy } from '@utilities';
 
@@ -27,15 +25,14 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         <ul>
           {allPostsData.map(({ title, publishDate, slug }) => (
             <li key={slug}>
-              <Link href={`/posts/${slug}`}>
-                <a className="dark:text-white">
-                  <Card className="mb-4 dark:bg-blue-700">
-                    {title}
-                    <br />
-                    <Date dateString={publishDate} />
-                  </Card>
-                </a>
-              </Link>
+              <LinkCard
+                className="mb-4 dark:bg-blue-700 dark:text-white border-4"
+                href={`/posts/${slug}`}
+              >
+                {title}
+                <br />
+                <Date dateString={publishDate} />
+              </LinkCard>
             </li>
           ))}
         </ul>
@@ -44,10 +41,13 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         <h2 className="mt-5 mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap lg:justify-between">
           {projects.map(({ projectTitle, slug, color }) => (
-            <li className="w-full text-center mr-2 md:w-auto md:text-left" key={slug}>
-              <a className="text-white md:text-left" href={`/portfolio/${slug}`}>
-                <Card className={`mb-4 ${color ?? 'bg-blue-600'}`}>{projectTitle}</Card>
-              </a>
+            <li className="w-full text-center mb-4 md:mr-2 md:w-auto md:text-left" key={slug}>
+              <LinkCard
+                className={` text-white md:text-leftmb-4 ${color ?? 'bg-blue-600'}`}
+                href={`/portfolio/${slug}`}
+              >
+                {projectTitle}
+              </LinkCard>
             </li>
           ))}
         </ul>
@@ -57,16 +57,16 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postContentfulData = await getEntriesOfType(ContentfulEntryType.Post);
+  const postContentfulData = await getEntriesOfType(ContentfulContentType.Post);
   const posts = postContentfulData.items.map((item) => item.fields);
 
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Project);
+  const projectContentfulData = await getEntriesOfType(ContentfulContentType.Project);
   const projects = sortBy<ProjectInfo>(
     (project) => project.weight,
     projectContentfulData.items.map((item) => item.fields)
   );
 
-  const homePage = await getEntriesOfType(ContentfulEntryType.HomePage);
+  const homePage = await getEntriesOfType(ContentfulContentType.HomePage);
 
   return {
     props: {

@@ -1,10 +1,8 @@
-import { ContentfulEntryType, getEntriesOfType } from '@services/contentful';
-
-import { Card } from '@components/Card';
+import { ContentfulContentType, getEntriesOfType } from '@services/contentful';
+import { LinkCard } from '@components/Card';
 import { Date } from '@components/Date';
 import { GetStaticProps } from 'next';
 import Layout from '@components/Layout';
-import Link from 'next/link';
 import { Post } from '@types';
 import React from 'react';
 
@@ -22,15 +20,14 @@ export default function BlogPosts({ posts }: BlogProps) {
       <ul className="list-none">
         {posts.map(({ title, slug, publishDate, shortSummary }) => (
           <li key={title}>
-            <Link href={`/posts/${slug}`}>
-              <a className="text-xl mb-2 block dark:text-white">
-                <Card className="mb-4 dark:bg-blue-700">
-                  {title}
-                  <p className="text-sm">{shortSummary}</p>
-                  <Date dateString={publishDate} />
-                </Card>
-              </a>
-            </Link>
+            <LinkCard
+              href={`/posts/${slug}`}
+              className="text-xl block dark:text-white mb-6 dark:bg-blue-700"
+            >
+              {title}
+              <p className=" pt-1 text-sm text-gray-700 dark:text-white">{shortSummary}</p>
+              <Date dateString={publishDate} />
+            </LinkCard>
           </li>
         ))}
       </ul>
@@ -39,7 +36,7 @@ export default function BlogPosts({ posts }: BlogProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const contentfulPosts = await getEntriesOfType(ContentfulEntryType.Post);
+  const contentfulPosts = await getEntriesOfType(ContentfulContentType.Post);
   const posts = contentfulPosts.items.map((item) => item.fields);
   return {
     props: {

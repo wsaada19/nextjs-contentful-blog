@@ -1,7 +1,6 @@
-import { ContentfulEntryType, getAssetById, getEntriesOfType } from '@services/contentful';
+import { ContentfulContentType, getAssetById, getEntriesOfType } from '@services/contentful';
 import { ContentfulImage, Post } from '@types';
 import { GetStaticPaths, GetStaticProps } from 'next';
-
 import { Breadcrumbs } from '@components/Breadcrumbs';
 import { ContentfulRichTextRenderer } from '@components/ContentfulRichTextRenderer';
 import { HeroBanner } from '@components/HeroBanner';
@@ -33,7 +32,7 @@ export default function Project({ post, image }: ProjectPage) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Post);
+  const projectContentfulData = await getEntriesOfType(ContentfulContentType.Post);
   const paths = projectContentfulData.items.map((item) => {
     return {
       params: {
@@ -48,7 +47,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const projectContentfulData = await getEntriesOfType(ContentfulEntryType.Post);
+  const projectContentfulData = await getEntriesOfType(ContentfulContentType.Post);
   const project = projectContentfulData.items.find((item) => {
     return item.fields.slug == params.id;
   });

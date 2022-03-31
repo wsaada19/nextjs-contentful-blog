@@ -1,2 +1,2 @@
-export * from './contentfulEntries';
+export * from './contentTypes';
 export * from './contentfulService';

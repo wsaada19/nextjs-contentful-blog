@@ -59,3 +59,12 @@ h6 {
   font-family: Whyte, sans-serif;
   @apply text-blue-800 dark:text-white;
 }
+
+#toggle-switch::after {
+  content: '';
+  @apply h-6 w-6 rounded-full bg-gray-800 dark:bg-gray-400 absolute left-0 transform scale-90 duration-200;
+}
+
+#toggle-switch:checked::after {
+  @apply transform scale-90 translate-x-6;
+}
