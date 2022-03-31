@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       post: blogPost.fields,
       image: image ? image.fields : {},
-      includedEntries: projectContentfulData.includes.Entry,
+      includedEntries: projectContentfulData.includes?.Entry,
     },
   };
 };

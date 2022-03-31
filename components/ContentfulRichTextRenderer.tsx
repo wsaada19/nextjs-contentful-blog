@@ -8,6 +8,7 @@ import { ContentfulContentType } from '@services/contentful';
 const options = (linkedEntries): any => ({
   renderMark: {
     [MARKS.BOLD]: (text) => <span className="bold">{text}</span>,
+    [MARKS.CODE]: (text) => <code className="break-words">{text}</code>,
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2">{children}</p>,
