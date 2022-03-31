@@ -2,8 +2,10 @@ import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types';
 import { GistCode } from './GistCode';
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { atomOneDark, CodeBlock } from 'react-code-blocks';
+import { ContentfulContentType } from '@services/contentful';
 
-const options: any = {
+const options = (linkedEntries): any => ({
   renderMark: {
     [MARKS.BOLD]: (text) => <span className="bold">{text}</span>,
   },
@@ -25,13 +27,36 @@ const options: any = {
         </a>
       );
     },
+    [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+      const { id } = node.data.target.sys;
+      const entry = linkedEntries.find((entry) => entry.sys.id === id);
+      if (entry) {
+        if (entry.sys.contentType.sys.id === ContentfulContentType.CodeSnippet) {
+          return (
+            <CodeBlock
+              className="my-4"
+              text={entry.fields.codeBlock}
+              language={entry.fields.language}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
+          );
+        }
+      }
+    },
   },
-};
+});
 
 type ContentfulRichTextRendererProps = {
   richText: Document;
+  includedEntries?: any[];
 };
 
-export const ContentfulRichTextRenderer = ({ richText }: ContentfulRichTextRendererProps) => {
-  return <div className="my-4">{documentToReactComponents(richText, options)}</div>;
+export const ContentfulRichTextRenderer = ({
+  richText,
+  includedEntries = [],
+}: ContentfulRichTextRendererProps) => {
+  return (
+    <div className="my-4">{documentToReactComponents(richText, options(includedEntries))}</div>
+  );
 };

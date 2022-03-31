@@ -6,16 +6,19 @@ import { ContentfulRichTextRenderer } from '@components/ContentfulRichTextRender
 import { HeroBanner } from '@components/HeroBanner';
 import Layout from '@components/Layout';
 import React from 'react';
+import { ArticleLd } from '@components/schema/ArticleLd';
 
 type ProjectPage = {
   post: Post;
   image: ContentfulImage;
+  includedEntries: any[];
 };
 
-export default function Project({ post, image }: ProjectPage) {
-  const { title, shortSummary, summary } = post;
+export default function Project({ post, image, includedEntries }: ProjectPage) {
+  const { title, shortSummary, summary, publishDate } = post;
   return (
     <Layout description={shortSummary} title={title} hideLinks>
+      <ArticleLd description={shortSummary} title={title} datePublished={publishDate} />
       <article className="md:px-8">
         <Breadcrumbs
           crumbs={[
@@ -25,7 +28,7 @@ export default function Project({ post, image }: ProjectPage) {
           ]}
         />
         <HeroBanner title={title} image={image} summary={shortSummary} />
-        <ContentfulRichTextRenderer richText={summary} />
+        <ContentfulRichTextRenderer richText={summary} includedEntries={includedEntries} />
       </article>
     </Layout>
   );
@@ -48,17 +51,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const projectContentfulData = await getEntriesOfType(ContentfulContentType.Post);
-  const project = projectContentfulData.items.find((item) => {
+  const blogPost = projectContentfulData.items.find((item) => {
     return item.fields.slug == params.id;
   });
   let image: { fields: ContentfulImage };
-  if (project.fields.summaryImage) {
-    image = await getAssetById(project.fields.summaryImage.sys.id);
+  if (blogPost.fields.summaryImage) {
+    image = await getAssetById(blogPost.fields.summaryImage.sys.id);
   }
   return {
     props: {
-      post: project.fields,
+      post: blogPost.fields,
       image: image ? image.fields : {},
+      includedEntries: projectContentfulData.includes.Entry,
     },
   };
 };

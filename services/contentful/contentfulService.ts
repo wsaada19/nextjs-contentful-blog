@@ -6,7 +6,7 @@ const token = process.env.CONTENTFUL_API_KEY;
 
 // TODO: Add error handling
 export const getEntriesOfType = async (contentType: ContentfulContentType) => {
-  const endpoint = `${baseUrl}/entries?access_token=${token}&content_type=${contentType}`;
+  const endpoint = `${baseUrl}/entries?access_token=${token}&content_type=${contentType}&include=10`;
   const result = await axios.get(endpoint);
   return result.data;
 };

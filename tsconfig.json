@@ -19,7 +19,8 @@
       "@utilities": ["utilities"],
       "@types": ["types"],
       "@services/*": ["services/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -24,8 +24,12 @@ export const GistCode = ({ gistId, fileName }: GistCodeProps) => {
   }
 
   return (
-    <div className="my-4">
-      <CodeBlock text={code} language={'typescript'} showLineNumbers={false} theme={atomOneDark} />
-    </div>
+    <CodeBlock
+      className="my-4"
+      text={code}
+      language={'typescript'}
+      showLineNumbers={false}
+      theme={atomOneDark}
+    />
   );
 };
