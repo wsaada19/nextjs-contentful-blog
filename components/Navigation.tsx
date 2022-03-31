@@ -19,11 +19,11 @@ export const Navigation = ({ hideLinks = false }: NavigationProps) => {
             <a className="px-2 md:px-4 hover:underline">Blog</a>
           </Link>
           <Link href="/portfolio">
-            <a className="px-2 md:px-4 hover:underline">Portfolio</a>
+            <a className="pl-2 md:px-4 hover:underline">Portfolio</a>
           </Link>
         </>
       )}
-      <span className="float-right">
+      <span className="sm:block float-right">
         <Switch className="px-2" />
         <a className="px-2" href="https://github.com/wsaada19">
           <Image src="/images/github.svg" height={24} width={24} alt="Github logo"></Image>

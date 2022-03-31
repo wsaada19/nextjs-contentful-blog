@@ -13,7 +13,7 @@ type LayoutProps = {
 export default function Layout({ children, description, title, hideLinks = false }: LayoutProps) {
   return (
     <div className="dark:bg-blue-900 dark:text-white min-h-full">
-      <div className="pt-4 mx-auto pb-8 max-w-4xl px-6 md:px-8">
+      <div className="pt-4 mx-auto pb-8 max-w-4xl px-4 md:px-8">
         <Head>
           <title>{title}</title>
           <link rel="icon" href="/favicon.png" />
