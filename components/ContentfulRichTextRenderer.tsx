@@ -13,7 +13,11 @@ const options = (linkedEntries): any => ({
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
-      return <h3 className="my-2 text-blue-800">{children}</h3>;
+      return (
+        <h3 id={children.toString().replaceAll(' ', '-')} className="my-2 text-blue-800">
+          {children}
+        </h3>
+      );
     },
     [BLOCKS.HEADING_4]: (node, children) => {
       return <h4 className="my-2 text-blue-800">{children}</h4>;
@@ -34,13 +38,18 @@ const options = (linkedEntries): any => ({
       if (entry) {
         if (entry.sys.contentType.sys.id === ContentfulContentType.CodeSnippet) {
           return (
-            <CodeBlock
-              className="my-4"
-              text={entry.fields.codeBlock}
-              language={entry.fields.language}
-              showLineNumbers={false}
-              theme={atomOneDark}
-            />
+            <>
+              {/* <div className="mt-4  border border-gray-400 rounded-sm shadow-md">
+                Copy
+              </div> */}
+              <CodeBlock
+                className="mb-4"
+                text={entry.fields.codeBlock}
+                language={entry.fields.language}
+                showLineNumbers={false}
+                theme={atomOneDark}
+              />
+            </>
           );
         }
       }

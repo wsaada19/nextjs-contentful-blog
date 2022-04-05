@@ -21,6 +21,7 @@ export const HeroBanner = ({ title, image, summary }: HeroBannerProps) => {
           height={200}
           layout="responsive"
           loader={contenfulLoader}
+          priority
         />
       )}
       <h2 className="text-base font-normal mt-4 text-black font-sans dark:text-white">{summary}</h2>
