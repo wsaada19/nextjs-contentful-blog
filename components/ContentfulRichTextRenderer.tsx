@@ -13,11 +13,7 @@ const options = (linkedEntries): any => ({
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
-      return (
-        <h3 id={children.toString().replaceAll(' ', '-')} className="my-2 text-blue-800">
-          {children}
-        </h3>
-      );
+      return <h3 className="my-2 text-blue-800">{children}</h3>;
     },
     [BLOCKS.HEADING_4]: (node, children) => {
       return <h4 className="my-2 text-blue-800">{children}</h4>;
