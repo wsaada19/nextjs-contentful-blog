@@ -98,6 +98,13 @@ const List = ({ items }: ListProps) => {
 // TODO: move data to Contentful
 const jobs = [
   {
+    title: 'Senior Associate Software Engineer',
+    company: 'Capital One',
+    location: 'Richmond, VA',
+    date: '2022 - Present',
+    bullets: ['A full stack web developer working on an internal tool for call center agents.'],
+  },
+  {
     title: 'Software Engineer II',
     company: 'CarMax',
     location: 'Richmond, VA',
