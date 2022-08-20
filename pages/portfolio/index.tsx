@@ -1,7 +1,7 @@
 import { ContentfulContentType, getEntriesOfType } from '@services/contentful';
 import { LinkCard } from '@components/Card';
 import { GetStaticProps } from 'next';
-import Layout from '@components/Layout';
+import Layout from '@components/layouts/PageLayout';
 import { ProjectInfo } from '@types';
 import React from 'react';
 import { sortBy } from '@utilities';

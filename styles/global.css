@@ -35,7 +35,7 @@ h2 {
 }
 
 h3 {
-  @apply text-2xl font-medium;
+  @apply text-xl font-semibold;
 }
 
 h4 {

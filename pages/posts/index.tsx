@@ -2,7 +2,7 @@ import { ContentfulContentType, getEntriesOfType } from '@services/contentful';
 import { LinkCard } from '@components/Card';
 import { Date } from '@components/Date';
 import { GetStaticProps } from 'next';
-import Layout from '@components/Layout';
+import Layout from '@components/layouts/PageLayout';
 import { Post } from '@types';
 import React from 'react';
 

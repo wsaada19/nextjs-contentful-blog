@@ -3,7 +3,7 @@ import { ContentfulImage, ProjectInfo } from '@types';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ContentfulRichTextRenderer } from 'components/ContentfulRichTextRenderer';
 import { HeroBanner } from 'components/HeroBanner';
-import Layout from 'components/Layout';
+import Layout from '@components/layouts/PageLayout';
 import React from 'react';
 
 type ProjectPage = {

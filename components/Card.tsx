@@ -9,7 +9,7 @@ type CardProps = {
 export const Card = ({ children, className = '' }: CardProps) => {
   return (
     <div
-      className={`${className} card rounded-lg shadow-md p-3 border border-gray-300 transform transition duration-300 hover:scale-1025 dark:border-opacity-0`}
+      className={`${className} card shadow-md p-3 border border-gray-300 transform transition duration-300 hover:scale-1025 dark:border-opacity-0`}
     >
       {children}
     </div>

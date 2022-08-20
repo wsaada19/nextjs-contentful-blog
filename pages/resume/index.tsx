@@ -1,4 +1,4 @@
-import Layout from 'components/Layout';
+import Layout from '@components/layouts/PageLayout';
 import React from 'react';
 
 export default function Resume() {
