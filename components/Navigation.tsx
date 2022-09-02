@@ -15,7 +15,7 @@ export const Navigation = ({ hideLinks = false }: NavigationProps) => {
           <Link href="/">
             <a className="pr-2 md:pr-4 hover:underline">Home</a>
           </Link>
-          <Link href="/posts">
+          <Link href="/blog">
             <a className="px-2 md:px-4 hover:underline">Blog</a>
           </Link>
           <Link href="/portfolio">

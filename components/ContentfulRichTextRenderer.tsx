@@ -23,7 +23,7 @@ const options = (linkedEntries): any => ({
         return <GistCode gistId={node.data.uri} fileName={node.content[0].value} />;
       }
       return (
-        <a className="hover:underline" href={node.data.uri}>
+        <a className="hover:underline dark:text-blue-400" href={node.data.uri}>
           {children}
         </a>
       );
