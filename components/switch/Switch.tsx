@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styles from './switch.module.scss';
 
 type SwitchProps = {
@@ -5,6 +6,10 @@ type SwitchProps = {
 };
 
 export const Switch = ({ className }: SwitchProps) => {
+  const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
   return (
     <label className={className} htmlFor="toggle-switch">
       <input
@@ -12,13 +17,16 @@ export const Switch = ({ className }: SwitchProps) => {
         type="checkbox"
         role="switch"
         id="toggle-switch"
+        checked={isDark}
         onChange={() => {
-          if (document.documentElement.classList.contains('dark')) {
+          if (isDark) {
             document.documentElement.classList.remove('dark');
             localStorage.theme = 'light';
+            setIsDark(false);
           } else {
             document.documentElement.classList.add('dark');
             localStorage.theme = 'dark';
+            setIsDark(true);
           }
         }}
       />
