@@ -17,7 +17,7 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
           return (
             <Link href={crumb.href} key={crumb.label}>
               <a className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}>
-                {crumb.label}
+                <span className="hover:underline">{crumb.label}</span>
                 <span className="text-gray-400 px-1">{isLast ? '' : ' / '}</span>
               </a>
             </Link>

@@ -17,7 +17,7 @@ body {
 }
 
 a {
-  color: #2565c7;
+  @apply text-blue-400;
   text-decoration: none;
 }
 

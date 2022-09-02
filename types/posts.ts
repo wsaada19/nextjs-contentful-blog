@@ -14,4 +14,6 @@ export type Post = {
   summary: Document;
   summaryImage: any;
   publishDate: string;
+  color: string;
+  category: string;
 };
