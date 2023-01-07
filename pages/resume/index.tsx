@@ -19,10 +19,18 @@ export default function Resume() {
             <Section title="Relevant Skills">
               <h4 className="text-lg font-semibold">Advanced</h4>
               <List
-                items={['JavaScript', 'React', 'Azure', 'C#', 'HTML/CSS', 'DevOps & Testing']}
+                items={[
+                  'JavaScript',
+                  'Node',
+                  'React & Vue',
+                  'Azure',
+                  'C#',
+                  'HTML/CSS',
+                  'DevOps & Testing',
+                ]}
               />
               <h4 className="text-lg font-semibold">Experience with</h4>
-              <List items={['Next.js', 'Node & Express', 'CosmosDB & SQL', 'Docker', 'Unity']} />
+              <List items={['Next.js', 'Node & Express', 'CosmosDB & SQL', 'AWS', 'Unity']} />
             </Section>
             <Section title="Education">
               <p className="font-semibold">Univeristy of Richmond</p>
@@ -30,9 +38,7 @@ export default function Resume() {
               <p>Computer Science and Mathematics</p>
             </Section>
             <Section title="Interests">
-              <List
-                items={['Game Dev & Modding', 'Collectible Markets', 'Cleveland Sports', 'Running']}
-              />
+              <List items={['Game Dev & Modding', 'Collectibles', 'Cleveland Sports', 'Running']} />
             </Section>
             <Section title="Contact">
               <a href="mailto:willsaada19@gmail.com">willsaada19@gmail.com</a>

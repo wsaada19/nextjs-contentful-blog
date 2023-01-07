@@ -8,10 +8,10 @@ export const Footer = (): JSX.Element => {
         className="text-sm hover:underline"
         href="https://github.com/wsaada19/nextjs-contentful-blog"
       >
-        View source code
+        Source code
       </a>
       <Link href="/resume">
-        <a className="text-sm px-2 hover:underline">My resume</a>
+        <a className="text-sm px-2 hover:underline">Resume</a>
       </Link>
     </footer>
   );

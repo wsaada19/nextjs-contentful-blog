@@ -59,3 +59,22 @@ h6 {
   font-family: Whyte, sans-serif;
   @apply text-blue-800 dark:text-white;
 }
+
+.test-tooltip {
+  position: absolute;
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  font: 14px sans-serif;
+  color: white;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.test-tooltip p {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
