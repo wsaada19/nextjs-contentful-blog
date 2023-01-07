@@ -81,7 +81,7 @@ export function addScatterPlot(teamData: TeamData[]) {
   const yAxisCall = d3.axisLeft(y).tickSize(0).ticks(0);
   yAxisGroup.attr('transform', `translate(${WIDTH / 2}, 0)`).call(yAxisCall);
 
-  const images = g.selectAll('image').data(teamData, (d) => d.name);
+  const images = g.selectAll('image').data(teamData, (d: TeamData) => d.name);
 
   images.exit().remove();
 

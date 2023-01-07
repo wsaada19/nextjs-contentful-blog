@@ -21,7 +21,7 @@ export default function BlogPosts({ posts, page }: BlogProps) {
           <li key={title}>
             <LinkCard
               href={`/${category}/${slug}`}
-              className={`text-xl block border ${
+              className={`text-xl block border-2 ${
                 color ? 'text-white border-gray-200' : ' bg-blue-50 text-blue-600 border-blue-600'
               } dark:text-white mb-6 ${color ?? 'dark:bg-blue-700'}`}
             >

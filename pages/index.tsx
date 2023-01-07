@@ -25,7 +25,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
           {allPostsData.map(({ title, publishDate, slug, category }) => (
             <li key={slug}>
               <LinkCard
-                className="mb-4 border bg-blue-50 border-blue-500 text-blue-500 dark:bg-blue-700 dark:text-white"
+                className="mb-4 border-2 bg-blue-50 border-blue-500 text-blue-500 dark:bg-blue-700 dark:text-white"
                 href={`/${category}/${slug}`}
               >
                 <div className="font-semibold">{title}</div>
