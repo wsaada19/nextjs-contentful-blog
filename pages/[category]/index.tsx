@@ -5,6 +5,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Layout from '@components/layouts/PageLayout';
 import { PageData, Post } from '@types';
 import React from 'react';
+import { sortBy } from '@utilities';
 
 type BlogProps = {
   posts: Post[];
@@ -59,9 +60,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const contentfulPosts = await getEntriesOfType<Post>(ContentfulContentType.Post);
   const pageData = await getEntriesOfType<PageData>(ContentfulContentType.PageData);
   const page = pageData.items.find((data) => data.pageId === params.category);
-  const posts = contentfulPosts.items.filter((post) => {
+  let posts = contentfulPosts.items.filter((post) => {
     return post.category === params.category;
   });
+  if (params.category == 'blog') {
+    posts = sortBy<Post>((p) => p.publishDate, posts);
+  }
   return {
     props: {
       posts,

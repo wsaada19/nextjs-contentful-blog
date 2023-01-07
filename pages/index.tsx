@@ -6,6 +6,7 @@ import { Date } from '@components/Date';
 import { GetStaticProps } from 'next';
 import Layout from '@components/layouts/PageLayout';
 import React from 'react';
+import { sortBy } from '@utilities';
 
 type HomeProps = {
   allPostsData: Post[];
@@ -60,7 +61,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      allPostsData: posts.items.filter((post) => post.category === 'blog'),
+      allPostsData: sortBy<Post>(
+        (p) => p.publishDate,
+        posts.items.filter((post) => post.category === 'blog')
+      ),
       homePageData: homePage.items[0],
       projects: posts.items.filter((post) => post.category === 'portfolio'),
     },
