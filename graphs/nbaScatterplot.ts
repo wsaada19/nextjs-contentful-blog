@@ -12,9 +12,6 @@ import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
 
 export function addScatterPlot(teamData: TeamData[]) {
-  if (d3.select('#chart-area').node().hasChildNodes()) {
-    return;
-  }
   const svg = d3
     .select('#chart-area')
     .append('svg')

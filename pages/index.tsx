@@ -25,11 +25,10 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
           {allPostsData.map(({ title, publishDate, slug, category }) => (
             <li key={slug}>
               <LinkCard
-                className="mb-4 border border-blue-400 dark:bg-blue-700 dark:text-white"
+                className="mb-4 border bg-blue-50 border-blue-500 text-blue-500 dark:bg-blue-700 dark:text-white"
                 href={`/${category}/${slug}`}
               >
-                {title}
-                <br />
+                <div className="font-semibold">{title}</div>
                 <Date dateString={publishDate} />
               </LinkCard>
             </li>
@@ -45,7 +44,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
                 className={`text-white md:text-left ${color ?? 'bg-blue-600'}`}
                 href={`/portfolio/${slug}`}
               >
-                {title}
+                <div className="font-semibold">{title}</div>
               </LinkCard>
             </li>
           ))}

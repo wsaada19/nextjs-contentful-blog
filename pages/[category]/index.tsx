@@ -15,17 +15,17 @@ export default function BlogPosts({ posts, page }: BlogProps) {
   const { heading, title, description } = page;
   return (
     <Layout description={description} title={title}>
-      <h1 className="mb-6 text-center md:text-left">{heading}</h1>
+      <h1 className="mb-5 text-center md:text-left">{heading}</h1>
       <ul className="list-none">
         {posts.map(({ title, slug, publishDate, shortSummary, color, category }) => (
           <li key={title}>
             <LinkCard
               href={`/${category}/${slug}`}
               className={`text-xl block border ${
-                color ? 'text-white border-gray-200' : ' border-blue-400'
+                color ? 'text-white border-gray-200' : ' bg-blue-50 text-blue-600 border-blue-600'
               } dark:text-white mb-6 ${color ?? 'dark:bg-blue-700'}`}
             >
-              {title}
+              <div className="font-semibold">{title}</div>
               <p
                 className={`pt-1 text-sm ${color ? 'text-white' : 'text-gray-700'}dark:text-white`}
               >
