@@ -5,7 +5,7 @@
  */
 
 const MARGIN = { LEFT: 80, RIGHT: 40, TOP: 40, BOTTOM: 80 };
-const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
+const WIDTH = 720 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 550 - MARGIN.TOP - MARGIN.BOTTOM;
 
 import * as d3 from 'd3';
