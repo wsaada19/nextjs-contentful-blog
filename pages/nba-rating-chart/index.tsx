@@ -2,7 +2,6 @@ import Layout from '@components/layouts/PageLayout';
 import { getAdvancedTeamData } from '@services/nbaService/nbaClient';
 import { sortBy } from '@utilities';
 import { addScatterPlot } from 'graphs/nbaScatterplot';
-import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
 import { GetStaticProps } from 'next';
 import React, { useEffect, useRef } from 'react';
 import { TeamData } from 'types/nbaTeamData';
@@ -20,9 +19,9 @@ export default function Chart({ teamData }) {
       <div>
         <h1 className="pt-1 pb-2">NBA Efficiency Landscape</h1>
         <p className="mb-4">
-          A scatter plot comparing the offensive and defensive ratings of the each NBA team. The
-          data comes from <a href="https://www.nba.com/">nba.com</a>. Hover over the logos to view
-          the offensive rating, defensive rating and the net rating.
+          A scatter plot comparing the offensive and defensive ratings for each NBA team. The data
+          comes from <a href="https://www.nba.com/">nba.com</a>. Hover over the logos to view the
+          offensive rating, defensive rating and the net rating.
         </p>
         <div ref={ref}></div>
         {/* <div className="flex justify-around flex-wrap">
