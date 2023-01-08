@@ -11,9 +11,9 @@ const HEIGHT = 550 - MARGIN.TOP - MARGIN.BOTTOM;
 import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
 
-export function addScatterPlot(teamData: TeamData[]) {
+export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) {
   const svg = d3
-    .select('#chart-area')
+    .select(ref.current)
     .append('svg')
     .attr('width', WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
     .style('background-color', '#ecd6b6')
@@ -24,7 +24,7 @@ export function addScatterPlot(teamData: TeamData[]) {
 
   // Tooltip
   var tooltip = d3
-    .select('#chart-area')
+    .select(ref.current)
     .append('div')
     .attr('class', 'test-tooltip')
     .style('opacity', '0');

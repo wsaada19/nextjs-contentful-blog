@@ -4,13 +4,14 @@ import { sortBy } from '@utilities';
 import { addScatterPlot } from 'graphs/nbaScatterplot';
 import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
 import { GetStaticProps } from 'next';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 
 export default function Chart({ teamData }) {
+  const ref = useRef(null);
   useEffect(() => {
-    addScatterPlot(teamData);
-  }, []);
+    addScatterPlot(teamData, ref);
+  }, [teamData, ref]);
   return (
     <Layout
       description="A scatter-plot comparing the offensive and defensive rating of all NBA teams"
@@ -23,7 +24,7 @@ export default function Chart({ teamData }) {
           data comes from <a href="https://www.nba.com/">nba.com</a>. Hover over the logos to view
           the offensive rating, defensive rating and the net rating.
         </p>
-        <div id="chart-area"></div>
+        <div ref={ref}></div>
         {/* <div className="flex justify-around flex-wrap">
           <TeamLeaderBoard
             title="Top Net Rating"
