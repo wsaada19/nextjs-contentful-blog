@@ -12,13 +12,15 @@ import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
 
 export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) {
+  const width = WIDTH + MARGIN.LEFT + MARGIN.RIGHT;
+  const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;
   const svg = d3
     .select(ref.current)
     .append('svg')
-    .attr('width', WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+    .attr('viewBox', `0 0 ${width} ${height}`)
+    .attr('preserveAspectRatio', 'xMinYMin meet')
     .style('background-color', '#ecd6b6')
-    .style('margin', '0 auto')
-    .attr('height', HEIGHT + MARGIN.TOP + MARGIN.BOTTOM);
+    .style('margin', '0 auto');
 
   const g = svg.append('g').attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
