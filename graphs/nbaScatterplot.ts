@@ -12,7 +12,6 @@ import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
 
 export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) {
-  console.log('Adding scatter plot!');
   const svg = d3
     .select(ref.current)
     .append('svg')
