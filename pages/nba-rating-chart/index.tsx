@@ -3,14 +3,14 @@ import { getAdvancedTeamData } from '@services/nbaService/nbaClient';
 import { sortBy } from '@utilities';
 import { addScatterPlot } from 'graphs/nbaScatterplot';
 import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import React, { useEffect } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 
 export default function Chart({ teamData }) {
   useEffect(() => {
     addScatterPlot(teamData);
-  }, [teamData]);
+  }, []);
   return (
     <Layout
       description="A scatter-plot comparing the offensive and defensive rating of all NBA teams"
@@ -67,7 +67,7 @@ const topDefensiveTeams = (teamData: TeamData[]) =>
 const mostWins = (teamData: TeamData[]) =>
   sortBy<TeamData>((d) => -1 * d.wins, teamData).slice(0, 10);
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const teamData = await getAdvancedTeamData();
   return {
     props: { teamData },

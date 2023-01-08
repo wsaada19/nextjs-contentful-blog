@@ -10,7 +10,6 @@ module.exports = (phase, { defaultConfig }) => {
     images: {
       domains: ['images.ctfassets.net'],
     },
-    staticPageGenerationTimeout: 1000,
   };
   return nextConfig;
 };
