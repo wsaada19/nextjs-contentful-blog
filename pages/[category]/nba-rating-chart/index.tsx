@@ -15,7 +15,7 @@ export default function Chart({ teamData }) {
       title="NBA Team Rating Scatter Plot"
     >
       <div className="md:px-8">
-        <h1 className="pt-1 pb-2">NBA Efficiency Landscape</h1>
+        <h1 className="pt-1 pb-2">NBA Rating Landscape</h1>
         <p className="mb-4">
           A scatter plot comparing the offensive and defensive ratings for each NBA team. The data
           comes from <a href="https://www.nba.com/">nba.com</a>. Hover over the logos to view the
