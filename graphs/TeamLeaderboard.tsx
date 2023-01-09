@@ -14,7 +14,7 @@ export const TeamLeaderBoard = ({ teams, title, selector, className }: TeamLeade
     <div className={`text-sm ${className}`}>
       <h3 className="mb-1">{title}</h3>
       <table className="text-white w-full">
-        <tr className="text-sm border border-gray-400 border-b-0">
+        <tr className="text-sm border border-gray-400 border-b-0 h-8 bg-blue-900">
           <th></th>
           <th></th>
           <th></th>
