@@ -7,7 +7,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 
-export default function Chart({ teamData }) {
+export default function Chart({ teamData, lastUpdated }) {
   const ref = useRef(null);
   useEffect(() => {
     addScatterPlot(teamData, ref);
@@ -25,7 +25,7 @@ export default function Chart({ teamData }) {
           offensive rating, defensive rating and the net rating.
         </p>
         <div ref={ref}></div>
-        <p className="my-3 text-sm">Last updated {new Date().toLocaleDateString()}.</p>
+        <p className="my-3 text-sm">Last updated {lastUpdated}.</p>
         <TeamLeaderBoard
           title="Top 10 Net Rating"
           className="m-y-2"
@@ -55,7 +55,8 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const teamData = await getAdvancedTeamData();
+  const lastUpdated = new Date().toLocaleDateString();
   return {
-    props: { teamData },
+    props: { teamData, lastUpdated },
   };
 };
