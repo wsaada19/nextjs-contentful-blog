@@ -78,3 +78,9 @@ h6 {
   margin: 0;
   text-align: left;
 }
+
+@media only screen and (max-width: 600px) {
+  .test-tooltip p {
+    font-size: smaller;
+  }
+}
