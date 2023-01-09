@@ -32,31 +32,9 @@ export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) 
     .attr('class', 'test-tooltip')
     .style('opacity', '0');
 
-  // X label
-  g.append('text')
-    .attr('class', 'x axis-label')
-    .attr('x', WIDTH / 2)
-    .attr('y', HEIGHT + 40)
-    .attr('font-size', '20px')
-    .attr('text-anchor', 'middle')
-    .style('font-weight', 'bold')
-    .style('fill', '#14376c')
-    .text('Offensive Rating');
-
-  // Y label
-  g.append('text')
-    .attr('class', 'y axis-label')
-    .attr('x', -(HEIGHT / 2))
-    .attr('y', -30)
-    .attr('font-size', '20px')
-    .style('font-weight', 'bold')
-    .attr('text-anchor', 'middle')
-    .attr('transform', 'rotate(-90)')
-    .style('fill', '#14376c')
-    .text('Defensive Rating');
+  addLabels(g);
 
   const x = d3.scaleLinear().range([0, WIDTH]);
-
   const y = d3.scaleLinear().range([HEIGHT, 0]);
 
   const xAxisGroup = g
@@ -111,3 +89,26 @@ export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) 
       tooltip.transition().duration(500).style('opacity', 0);
     });
 }
+
+const addLabels = (g) => {
+  g.append('text')
+    .attr('class', 'x axis-label')
+    .attr('x', WIDTH / 2)
+    .attr('y', HEIGHT + 40)
+    .attr('font-size', '20px')
+    .attr('text-anchor', 'middle')
+    .style('font-weight', 'bold')
+    .style('fill', '#14376c')
+    .text('Offensive Rating');
+
+  g.append('text')
+    .attr('class', 'y axis-label')
+    .attr('x', -(HEIGHT / 2))
+    .attr('y', -30)
+    .attr('font-size', '20px')
+    .style('font-weight', 'bold')
+    .attr('text-anchor', 'middle')
+    .attr('transform', 'rotate(-90)')
+    .style('fill', '#14376c')
+    .text('Defensive Rating');
+};
