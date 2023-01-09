@@ -31,14 +31,17 @@ export default function PostPage({ post, image, includedEntries }: PostLayoutPro
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projectContentfulData = await getEntriesOfType<Post>(ContentfulContentType.Post);
-  const paths = projectContentfulData.items.map((item) => {
-    return {
-      params: {
-        category: item.category,
-        id: item.slug,
-      },
-    };
-  });
+  const skipPaths = ['nba-rating-chart'];
+  const paths = projectContentfulData.items
+    .filter((post) => !skipPaths.includes(post.slug))
+    .map((item) => {
+      return {
+        params: {
+          category: item.category,
+          id: item.slug,
+        },
+      };
+    });
   return {
     paths,
     fallback: false,
