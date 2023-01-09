@@ -1,8 +1,11 @@
 import Layout from '@components/layouts/PageLayout';
 import { getAdvancedTeamData } from '@services/nbaService/nbaClient';
+import { sortBy } from '@utilities';
 import { addScatterPlot } from 'graphs/nbaScatterplot';
+import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef } from 'react';
+import { TeamData } from 'types/nbaTeamData';
 
 export default function Chart({ teamData }) {
   const ref = useRef(null);
@@ -22,49 +25,20 @@ export default function Chart({ teamData }) {
           offensive rating, defensive rating and the net rating.
         </p>
         <div ref={ref}></div>
-        <p className="mt-4 text-sm">Last updated {new Date().toLocaleDateString()}.</p>
-        {/* <div className="flex justify-around flex-wrap">
-          <TeamLeaderBoard
-            title="Top Net Rating"
-            className="m-2 w-10/12"
-            selector={(teamData) => (teamData.offRating - teamData.defRating).toFixed(1)}
-            teams={mostEfficientTeams(teamData)}
-          />
-          <TeamLeaderBoard
-            title="Most Wins"
-            className="m-2 w-5/12"
-            selector={(teamData) => teamData.wins}
-            teams={mostWins(teamData)}
-          />
-          <TeamLeaderBoard
-            title="Offensive Rating"
-            className="m-2 w-5/12"
-            selector={(teamData) => teamData.offRating}
-            teams={topOffensiveTeams(teamData)}
-          />
-          <TeamLeaderBoard
-            title="Defensive Rating"
-            className="m-2 w-5/12"
-            selector={(teamData) => teamData.defRating}
-            teams={topDefensiveTeams(teamData)}
-          /> 
-        </div> */}
+        <p className="my-3 text-sm">Last updated {new Date().toLocaleDateString()}.</p>
+        <TeamLeaderBoard
+          title="Top 10 Net Rating"
+          className="m-y-2"
+          selector={(teamData) => (teamData.offRating - teamData.defRating).toFixed(1)}
+          teams={mostEfficientTeams(teamData)}
+        />
       </div>
     </Layout>
   );
 }
 
-// const mostEfficientTeams = (teamData: TeamData[]) =>
-//   sortBy<TeamData>((d) => d.defRating - d.offRating, teamData).slice(0, 10);
-
-// const topOffensiveTeams = (teamData: TeamData[]) =>
-//   sortBy<TeamData>((d) => -1 * d.offRating, teamData).slice(0, 10);
-
-// const topDefensiveTeams = (teamData: TeamData[]) =>
-//   sortBy<TeamData>((d) => d.defRating, teamData).slice(0, 10);
-
-// const mostWins = (teamData: TeamData[]) =>
-//   sortBy<TeamData>((d) => -1 * d.wins, teamData).slice(0, 10);
+const mostEfficientTeams = (teamData: TeamData[]) =>
+  sortBy<TeamData>((d) => d.offRating - d.defRating, teamData).slice(0, 10);
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {
