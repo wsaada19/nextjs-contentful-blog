@@ -1,7 +1,7 @@
 import { ContentfulImage } from '@types';
 import Image from 'next/image';
 import React from 'react';
-import { contenfulLoader } from '@utilities';
+import { contentfulLoader } from '@utilities';
 
 type HeroBannerProps = {
   title: string;
@@ -21,10 +21,10 @@ export const HeroBanner = ({ title, image, summary }: HeroBannerProps) => {
             width={width}
             height={height}
             layout="responsive"
-            loader={contenfulLoader}
+            loader={contentfulLoader}
             priority
           />
-          <h2 className="text-sm font-normal mt-4 text-black font-sans dark:text-white">
+          <h2 className="text-sm font-normal mt-2 text-black font-sans dark:text-white">
             {summary}
           </h2>
         </>

@@ -29,7 +29,6 @@ export default function Chart({ teamData, lastUpdated }) {
         <TeamLeaderBoard
           title="Top 10 Net Rating"
           className="m-y-2"
-          selector={(teamData) => (teamData.offRating - teamData.defRating).toFixed(1)}
           teams={mostEfficientTeams(teamData)}
         />
       </div>
@@ -38,7 +37,7 @@ export default function Chart({ teamData, lastUpdated }) {
 }
 
 const mostEfficientTeams = (teamData: TeamData[]) =>
-  sortBy<TeamData>((d) => d.offRating - d.defRating, teamData).slice(0, 10);
+  sortBy<TeamData>((d) => d.offRating - d.defRating, teamData);
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {

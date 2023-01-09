@@ -1,9 +1,3 @@
-/*
- *    main.js
- *    Mastering Data Visualization with D3.js
- *    5.8 - Scatter plots in D3
- */
-
 const MARGIN = { LEFT: 60, RIGHT: 30, TOP: 30, BOTTOM: 60 };
 const WIDTH = 720 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 550 - MARGIN.TOP - MARGIN.BOTTOM;
