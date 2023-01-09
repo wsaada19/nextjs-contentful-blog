@@ -4,7 +4,7 @@
  *    5.8 - Scatter plots in D3
  */
 
-const MARGIN = { LEFT: 80, RIGHT: 40, TOP: 40, BOTTOM: 80 };
+const MARGIN = { LEFT: 60, RIGHT: 30, TOP: 30, BOTTOM: 60 };
 const WIDTH = 720 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 550 - MARGIN.TOP - MARGIN.BOTTOM;
 
@@ -66,14 +66,8 @@ export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) 
 
   const yAxisGroup = g.append('g').attr('class', 'y axis');
 
-  x.domain([
-    d3.min(teamData, (d) => d.offRating) - 1.5,
-    d3.max(teamData, (d) => d.offRating) + 1.5,
-  ]);
-  y.domain([
-    d3.max(teamData, (d) => d.defRating) + 1.5,
-    d3.min(teamData, (d) => d.defRating) - 1.5,
-  ]);
+  x.domain([d3.min(teamData, (d) => d.offRating) - 1, d3.max(teamData, (d) => d.offRating) + 1]);
+  y.domain([d3.max(teamData, (d) => d.defRating) + 1, d3.min(teamData, (d) => d.defRating) - 1]);
 
   const xAxisCall = d3.axisBottom(x).tickSize(0).ticks(0);
   xAxisGroup

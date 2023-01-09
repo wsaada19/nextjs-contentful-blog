@@ -80,6 +80,10 @@ h6 {
 }
 
 @media only screen and (max-width: 600px) {
+  .test-tooltip {
+    padding: 4px;
+  }
+
   .test-tooltip p {
     font-size: smaller;
   }
