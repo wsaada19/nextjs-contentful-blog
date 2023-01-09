@@ -14,7 +14,7 @@ export default function Chart({ teamData }) {
   return (
     <Layout
       description="A scatter-plot comparing the offensive and defensive rating of all NBA teams"
-      title="NBA Efficiency Landscape"
+      title="NBA Team Rating Scatter Plot"
     >
       <div>
         <h1 className="pt-1 pb-2">NBA Efficiency Landscape</h1>

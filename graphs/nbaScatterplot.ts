@@ -20,6 +20,7 @@ export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) 
     .attr('viewBox', `0 0 ${width} ${height}`)
     .attr('preserveAspectRatio', 'xMinYMin meet')
     .style('background-color', '#ecd6b6')
+    .style('border', '0.5px solid black')
     .style('margin', '0 auto');
 
   const g = svg.append('g').attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
