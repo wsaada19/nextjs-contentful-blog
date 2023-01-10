@@ -16,7 +16,7 @@ export default function BlogPosts({ posts, page }: BlogProps) {
   const { heading, title, description } = page;
   return (
     <Layout description={description} title={title}>
-      <h1 className="mb-5 text-center md:text-left">{heading}</h1>
+      <h1 className="mb-5">{heading}</h1>
       <ul className="list-none">
         {posts.map(({ title, slug, publishDate, shortSummary, color, category }) => (
           <li key={title}>
