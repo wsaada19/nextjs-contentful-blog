@@ -12,6 +12,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.5.1",
     "@contentful/rich-text-types": "^15.5.1",
+    "@vercel/analytics": "^0.1.6",
     "axios": "^0.26.0",
     "d3": "^7.8.0",
     "date-fns": "^2.11.1",

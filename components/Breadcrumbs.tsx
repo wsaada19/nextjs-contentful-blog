@@ -15,8 +15,8 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1;
           return (
-            <>
-              <Link href={crumb.href} key={crumb.label}>
+            <React.Fragment key={crumb.label}>
+              <Link href={crumb.href}>
                 <a
                   className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}
                 >
@@ -24,7 +24,7 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
                 </a>
               </Link>
               <span className="text-gray-400 mx-1">{isLast ? '' : ' / '}</span>
-            </>
+            </React.Fragment>
           );
         })}
       </div>
