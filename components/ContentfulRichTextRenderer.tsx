@@ -4,19 +4,20 @@ import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { atomOneDark, CodeBlock } from 'react-code-blocks';
 import { ContentfulContentType } from '@services/contentful';
+import { D3GraphContainer } from 'graphs/D3GraphContainer';
 
 const options = (linkedEntries): any => ({
   renderMark: {
-    [MARKS.BOLD]: (text) => <span className="font-semibold">{text}</span>,
+    [MARKS.BOLD]: (text) => <span className="font-medium">{text}</span>,
     [MARKS.CODE]: (text) => <code className="break-words">{text}</code>,
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-base py-1">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
-      return <h3 className="my-2 text-blue-800">{children}</h3>;
+      return <h3 className="my-1 text-blue-800">{children}</h3>;
     },
     [BLOCKS.HEADING_4]: (node, children) => {
-      return <h4 className="my-2 text-blue-800">{children}</h4>;
+      return <h4 className="my-1 text-blue-800">{children}</h4>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
       if (node.data.uri.includes('api.github.com') && node.content[0].value) {
@@ -34,19 +35,16 @@ const options = (linkedEntries): any => ({
       if (entry) {
         if (entry.sys.contentType.sys.id === ContentfulContentType.CodeSnippet) {
           return (
-            <>
-              {/* <div className="mt-4  border border-gray-400 rounded-sm shadow-md">
-                Copy
-              </div> */}
-              <CodeBlock
-                className="mb-4"
-                text={entry.fields.codeBlock}
-                language={entry.fields.language}
-                showLineNumbers={false}
-                theme={atomOneDark}
-              />
-            </>
+            <CodeBlock
+              className="mb-4"
+              text={entry.fields.codeBlock}
+              language={entry.fields.language}
+              showLineNumbers={false}
+              theme={atomOneDark}
+            />
           );
+        } else if (entry.sys.contentType.sys.id === ContentfulContentType.D3Graph) {
+          return <D3GraphContainer graphId={entry.fields.graphId} />;
         }
       }
     },
@@ -63,6 +61,6 @@ export const ContentfulRichTextRenderer = ({
   includedEntries = [],
 }: ContentfulRichTextRendererProps) => {
   return (
-    <div className="my-4">{documentToReactComponents(richText, options(includedEntries))}</div>
+    <div className="my-2">{documentToReactComponents(richText, options(includedEntries))}</div>
   );
 };

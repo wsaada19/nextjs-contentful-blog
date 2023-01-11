@@ -1,17 +1,22 @@
 import Layout from '@components/layouts/PageLayout';
 import { getAdvancedTeamData } from '@services/nbaService/nbaClient';
 import { sortBy } from '@utilities';
-import { addScatterPlot } from 'graphs/nbaScatterplot';
+import { D3GraphContainer } from 'graphs/D3GraphContainer';
+import { addScatterPlot } from 'graphs/d3/nbaScatterplot';
 import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 
-export default function Chart({ teamData, lastUpdated }) {
-  const ref = useRef(null);
+export default function Chart({ lastUpdated }) {
+  const [teamData, setTeamData] = useState([]);
   useEffect(() => {
-    addScatterPlot(teamData, ref);
-  }, [teamData, ref]);
+    async function fetchData() {
+      const response = await getAdvancedTeamData();
+      setTeamData(response);
+    }
+    fetchData();
+  }, []);
   return (
     <Layout
       description="A scatter-plot comparing the offensive and defensive rating of all NBA teams"
@@ -19,18 +24,14 @@ export default function Chart({ teamData, lastUpdated }) {
     >
       <div className="md:px-8">
         <h1 className="pt-1 pb-2">NBA Rating Landscape</h1>
-        <p className="mb-4">
+        <p className="mb-2">
           A scatter plot comparing the offensive and defensive ratings for each NBA team. The data
           comes from <a href="https://www.nba.com/">nba.com</a>. Hover over the logos to view the
           offensive rating, defensive rating and the net rating.
         </p>
-        <div ref={ref}></div>
-        <p className="my-3 text-sm">Last updated {lastUpdated}.</p>
-        <TeamLeaderBoard
-          title="Top 10 Net Rating"
-          className="m-y-2"
-          teams={mostEfficientTeams(teamData)}
-        />
+        <D3GraphContainer graphId="nbaRatingPlot" data={teamData} />
+        <p className="my-2 text-sm">Last updated {lastUpdated}.</p>
+        <TeamLeaderBoard className="m-y-3" teams={mostEfficientTeams(teamData)} />
       </div>
     </Layout>
   );
@@ -53,9 +54,8 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teamData = await getAdvancedTeamData();
   const lastUpdated = new Date().toLocaleDateString();
   return {
-    props: { teamData, lastUpdated },
+    props: { lastUpdated },
   };
 };

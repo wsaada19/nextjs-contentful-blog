@@ -8,9 +8,13 @@ import { TeamData } from 'types/nbaTeamData';
 export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) {
   const width = WIDTH + MARGIN.LEFT + MARGIN.RIGHT;
   const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;
+
+  d3.select('#existing-graph').remove();
+
   const svg = d3
     .select(ref.current)
     .append('svg')
+    .attr('id', 'existing-graph')
     .attr('viewBox', `0 0 ${width} ${height}`)
     .attr('preserveAspectRatio', 'xMinYMin meet')
     .style('background-color', '#ecd6b6')

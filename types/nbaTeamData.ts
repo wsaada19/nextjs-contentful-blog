@@ -8,4 +8,5 @@ export type TeamData = {
   offRating: number;
   defRating: number;
   wins: number;
+  subscribers: number;
 };

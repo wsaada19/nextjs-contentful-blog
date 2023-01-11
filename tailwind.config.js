@@ -21,6 +21,7 @@ module.exports = {
         1025: '1.025',
       },
       colors: {
+        light: '#eee',
         blue: {
           400: '#0096FF',
           600: '#2565C7',

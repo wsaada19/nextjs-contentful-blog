@@ -15,16 +15,18 @@ export const HeroBanner = ({ title, image, summary }: HeroBannerProps) => {
       const { width, height } = image.file.details.image;
       return (
         <>
-          <Image
-            src={`https://${image.file.url}`}
-            alt={image.description}
-            width={width}
-            height={height}
-            layout="responsive"
-            loader={contentfulLoader}
-            priority
-          />
-          <h2 className="text-sm font-normal mt-2 text-black font-sans dark:text-white">
+          <div className="mt-2">
+            <Image
+              src={`https://${image.file.url}`}
+              alt={image.description}
+              width={width}
+              height={height}
+              layout="responsive"
+              loader={contentfulLoader}
+              priority
+            />
+          </div>
+          <h2 className="text-sm font-normal mt-2 mb-3 text-black font-sans dark:text-white">
             {summary}
           </h2>
         </>
@@ -33,7 +35,7 @@ export const HeroBanner = ({ title, image, summary }: HeroBannerProps) => {
   };
   return (
     <>
-      <h1 className="mb-7 text-center">{title}</h1>
+      <h1 className="text-center">{title}</h1>
       {getImage()}
     </>
   );
