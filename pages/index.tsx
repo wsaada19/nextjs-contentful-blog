@@ -23,7 +23,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
       <section>
         <h2 className="mb-3">Blog</h2>
         <ul>
-          {allPostsData.map(({ title, publishDate, slug, category }) => (
+          {allPostsData.splice(0, 3).map(({ title, publishDate, slug, category }) => (
             <li key={slug}>
               <LinkCard
                 className="mb-4 border-2 bg-blue-50 border-blue-500 text-blue-500 dark:bg-blue-700 dark:text-white"
