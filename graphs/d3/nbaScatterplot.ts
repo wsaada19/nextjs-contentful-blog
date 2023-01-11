@@ -23,7 +23,6 @@ export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) 
 
   const g = svg.append('g').attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-  // Tooltip
   var tooltip = d3
     .select(ref.current)
     .append('div')
