@@ -15,12 +15,16 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1;
           return (
-            <Link href={crumb.href} key={crumb.label}>
-              <a className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}>
-                <span className="hover:underline">{crumb.label}</span>
-                <span className="text-gray-400 px-1">{isLast ? '' : ' / '}</span>
-              </a>
-            </Link>
+            <>
+              <Link href={crumb.href} key={crumb.label}>
+                <a
+                  className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}
+                >
+                  <span className="hover:underline">{crumb.label}</span>
+                </a>
+              </Link>
+              <span className="text-gray-400 mx-1">{isLast ? '' : ' / '}</span>
+            </>
           );
         })}
       </div>
