@@ -1,8 +1,6 @@
 const MARGIN = { LEFT: 60, RIGHT: 30, TOP: 10, BOTTOM: 60 };
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 700 - MARGIN.TOP - MARGIN.BOTTOM;
-const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;
-const width = WIDTH + MARGIN.LEFT + MARGIN.RIGHT;
 
 import { sortBy } from '@utilities';
 import * as d3 from 'd3';
@@ -11,6 +9,8 @@ import { TeamData } from 'types/nbaTeamData';
 export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<any>) {
   d3.select('#reddit-graph').remove();
 
+  const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;
+  const width = WIDTH + MARGIN.LEFT + MARGIN.RIGHT;
   const svg = d3
     .select(ref.current)
     .append('svg')

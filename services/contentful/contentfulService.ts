@@ -4,7 +4,6 @@ import axios from 'axios';
 const baseUrl = process.env.CONTENTFUL_URL;
 const token = process.env.CONTENTFUL_API_KEY;
 
-// TODO: Add error handling
 type EntriesResponse<T> = {
   items: T[];
   includes: any;
