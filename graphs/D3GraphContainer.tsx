@@ -19,8 +19,12 @@ export const D3GraphContainer = ({ graphId, data = [] }: D3GraphContainerProps) 
 // TODO: Add way to pass data via contentful?
 const getGraphById = async (id: string, ref: React.RefObject<any>, data?: any[]): Promise<void> => {
   if (id === 'nbaRatingPlot') {
-    const teamData = await getAdvancedTeamData();
-    addScatterPlot(teamData, ref);
+    if (data.length > 0) {
+      addScatterPlot(data, ref);
+    } else {
+      const teamData = await getAdvancedTeamData();
+      addScatterPlot(teamData, ref);
+    }
   } else if (id === 'nbaRedditGraph') {
     const teamData = await getAdvancedTeamData();
     addRedditBarChart(teamData, ref);

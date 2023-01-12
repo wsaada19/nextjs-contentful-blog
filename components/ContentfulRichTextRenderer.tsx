@@ -9,7 +9,9 @@ import { D3GraphContainer } from 'graphs/D3GraphContainer';
 const options = (linkedEntries): any => ({
   renderMark: {
     [MARKS.BOLD]: (text) => <span className="font-medium">{text}</span>,
-    [MARKS.CODE]: (text) => <code className="break-words">{text}</code>,
+    [MARKS.CODE]: (text) => (
+      <code className="break-words text-yellow-700 font-semibold">{text}</code>
+    ),
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-base py-1">{children}</p>,

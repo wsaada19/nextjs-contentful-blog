@@ -7,16 +7,9 @@ import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useEffect, useRef, useState } from 'react';
 import { TeamData } from 'types/nbaTeamData';
+import axios from 'axios';
 
-export default function Chart({ lastUpdated }) {
-  const [teamData, setTeamData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getAdvancedTeamData();
-      setTeamData(response);
-    }
-    fetchData();
-  }, []);
+export default function Chart({ lastUpdated, teamData }) {
   return (
     <Layout
       description="A scatter-plot comparing the offensive and defensive rating of all NBA teams"
@@ -55,7 +48,10 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const lastUpdated = new Date().toLocaleDateString();
+  const baseUrl = process.env.NBA_DATA_URL;
+  const teamData = await axios.get(`${baseUrl}/nbaTeamEfficiency.json`);
+
   return {
-    props: { lastUpdated },
+    props: { lastUpdated, teamData: teamData.data },
   };
 };
