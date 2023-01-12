@@ -37,13 +37,14 @@ const options = (linkedEntries): any => ({
       if (entry) {
         if (entry.sys.contentType.sys.id === ContentfulContentType.CodeSnippet) {
           return (
-            <CodeBlock
-              className="mb-4"
-              text={entry.fields.codeBlock}
-              language={entry.fields.language}
-              showLineNumbers={false}
-              theme={atomOneDark}
-            />
+            <div className="my-1">
+              <CodeBlock
+                text={entry.fields.codeBlock}
+                language={entry.fields.language}
+                showLineNumbers={false}
+                theme={atomOneDark}
+              />
+            </div>
           );
         } else if (entry.sys.contentType.sys.id === ContentfulContentType.D3Graph) {
           return <D3GraphContainer graphId={entry.fields.graphId} />;

@@ -7,6 +7,7 @@ import { GetStaticProps } from 'next';
 import Layout from '@components/layouts/PageLayout';
 import React from 'react';
 import { sortBy } from '@utilities';
+import Link from 'next/link';
 
 type HomeProps = {
   allPostsData: Post[];
@@ -35,6 +36,9 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
             </li>
           ))}
         </ul>
+        <Link href="/blog">
+          <a className="hover:underline">See more</a>
+        </Link>
       </section>
       <section>
         <h2 className="mt-5 mb-3">Projects</h2>
@@ -64,7 +68,7 @@ export const getStaticProps: GetStaticProps = async () => {
       allPostsData: sortBy<Post>(
         (p) => p.publishDate,
         posts.items.filter((post) => post.category === 'blog')
-      ),
+      ).splice(0, 3),
       homePageData: homePage.items[0],
       projects: posts.items.filter((post) => post.category === 'portfolio'),
     },
