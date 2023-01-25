@@ -60,7 +60,7 @@ h6 {
   @apply text-blue-800 dark:text-white;
 }
 
-.tooltip {
+.test-tooltip {
   position: absolute;
   text-align: center;
   width: auto;
@@ -73,7 +73,7 @@ h6 {
   pointer-events: none;
 }
 
-.tooltip p {
+.test-tooltip p {
   padding: 0;
   margin: 0;
   text-align: left;
@@ -81,7 +81,7 @@ h6 {
 
 @media only screen and (max-width: 600px) {
   .test-tooltip {
-    padding: 2px;
+    padding: 4px;
   }
 
   .test-tooltip p {
