@@ -1,6 +1,6 @@
-const MARGIN = { LEFT: 60, RIGHT: 30, TOP: 30, BOTTOM: 60 };
+const MARGIN = { LEFT: 60, RIGHT: 20, TOP: 20, BOTTOM: 60 };
 const WIDTH = 720 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 550 - MARGIN.TOP - MARGIN.BOTTOM;
+const HEIGHT = 530 - MARGIN.TOP - MARGIN.BOTTOM;
 
 import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
@@ -23,11 +23,7 @@ export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) 
 
   const g = svg.append('g').attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-  var tooltip = d3
-    .select(ref.current)
-    .append('div')
-    .attr('class', 'test-tooltip')
-    .style('opacity', '0');
+  var tooltip = d3.select(ref.current).append('div').attr('class', 'tooltip').style('opacity', '0');
 
   addLabels(g);
 

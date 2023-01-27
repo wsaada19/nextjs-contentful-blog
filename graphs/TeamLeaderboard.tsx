@@ -11,7 +11,7 @@ export const TeamLeaderBoard = ({ teams, className }: TeamLeaderBoardProps) => {
   return (
     <div className={`text-sm ${className}`}>
       <table className="text-white w-full">
-        <thead className="text-sm border border-gray-400 border-b-0 h-6 bg-blue-900">
+        <thead className="text-sm h-6 bg-blue-900 md:border md:border-gray-400 md:border-b-0">
           <tr>
             <th></th>
             <th></th>
@@ -26,7 +26,7 @@ export const TeamLeaderBoard = ({ teams, className }: TeamLeaderBoardProps) => {
           {teams.map((team, index) => {
             return (
               <tr
-                className="bg-gray-100 text-black border border-gray-400 border-t-0 even:bg-light"
+                className="text-black border border-gray-400 border-t-0 even:bg-light"
                 key={team.name}
               >
                 <td className="pl-4 w-1/12">{index + 1}</td>
