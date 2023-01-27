@@ -5,7 +5,7 @@ const HEIGHT = 530 - MARGIN.TOP - MARGIN.BOTTOM;
 import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
 
-export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) {
+export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<HTMLDivElement>) {
   const width = WIDTH + MARGIN.LEFT + MARGIN.RIGHT;
   const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;
 
@@ -18,12 +18,15 @@ export function addScatterPlot(teamData: TeamData[], ref: React.RefObject<any>) 
     .attr('viewBox', `0 0 ${width} ${height}`)
     .attr('preserveAspectRatio', 'xMinYMin meet')
     .style('background-color', '#ecd6b6')
-    .style('border', '0.5px solid black')
     .style('margin', '0 auto');
 
   const g = svg.append('g').attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-  var tooltip = d3.select(ref.current).append('div').attr('class', 'tooltip').style('opacity', '0');
+  const tooltip = d3
+    .select(ref.current)
+    .append('div')
+    .attr('class', 'tooltip')
+    .style('opacity', '0');
 
   addLabels(g);
 

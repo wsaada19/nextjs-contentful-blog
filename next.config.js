@@ -1,4 +1,4 @@
-module.exports = (phase, { defaultConfig }) => {
+module.exports = () => {
   /**
    * @type {import('next').NextConfig}
    */

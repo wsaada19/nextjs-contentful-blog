@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types';
 import { GistCode } from './GistCode';
 import React from 'react';
