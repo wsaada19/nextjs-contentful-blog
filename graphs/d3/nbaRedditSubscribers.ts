@@ -6,7 +6,7 @@ import { sortBy } from '@utilities';
 import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
 
-export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<any>) {
+export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<HTMLDivElement>) {
   d3.select('#reddit-graph').remove();
 
   const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;

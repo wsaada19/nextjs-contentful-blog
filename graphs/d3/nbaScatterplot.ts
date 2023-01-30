@@ -1,6 +1,6 @@
 const MARGIN = { LEFT: 60, RIGHT: 20, TOP: 20, BOTTOM: 60 };
-const WIDTH = 720 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 530 - MARGIN.TOP - MARGIN.BOTTOM;
+const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT = 510 - MARGIN.TOP - MARGIN.BOTTOM;
 
 import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
@@ -91,7 +91,7 @@ const addLabels = (g) => {
     .attr('class', 'x axis-label')
     .attr('x', WIDTH / 2)
     .attr('y', HEIGHT + 40)
-    .attr('font-size', '20px')
+    .attr('font-size', '18px')
     .attr('text-anchor', 'middle')
     .style('font-weight', 'bold')
     .style('fill', '#14376c')
@@ -101,7 +101,7 @@ const addLabels = (g) => {
     .attr('class', 'y axis-label')
     .attr('x', -(HEIGHT / 2))
     .attr('y', -30)
-    .attr('font-size', '20px')
+    .attr('font-size', '18px')
     .style('font-weight', 'bold')
     .attr('text-anchor', 'middle')
     .attr('transform', 'rotate(-90)')
