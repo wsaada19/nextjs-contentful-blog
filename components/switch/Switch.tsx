@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import styles from './switch.module.scss';
 
 type SwitchProps = {
   className?: string;
@@ -13,7 +12,7 @@ export const Switch = ({ className }: SwitchProps) => {
   return (
     <label className={className} htmlFor="toggle-switch">
       <input
-        className={`${styles.toggleSwitch} cursor-pointer rounded-full shadow-md appearance-none bg-blue-500 dark:bg-white h-6 w-12 border-1 border-blue-600 checked-bg-blue-600 transition duration-200 relative`}
+        className="toggle-switch cursor-pointer rounded-full shadow-md appearance-none bg-blue-500 dark:bg-white h-6 w-12 border-1 border-blue-600 checked-bg-blue-600 transition duration-200 relative"
         type="checkbox"
         role="switch"
         id="toggle-switch"

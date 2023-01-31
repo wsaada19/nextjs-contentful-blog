@@ -42,11 +42,11 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
       </section>
       <section>
         <h2 className="mt-5 mb-3">Projects</h2>
-        <ul className="flex justify-start flex-wrap lg:justify-between">
+        <ul className="flex justify-start flex-wrap">
           {projects.map(({ title, slug, color }) => (
-            <li className="w-full text-center mb-4 mr-2 md:w-auto md:text-left" key={slug}>
+            <li className="w-full text-center mb-4 mr-2" key={slug}>
               <LinkCard
-                className={`text-white md:text-left ${color ?? 'bg-blue-600'}`}
+                className={`text-white ${color ?? 'bg-blue-600'}`}
                 href={`/portfolio/${slug}`}
               >
                 <div className="font-semibold">{title}</div>
