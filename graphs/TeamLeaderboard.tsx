@@ -1,6 +1,6 @@
 import React from 'react';
 import { TeamData } from 'types/nbaTeamData';
-import Image from 'next/image';
+import Image from "next/image";
 
 export type TeamLeaderBoardProps = {
   teams: TeamData[];
@@ -32,7 +32,15 @@ export const TeamLeaderBoard = ({ teams, className }: TeamLeaderBoardProps) => {
                 <td className="pl-4 w-1/12">{index + 1}</td>
                 <td className="w-4">
                   <div className="mt-2">
-                    <Image src={team.logo} height={24} width={24} alt={`${team.name} logo`}></Image>
+                    <Image
+                      src={team.logo}
+                      height={24}
+                      width={24}
+                      alt={`${team.name} logo`}
+                      style={{
+                        maxWidth: "100%",
+                        height: "auto"
+                      }}></Image>
                   </div>
                 </td>
                 <td className="w-10 font-semibold">{`${team.name}`}</td>

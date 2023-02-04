@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/image";
 
 export const Footer = (): JSX.Element => {
   return (
@@ -16,10 +16,26 @@ export const Footer = (): JSX.Element => {
       </Link>
       <span className="flex float-right">
         <Link passHref className="px-2" href="https://github.com/wsaada19">
-          <Image src="/images/github.svg" height={24} width={24} alt="Github logo"></Image>
+          <Image
+            src="/images/github.svg"
+            height={24}
+            width={24}
+            alt="Github logo"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }}></Image>
         </Link>
         <Link passHref className="px-2" href="https://www.linkedin.com/in/william-saada/">
-          <Image src="/images/linkedin.svg" height={24} width={24} alt="Linkedin logo"></Image>
+          <Image
+            src="/images/linkedin.svg"
+            height={24}
+            width={24}
+            alt="Linkedin logo"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }}></Image>
         </Link>
       </span>
     </footer>
