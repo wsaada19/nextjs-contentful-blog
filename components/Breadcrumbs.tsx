@@ -16,12 +16,12 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
           const isLast = index === crumbs.length - 1;
           return (
             <React.Fragment key={crumb.label}>
-              <Link href={crumb.href}>
-                <a
-                  className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}
-                >
-                  <span className="hover:underline">{crumb.label}</span>
-                </a>
+              <Link
+                href={crumb.href}
+                passHref
+                className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}
+              >
+                <span className="hover:underline">{crumb.label}</span>
               </Link>
               <span className="text-gray-400 mx-1">{isLast ? '' : ' / '}</span>
             </React.Fragment>
