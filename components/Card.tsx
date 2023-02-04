@@ -22,10 +22,8 @@ type LinkCardProps = CardProps & {
 
 export const LinkCard = ({ children, href, className = '' }: LinkCardProps) => {
   return (
-    <Link href={href}>
-      <a>
-        <Card className={className}>{children}</Card>
-      </a>
+    <Link href={href} passHref>
+      <Card className={className}>{children}</Card>
     </Link>
   );
 };

@@ -36,12 +36,12 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
             </li>
           ))}
         </ul>
-        <Link href="/blog">
-          <a className="hover:underline">See more</a>
+        <Link href="/blog" className="hover:underline">
+          See more
         </Link>
       </section>
       <section>
-        <h2 className="mt-5 mb-3">Projects</h2>
+        <h2 className="mt-3 mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap">
           {projects.map(({ title, slug, color }) => (
             <li className="w-full text-center mb-4 mr-2" key={slug}>
