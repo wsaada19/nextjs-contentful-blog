@@ -31,7 +31,7 @@ export const TeamLeaderBoard = ({ teams, className }: TeamLeaderBoardProps) => {
               >
                 <td className="pl-4 w-1/12">{index + 1}</td>
                 <td className="w-4">
-                  <div className="pt-2">
+                  <div className="mt-2">
                     <Image src={team.logo} height={24} width={24} alt={`${team.name} logo`}></Image>
                   </div>
                 </td>

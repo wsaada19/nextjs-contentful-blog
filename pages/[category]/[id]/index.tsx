@@ -6,8 +6,8 @@ import { Breadcrumbs } from '@components/Breadcrumbs';
 import { ContentfulRichTextRenderer } from '@components/ContentfulRichTextRenderer';
 import { HeroBanner } from '@components/HeroBanner';
 import PageLayout from '@components/layouts/PageLayout';
-import { ArticleLd } from '@components/schema/ArticleLd';
 import { capitalizeFirstLetter } from '@utilities';
+import { ArticleLd } from '@components/schema/SchemaComponents';
 
 export default function PostPage({ post, image, includedEntries }: PostLayoutProps) {
   const { title, shortSummary, summary, publishDate } = post;

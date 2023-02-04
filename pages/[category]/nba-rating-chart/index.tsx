@@ -20,7 +20,7 @@ export default function Chart({ lastUpdated, teamData }) {
         offensive rating, defensive rating and the net rating.
       </p>
       <D3GraphContainer graphId="nbaRatingPlot" data={teamData} />
-      <p className="my-2 text-sm">Last updated {lastUpdated}.</p>
+      <p className="my-3 text-sm">Last updated {lastUpdated}</p>
       <TeamLeaderBoard className="m-y-3" teams={mostEfficientTeams(teamData)} />
     </Layout>
   );

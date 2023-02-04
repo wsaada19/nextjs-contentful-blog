@@ -17,3 +17,9 @@ export type Post = {
   color: string;
   category: string;
 };
+
+export type ArticleLdProps = {
+  description: string;
+  title: string;
+  datePublished: string;
+};

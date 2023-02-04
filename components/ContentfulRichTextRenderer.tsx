@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { BLOCKS, Document, INLINES, MARKS } from '@contentful/rich-text-types';
-import { GistCode } from './GistCode';
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { atomOneDark, CodeBlock } from 'react-code-blocks';
@@ -23,9 +22,6 @@ const options = (linkedEntries): any => ({
       return <h4 className="my-1 text-blue-800">{children}</h4>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
-      if (node.data.uri.includes('api.github.com') && node.content[0].value) {
-        return <GistCode gistId={node.data.uri} fileName={node.content[0].value} />;
-      }
       return (
         <a className="hover:underline dark:text-blue-400" href={node.data.uri}>
           {children}
@@ -38,7 +34,7 @@ const options = (linkedEntries): any => ({
       if (entry) {
         if (entry.sys.contentType.sys.id === ContentfulContentType.CodeSnippet) {
           return (
-            <div className="my-1">
+            <div className="my-3">
               <CodeBlock
                 text={entry.fields.codeBlock}
                 language={entry.fields.language}

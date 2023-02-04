@@ -3,7 +3,6 @@ export * from './Breadcrumbs';
 export * from './Card';
 export * from './ContentfulRichTextRenderer';
 export * from './Date';
-export * from './GistCode';
 export * from './HeroBanner';
 export * from './layouts/PageLayout';
 export * from './Navigation';
