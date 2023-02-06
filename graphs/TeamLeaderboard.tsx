@@ -26,7 +26,7 @@ export const TeamLeaderBoard = ({ teams, className }: TeamLeaderBoardProps) => {
           {teams.map((team, index) => {
             return (
               <tr
-                className="h-6 text-black border border-gray-400 border-t-0 dark:bg-white even:bg-light dark:even:bg-light"
+                className="h-8 text-black border border-gray-400 border-t-0 dark:bg-white even:bg-light dark:even:bg-light"
                 key={team.name}
               >
                 <td className="pl-4 w-1/12">{index + 1}</td>

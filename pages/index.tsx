@@ -27,7 +27,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
           {allPostsData.map(({ title, publishDate, slug, category }) => (
             <li key={slug}>
               <LinkCard
-                className="mb-4 border-2 bg-blue-50 border-blue-500 text-blue-500 dark:bg-blue-700 dark:text-white"
+                className="mb-4 border-2 border-blue-400 dark:border-gray-100 bg-blue-600 text-white"
                 href={`/${category}/${slug}`}
               >
                 <div className="font-semibold">{title}</div>
@@ -41,7 +41,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
         </Link>
       </section>
       <section>
-        <h2 className="mt-3 mb-3">Projects</h2>
+        <h2 className="mt-2 mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap">
           {projects.map(({ title, slug, color }) => (
             <li className="w-full text-center mb-4 mr-2" key={slug}>
