@@ -1,8 +1,9 @@
 import { ArticleLdProps, LinkType } from '@types';
+const schema = 'https://schema.org';
 
 export const getBreadcrumbsJsonLd = (crumbs: LinkType[]) => {
   const breadcrumbs = {
-    '@context': 'https://schema.org',
+    '@context': schema,
     '@type': 'BreadcrumbList',
     itemListElement: crumbs.map((crumb, index) => {
       return { '@type': 'ListItem', position: index + 1, name: crumb.label, item: crumb.href };
@@ -11,13 +12,13 @@ export const getBreadcrumbsJsonLd = (crumbs: LinkType[]) => {
   return JSON.stringify(breadcrumbs);
 };
 
-export const getArticleLd = (article: ArticleLdProps) => {
+export const getArticleLd = ({ title, description, datePublished }: ArticleLdProps) => {
   const articleSchema = {
-    '@context': 'https://schema.org',
+    '@context': schema,
     '@type': 'Article',
-    headline: article.title,
-    description: article.description,
-    datePublished: article.datePublished,
+    headline: title,
+    description: description,
+    datePublished: datePublished,
   };
   return JSON.stringify(articleSchema);
 };

@@ -19,21 +19,13 @@ export default function Resume() {
             <Section title="Relevant Skills">
               <h4 className="text-lg font-semibold">Advanced</h4>
               <List
-                items={[
-                  'JavaScript',
-                  'Node',
-                  'React & Vue',
-                  'Azure',
-                  'C#',
-                  'HTML/CSS',
-                  'DevOps & Testing',
-                ]}
+                items={['JavaScript', 'Node', 'React & Vue', 'Azure', 'C#', 'DevOps & Testing']}
               />
               <h4 className="text-lg font-semibold">Experience with</h4>
-              <List items={['Next.js', 'Node & Express', 'CosmosDB & SQL', 'AWS', 'Unity']} />
+              <List items={['Next.js', 'Express & Fastify', 'CosmosDB & SQL', 'AWS', 'Unity']} />
             </Section>
             <Section title="Education">
-              <p className="font-semibold">Univeristy of Richmond</p>
+              <p className="font-semibold">University of Richmond</p>
               <p>Class of 2019</p>
               <p>Computer Science and Mathematics</p>
             </Section>
@@ -108,7 +100,7 @@ const jobs = [
     company: 'Capital One',
     location: 'Richmond, VA',
     date: '2022 - Present',
-    bullets: ['A full stack web developer working on an internal tool for call center agents.'],
+    bullets: ['Developing a internal web application for call center agents with Node.js and Vue.'],
   },
   {
     title: 'Software Engineer II',
@@ -130,7 +122,7 @@ const jobs = [
     bullets: [
       'Developed a UI for a Knowledge Based Authentication system using React, Azure and .Net Core.',
       "Created our team's DevOps pipelines from scratch with Azure DevOps, fully automating our code integration and deployment process.",
-      'Built acceptance tests using Puppeteer and Specflow to improve our confidence in releasing code frequently into production.',
+      'Built acceptance tests using Puppeteer and Specflow to increase our confidence in frequently releasing code into production.',
     ],
   },
   {
