@@ -15,9 +15,9 @@ export default function Chart({ lastUpdated, teamData }) {
     >
       <h1 className="pt-1 pb-2">NBA Rating Landscape</h1>
       <p className="mb-2">
-        A scatter plot comparing the offensive and defensive ratings for each NBA team. The data
-        comes from <a href="https://www.nba.com/">nba.com</a>. Hover over the logos to view the
-        offensive rating, defensive rating and the net rating.
+        A scatter plot comparing the offensive and defensive ratings for each NBA team in the
+        2022-23 season. The data comes from <a href="https://www.nba.com/">nba.com</a>. Hover over
+        the logos to view the offensive, defensive and net rating for each team.
       </p>
       <D3GraphContainer graphId="nbaRatingPlot" data={teamData} />
       <p className="my-3 text-sm">Last updated {lastUpdated}</p>

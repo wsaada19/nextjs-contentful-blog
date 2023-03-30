@@ -51,7 +51,7 @@ const Section = ({ title, children }: SectionProps) => {
   return (
     <>
       <h3 className="text-xl py-1 font-semibold">{title}</h3>
-      <hr className="bg-blue-600 h-0.5 mb-0.5" />
+      <hr className="bg-blue-600 h-0.5 mb-0.5 dark:bg-white" />
       {children}
     </>
   );
