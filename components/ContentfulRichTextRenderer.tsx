@@ -16,10 +16,16 @@ const options = (linkedEntries): any => ({
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-base py-1">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
-      return <h3 className="my-1 text-blue-800">{children}</h3>;
+      return <h3 className="my-2 text-blue-800">{children}</h3>;
     },
     [BLOCKS.HEADING_4]: (node, children) => {
       return <h4 className="my-1 text-blue-800">{children}</h4>;
+    },
+    [BLOCKS.UL_LIST]: (node, children) => {
+      return <ul className="my-1 list-decimal list-inside">{children}</ul>;
+    },
+    [BLOCKS.LIST_ITEM]: (node, children) => {
+      return <li className="text-base py-1">{children[0].props.children[0]}</li>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
       return (

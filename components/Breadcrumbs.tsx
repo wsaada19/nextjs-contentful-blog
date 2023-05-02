@@ -19,7 +19,11 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbsProps) => {
               <Link
                 href={crumb.href}
                 passHref
-                className={`${isLast ? 'text-gray-400 cursor-default pointer-events-none' : ''}`}
+                className={`${
+                  isLast
+                    ? 'text-gray-400 cursor-default pointer-events-none dark:text-gray-400'
+                    : ''
+                }`}
               >
                 <span className="hover:underline">{crumb.label}</span>
               </Link>
