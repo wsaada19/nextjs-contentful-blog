@@ -14,7 +14,7 @@ export default function PostPage({ post, image, includedEntries }: PostLayoutPro
   return (
     <PageLayout description={shortSummary} title={title} hideLinks>
       <ArticleLd description={shortSummary} title={title} datePublished={publishDate} />
-      <article className="md:px-8">
+      <article className="md:px-10">
         <Breadcrumbs
           crumbs={[
             { label: 'Home', href: '/' },
