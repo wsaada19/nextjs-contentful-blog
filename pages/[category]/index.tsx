@@ -63,9 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   let posts = contentfulPosts.items.filter((post) => {
     return post.category === params.category;
   });
-  if (params.category == 'blog') {
-    posts = sortBy<Post>((p) => p.publishDate, posts);
-  }
+  posts = sortBy<Post>((p) => p.publishDate, posts);
   return {
     props: {
       posts,

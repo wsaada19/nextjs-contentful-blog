@@ -7,7 +7,7 @@ export default function Resume() {
       <div className="rounded-lg border p-4 border-solid border-gray-400 mt-2">
         <h1 className="text-5xl pb-3 ">Will Saada</h1>
         <h2 className="text-2xl pb-2 text-blue-600">Full Stack Software Engineer</h2>
-        <div className="md:grid grid-cols-3 gap-4">
+        <div className="text-lg md:grid grid-cols-3 gap-4">
           <div className="col-span-2">
             <Section title="Work Experience">
               {jobs.map((job) => {
@@ -17,7 +17,7 @@ export default function Resume() {
           </div>
           <div className="col-span-1">
             <Section title="Relevant Skills">
-              <h4 className="text-lg font-semibold">Advanced</h4>
+              <h4 className="text-xl font-semibold">Advanced</h4>
               <List
                 items={['JavaScript', 'Node', 'React & Vue', 'Azure', 'C#', 'DevOps & Testing']}
               />
@@ -69,9 +69,9 @@ const Job = ({ title, company, location, date, bullets }: JobProps) => {
   return (
     <div className="mb-1">
       <p>
-        <strong>{title}</strong> {date}
+        <strong className="underline">{title}</strong> {`(${date})`}
       </p>
-      <p className="text-sm">
+      <p className="text-md">
         {company}, {location}
       </p>
       <List items={bullets} />
@@ -85,7 +85,7 @@ type ListProps = {
 
 const List = ({ items }: ListProps) => {
   return (
-    <ul className="list-disc pl-4 text-sm">
+    <ul className="list-disc pl-4 text-md">
       {items.map((item) => (
         <li key={item}>{item}</li>
       ))}
@@ -96,10 +96,17 @@ const List = ({ items }: ListProps) => {
 // TODO: move data to Contentful
 const jobs = [
   {
+    title: 'Principal Associate Software Engineer',
+    company: 'Capital One',
+    location: 'Richmond, VA',
+    date: '2023 - Present',
+    bullets: ['Working on an internal platform for managing micro-frontends at scale.'],
+  },
+  {
     title: 'Senior Associate Software Engineer',
     company: 'Capital One',
     location: 'Richmond, VA',
-    date: '2022 - Present',
+    date: '2022 - 2023',
     bullets: ['Developing a internal web application for call center agents with Node.js and Vue.'],
   },
   {

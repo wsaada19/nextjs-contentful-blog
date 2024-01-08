@@ -70,7 +70,10 @@ export const getStaticProps: GetStaticProps = async () => {
         posts.items.filter((post) => post.category === 'blog')
       ).splice(0, 3),
       homePageData: homePage.items[0],
-      projects: posts.items.filter((post) => post.category === 'portfolio'),
+      projects: sortBy<Post>(
+        (p) => p.publishDate,
+        posts.items.filter((post) => post.category === 'portfolio')
+      ),
     },
   };
 };
