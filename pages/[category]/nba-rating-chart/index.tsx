@@ -3,11 +3,19 @@ import { sortBy } from '@utilities';
 import { D3GraphContainer } from 'graphs/D3GraphContainer';
 import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import React from 'react';
+import React, { useState } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 import axios from 'axios';
 
-export default function Chart({ lastUpdated, teamData }) {
+export default function Chart({ lastUpdated, teamData, pastTeamData }) {
+  const [data, setData] = useState('current');
+  const changeData = () => {
+    if (data === 'current') {
+      setData('past');
+    } else {
+      setData('current');
+    }
+  };
   return (
     <Layout
       description="A scatter-plot comparing the offensive and defensive rating of all NBA teams"
@@ -16,12 +24,21 @@ export default function Chart({ lastUpdated, teamData }) {
       <h1 className="pt-1 pb-2">NBA Rating Landscape</h1>
       <p className="mb-2">
         A scatter plot comparing the offensive and defensive ratings for each NBA team in the
-        2022-23 season. The data comes from <a href="https://www.nba.com/">nba.com</a>. Hover over
+        2023-24 season. The data comes from <a href="https://www.nba.com/">nba.com</a>. Hover over
         the logos to view the offensive, defensive and net rating for each team.
       </p>
-      <D3GraphContainer graphId="nbaRatingPlot" data={teamData} />
+      <button className="text-blue-500 hover:underline" onClick={changeData}>{`${
+        data === 'current' ? 'See Last Season' : 'See Current Season'
+      }`}</button>
+      <D3GraphContainer
+        graphId="nbaRatingPlot"
+        data={data === 'current' ? teamData : pastTeamData}
+      />
       <p className="my-3 text-sm">Last updated {lastUpdated}</p>
-      <TeamLeaderBoard className="m-y-3" teams={mostEfficientTeams(teamData)} />
+      <TeamLeaderBoard
+        className="m-y-3"
+        teams={mostEfficientTeams(data === 'current' ? teamData : pastTeamData)}
+      />
     </Layout>
   );
 }
@@ -45,9 +62,10 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async () => {
   const lastUpdated = new Date().toLocaleDateString();
   const baseUrl = process.env.NBA_DATA_URL;
-  const teamData = await axios.get(`${baseUrl}/nbaTeamEfficiency.json`);
+  const teamData = await axios.get(`${baseUrl}/nbaTeamEfficiency24.json`);
+  const pastTeamData = await axios.get(`${baseUrl}/nbaTeamEfficiency.json`);
 
   return {
-    props: { lastUpdated, teamData: teamData.data },
+    props: { lastUpdated, teamData: teamData.data, pastTeamData: pastTeamData.data },
   };
 };

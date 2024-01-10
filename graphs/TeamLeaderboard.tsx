@@ -9,9 +9,9 @@ export type TeamLeaderBoardProps = {
 
 export const TeamLeaderBoard = ({ teams, className }: TeamLeaderBoardProps) => {
   return (
-    <div className={`text-sm ${className}`}>
+    <div className={`text-base ${className}`}>
       <table className="text-white w-full">
-        <thead className="text-sm h-8 bg-blue-900 md:border md:border-gray-400 md:border-b-0">
+        <thead className="text-base h-8 bg-blue-900 md:border md:border-gray-400 md:border-b-0">
           <tr>
             <th></th>
             <th></th>
