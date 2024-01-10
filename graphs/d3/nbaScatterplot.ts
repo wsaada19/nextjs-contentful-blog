@@ -1,6 +1,6 @@
 const MARGIN = { LEFT: 60, RIGHT: 20, TOP: 20, BOTTOM: 60 };
-const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 510 - MARGIN.TOP - MARGIN.BOTTOM;
+const WIDTH = 680 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT = 480 - MARGIN.TOP - MARGIN.BOTTOM;
 
 import * as d3 from 'd3';
 import { TeamData } from 'types/nbaTeamData';
