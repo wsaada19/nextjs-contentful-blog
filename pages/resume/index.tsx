@@ -69,7 +69,7 @@ const Job = ({ title, company, location, date, bullets }: JobProps) => {
   return (
     <div className="mb-1">
       <p>
-        <strong className="underline">{title}</strong> {`(${date})`}
+        <strong>{title}</strong> {`(${date})`}
       </p>
       <p className="text-md">
         {company}, {location}
