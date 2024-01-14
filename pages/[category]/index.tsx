@@ -22,9 +22,7 @@ export default function BlogPosts({ posts, page }: BlogProps) {
           <li key={title}>
             <LinkCard
               href={`/${category}/${slug}`}
-              className={`text-xl block border-2 $'text-white border-gray-200 text-white mb-6 ${
-                color ?? 'bg-blue-600'
-              }`}
+              className={`text-xl block $'text-white text-white mb-6 ${color ?? 'bg-blue-600'}`}
             >
               <div className="font-semibold">{title}</div>
               <p
