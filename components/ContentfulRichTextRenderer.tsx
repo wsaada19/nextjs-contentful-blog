@@ -21,6 +21,9 @@ const options = (linkedEntries): any => ({
     [BLOCKS.HEADING_4]: (node, children) => {
       return <h4 className="my-1 text-blue-800">{children}</h4>;
     },
+    [BLOCKS.HEADING_5]: (node, children) => {
+      return <h5 className="my-1 text-blue-800">{children}</h5>;
+    },
     [BLOCKS.UL_LIST]: (node, children) => {
       return <ul className="my-1 list-decimal list-inside">{children}</ul>;
     },
