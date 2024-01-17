@@ -6,6 +6,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useState } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 import axios from 'axios';
+import { getEntriesOfType } from '@services/contentful';
 
 export default function Chart({ lastUpdated, teamData, pastTeamData }) {
   const [data, setData] = useState('current');
@@ -60,8 +61,10 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const lastUpdated = new Date().toLocaleDateString();
+  const lastUpdated = new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
   const baseUrl = process.env.NBA_DATA_URL;
+  // TODO move json data to contentful
+  // const contentfulD3Data = getEntriesOfType<D3Graph>(ContentfulContentType.D3Graph);
   const teamData = await axios.get(`${baseUrl}/nbaTeamEfficiency24.json`);
   const pastTeamData = await axios.get(`${baseUrl}/nbaTeamEfficiency.json`);
 
