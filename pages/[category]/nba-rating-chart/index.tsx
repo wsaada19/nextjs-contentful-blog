@@ -5,8 +5,8 @@ import { TeamLeaderBoard } from 'graphs/TeamLeaderboard';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useState } from 'react';
 import { TeamData } from 'types/nbaTeamData';
-import axios from 'axios';
-import { getEntriesOfType } from '@services/contentful';
+import { ContentfulContentType, getEntriesOfType } from '@services/contentful';
+import { D3Graph } from 'types/d3Graphic';
 
 export default function Chart({ lastUpdated, teamData, pastTeamData }) {
   const [data, setData] = useState('current');
@@ -62,13 +62,11 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const lastUpdated = new Date().toLocaleDateString('en-US', { timeZone: 'America/New_York' });
-  const baseUrl = process.env.NBA_DATA_URL;
-  // TODO move json data to contentful
-  // const contentfulD3Data = getEntriesOfType<D3Graph>(ContentfulContentType.D3Graph);
-  const teamData = await axios.get(`${baseUrl}/nbaTeamEfficiency24.json`);
-  const pastTeamData = await axios.get(`${baseUrl}/nbaTeamEfficiency.json`);
+  const contentfulD3Data = await getEntriesOfType<D3Graph>(ContentfulContentType.D3Graph);
+  const pastTeamData = contentfulD3Data.items.find((data) => data.graphId === 'nbaNetRating22');
+  const teamData = contentfulD3Data.items.find((data) => data.graphId === 'nbaNetRating23');
 
   return {
-    props: { lastUpdated, teamData: teamData.data, pastTeamData: pastTeamData.data },
+    props: { lastUpdated, teamData: teamData.graphData, pastTeamData: pastTeamData.graphData },
   };
 };

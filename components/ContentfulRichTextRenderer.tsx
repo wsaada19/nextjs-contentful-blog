@@ -53,7 +53,7 @@ const options = (linkedEntries): any => ({
             </div>
           );
         } else if (entry.sys.contentType.sys.id === ContentfulContentType.D3Graph) {
-          return <D3GraphContainer graphId={entry.fields.graphId} />;
+          return <D3GraphContainer graphId={entry.fields.graphId} data={entry.fields.graphData} />;
         }
       }
     },

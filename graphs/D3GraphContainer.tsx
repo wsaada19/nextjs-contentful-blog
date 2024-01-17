@@ -1,4 +1,3 @@
-import { getAdvancedTeamData } from '@services/nbaService/nbaClient';
 import React, { useEffect, useRef } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 import { addRedditBarChart } from './d3/nbaRedditSubscribers';
@@ -17,21 +16,18 @@ export const D3GraphContainer = ({ graphId, data = [] }: D3GraphContainerProps) 
   return <div className="my-2" ref={ref}></div>;
 };
 
-// TODO: Add way to pass data via contentful?
-const getGraphById = async (
+const getGraphById = (
   id: string,
   ref: React.RefObject<HTMLDivElement>,
   data?: TeamData[]
-): Promise<void> => {
+): void => {
   if (id === 'nbaRatingPlot') {
     if (data.length > 0) {
       addScatterPlot(data, ref);
     } else {
-      const teamData = await getAdvancedTeamData();
-      addScatterPlot(teamData, ref);
+      addScatterPlot(data, ref);
     }
   } else if (id === 'nbaRedditGraph') {
-    const teamData = await getAdvancedTeamData();
-    addRedditBarChart(teamData, ref);
+    addRedditBarChart(data, ref);
   }
 };
