@@ -34,7 +34,7 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
           ))}
         </ul>
         <Link href="/blog" className="hover:underline">
-          See more
+          View all blog posts
         </Link>
       </section>
       <section>

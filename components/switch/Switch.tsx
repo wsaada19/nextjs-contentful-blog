@@ -17,6 +17,7 @@ export const Switch = ({ className }: SwitchProps) => {
         role="switch"
         id="toggle-switch"
         checked={isDark}
+        aria-label="Toggle dark mode"
         onChange={() => {
           if (isDark) {
             document.documentElement.classList.remove('dark');
