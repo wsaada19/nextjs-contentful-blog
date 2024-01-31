@@ -33,20 +33,18 @@ export default function Home({ allPostsData, homePageData, projects }: HomeProps
             </li>
           ))}
         </ul>
-        <Link href="/blog" className="hover:underline">
-          View all blog posts
-        </Link>
+        <Link href="/blog">View all blog posts</Link>
       </section>
       <section>
         <h2 className="mt-2 mb-3">Projects</h2>
         <ul className="flex justify-start flex-wrap">
           {projects.map(({ title, slug, color }) => (
-            <li className="w-full text-center mb-4 mr-2" key={slug}>
+            <li className="w-full text-center mb-4" key={slug}>
               <LinkCard
                 className={`text-white ${color ?? 'bg-blue-600'}`}
                 href={`/portfolio/${slug}`}
               >
-                <div className="font-semibold">{title}</div>
+                <p className="font-semibold">{title}</p>
               </LinkCard>
             </li>
           ))}

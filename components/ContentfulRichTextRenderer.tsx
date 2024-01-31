@@ -31,11 +31,7 @@ const options = (linkedEntries): any => ({
       return <li className="text-base py-1">{children[0].props.children[0]}</li>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
-      return (
-        <a className="hover:underline dark:text-blue-400" href={node.data.uri}>
-          {children}
-        </a>
-      );
+      return <a href={node.data.uri}>{children}</a>;
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       const { id } = node.data.target.sys;

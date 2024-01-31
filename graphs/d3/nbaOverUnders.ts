@@ -4,26 +4,25 @@ const HEIGHT = 700 - MARGIN.TOP - MARGIN.BOTTOM;
 
 import { sortBy } from '@utilities';
 import * as d3 from 'd3';
-import { TeamData } from 'types/nbaTeamData';
 
-export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<HTMLDivElement>) {
-  d3.select('#reddit-graph').remove();
+export function addOverUnderChart(teamData: any, ref: React.RefObject<HTMLDivElement>) {
+  d3.select('#over-under-graph').remove();
 
   const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;
   const width = WIDTH + MARGIN.LEFT + MARGIN.RIGHT;
   const svg = d3
     .select(ref.current)
     .append('svg')
-    .attr('id', 'reddit-graph')
+    .attr('id', 'over-under-graph')
     .attr('viewBox', `0 0 ${width} ${height}`);
-
-  const g = svg.append('g').attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
   const tooltip = d3
     .select(ref.current)
     .append('div')
     .attr('class', 'tooltip')
     .style('opacity', '0');
+
+  const g = svg.append('g').attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
   g.append('text')
     .attr('class', 'x axis-label')
@@ -32,19 +31,18 @@ export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<HTM
     .attr('font-size', '20px')
     .attr('text-anchor', 'middle')
     .style('fill', '#14376c')
-    .text('Reddit subscribers');
+    .text('Over win projections');
 
-  sortBy<TeamData>((d) => d.subscribers, teamData);
-  teamData = sortBy<TeamData>((d) => d.subscribers, teamData);
+  teamData = sortBy<any>((d) => d.overs, teamData);
 
   const x = d3
     .scaleLinear()
-    .domain([0, d3.max(teamData, (d) => d.subscribers)])
+    .domain([0, d3.max(teamData, (d) => d.overs)])
     .range([0, WIDTH]);
 
   const y = d3
     .scaleBand()
-    .domain(teamData.map((d) => d.name))
+    .domain(teamData.map((d) => d.team))
     .range([0, HEIGHT])
     .paddingInner(0.2)
     .paddingOuter(0.2);
@@ -64,15 +62,16 @@ export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<HTM
   rects
     .enter()
     .append('rect')
-    .attr('y', (d) => y(d.name))
+    .attr('y', (d) => y(d.team))
     .attr('x', 0)
     .attr('width', 0)
     .attr('height', y.bandwidth)
-    .attr('fill', (d) => d.color)
+    .attr('fill', (d) => d.color || '#14376c')
     .on('mouseover', function (event, d) {
       tooltip.html(() => {
-        let html = `<p class="title"><strong>${d.name}</strong></p>`;
-        html += `<p> Subscribers: <strong>${d.subscribers.toLocaleString()}</strong></p>`;
+        let html = `<p class="title"><strong>${d.team}</strong></p>`;
+        html += `<p> Overs: <strong>${d.overs}</strong></p>`;
+        html += `<p> Unders: <strong>${d.unders}</strong></p>`;
         return html;
       });
       tooltip
@@ -89,19 +88,19 @@ export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<HTM
     .transition()
     .duration(1000)
     .ease(d3.easeLinear)
-    .attr('width', (d) => x(d.subscribers));
+    .attr('width', (d) => x(d.overs));
 
   const imageSize = 20;
   images
     .enter()
     .append('image')
-    .attr('xlink:href', (d) => d.logo)
+    .attr('xlink:href', (d) => d.logo || '/logos/CLE.svg')
     .attr('x', '0')
-    .attr('y', (d) => y(d.name) - 1)
+    .attr('y', (d) => y(d.team) - 1)
     .attr('width', `${imageSize}px`)
     .attr('height', `${imageSize}px`)
     .transition()
     .duration(1000)
     .ease(d3.easeLinear)
-    .attr('x', (d) => x(d.subscribers) + 3);
+    .attr('x', (d) => x(d.overs) + 3);
 }

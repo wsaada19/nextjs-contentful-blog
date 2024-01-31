@@ -11,13 +11,13 @@ export const Navigation = ({ hideLinks = false }: NavigationProps) => {
     <nav className="mt-2 mb-4 text-base h-6">
       {!hideLinks && (
         <>
-          <Link href="/" className="mr-2 md:mr-4 hover:underline">
+          <Link href="/" className="mr-2 md:mr-4">
             Home
           </Link>
-          <Link href="/blog" className="mx-2 md:mx-4 hover:underline">
+          <Link href="/blog" className="mx-2 md:mx-4">
             Blog
           </Link>
-          <Link href="/portfolio" className="ml-2 md:mx-4 hover:underline">
+          <Link href="/portfolio" className="ml-2 md:mx-4">
             Portfolio
           </Link>
         </>

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { TeamData } from 'types/nbaTeamData';
 import { addRedditBarChart } from './d3/nbaRedditSubscribers';
 import { addScatterPlot } from './d3/nbaScatterplot';
+import { addOverUnderChart } from './d3/nbaOverUnders';
 
 export type D3GraphContainerProps = {
   graphId: string;
@@ -16,11 +17,7 @@ export const D3GraphContainer = ({ graphId, data = [] }: D3GraphContainerProps) 
   return <div className="my-2" ref={ref}></div>;
 };
 
-const getGraphById = (
-  id: string,
-  ref: React.RefObject<HTMLDivElement>,
-  data?: TeamData[]
-): void => {
+const getGraphById = (id: string, ref: React.RefObject<HTMLDivElement>, data?: any): void => {
   if (id === 'nbaRatingPlot') {
     if (data.length > 0) {
       addScatterPlot(data, ref);
@@ -29,5 +26,7 @@ const getGraphById = (
     }
   } else if (id === 'nbaRedditGraph') {
     addRedditBarChart(data, ref);
+  } else if (id === 'nbaOverUnder') {
+    addOverUnderChart(data, ref);
   }
 };
