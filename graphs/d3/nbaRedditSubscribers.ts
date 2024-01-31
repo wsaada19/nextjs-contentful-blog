@@ -1,6 +1,6 @@
 const MARGIN = { LEFT: 60, RIGHT: 30, TOP: 10, BOTTOM: 60 };
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 700 - MARGIN.TOP - MARGIN.BOTTOM;
+const HEIGHT = 675 - MARGIN.TOP - MARGIN.BOTTOM;
 
 import { sortBy } from '@utilities';
 import * as d3 from 'd3';
@@ -28,7 +28,7 @@ export function addRedditBarChart(teamData: TeamData[], ref: React.RefObject<HTM
   g.append('text')
     .attr('class', 'x axis-label')
     .attr('x', WIDTH / 2)
-    .attr('y', HEIGHT + 60)
+    .attr('y', HEIGHT + 55)
     .attr('font-size', '20px')
     .attr('text-anchor', 'middle')
     .style('fill', '#14376c')
