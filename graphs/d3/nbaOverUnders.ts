@@ -4,8 +4,12 @@ const HEIGHT = 700 - MARGIN.TOP - MARGIN.BOTTOM;
 
 import { sortBy } from '@utilities';
 import * as d3 from 'd3';
+import { TeamBettingData } from 'types/nbaTeamData';
 
-export function addOverUnderChart(teamData: any, ref: React.RefObject<HTMLDivElement>) {
+export function addOverUnderChart(
+  teamData: TeamBettingData[],
+  ref: React.RefObject<HTMLDivElement>
+) {
   d3.select('#over-under-graph').remove();
 
   const height = HEIGHT + MARGIN.TOP + MARGIN.BOTTOM;
@@ -33,7 +37,7 @@ export function addOverUnderChart(teamData: any, ref: React.RefObject<HTMLDivEle
     .style('fill', '#14376c')
     .text('Over win projections');
 
-  teamData = sortBy<any>((d) => d.overs, teamData);
+  teamData = sortBy<TeamBettingData>((d) => d.overs, teamData);
 
   const x = d3
     .scaleLinear()

@@ -10,3 +10,11 @@ export type TeamData = {
   wins: number;
   subscribers: number;
 };
+
+export type TeamBettingData = {
+  team: string;
+  color: string;
+  logo: string;
+  overs: number;
+  unders: number;
+};
