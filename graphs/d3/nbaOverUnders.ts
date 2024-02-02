@@ -35,7 +35,7 @@ export function addOverUnderChart(
     .attr('font-size', '20px')
     .attr('text-anchor', 'middle')
     .style('fill', '#14376c')
-    .text('Over win projections');
+    .text('Number of times a team has exceeded their win projection');
 
   teamData = sortBy<TeamBettingData>((d) => d.overs, teamData);
 

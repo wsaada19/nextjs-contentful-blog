@@ -5,8 +5,10 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { atomOneDark, CopyBlock } from 'react-code-blocks';
 import { ContentfulContentType } from '@services/contentful';
 import { D3GraphContainer } from 'graphs/D3GraphContainer';
+import Image from 'next/image';
+import { contentfulLoader } from '@utilities';
 
-const options = (linkedEntries): any => ({
+const options = (linkedEntries, linkedAssets): any => ({
   renderMark: {
     [MARKS.BOLD]: (text) => <span className="font-medium">{text}</span>,
     [MARKS.CODE]: (text) => (
@@ -32,6 +34,36 @@ const options = (linkedEntries): any => ({
     },
     [INLINES.HYPERLINK]: (node, children) => {
       return <a href={node.data.uri}>{children}</a>;
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const asset = linkedAssets.find((asset) => asset.sys.id === node.data.target.sys.id);
+      const { description, file } = asset.fields;
+      const mimeType = file.contentType;
+      const mimeGroup = mimeType.split('/')[0];
+      const { width, height } = file.details.image;
+      if (mimeGroup === 'image') {
+        return (
+          <>
+            <Image
+              alt={description}
+              src={file.url}
+              width={width}
+              height={height}
+              loader={contentfulLoader}
+              priority
+              sizes="100vw"
+              style={{
+                width: '100%',
+                height: 'auto',
+                marginTop: '1rem',
+              }}
+            />
+            <p className="text-sm font-normal mt-1 mb-4 text-black font-sans dark:text-white">
+              {description}
+            </p>
+          </>
+        );
+      }
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       const { id } = node.data.target.sys;
@@ -59,13 +91,17 @@ const options = (linkedEntries): any => ({
 type ContentfulRichTextRendererProps = {
   richText: Document;
   includedEntries?: any[];
+  assets: any[];
 };
 
 export const ContentfulRichTextRenderer = ({
   richText,
   includedEntries = [],
+  assets = [],
 }: ContentfulRichTextRendererProps) => {
   return (
-    <div className="my-2">{documentToReactComponents(richText, options(includedEntries))}</div>
+    <div className="my-2">
+      {documentToReactComponents(richText, options(includedEntries, assets))}
+    </div>
   );
 };

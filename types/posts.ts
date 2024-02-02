@@ -5,6 +5,7 @@ export type PostLayoutProps = {
   post: Post;
   image: ContentfulImage;
   includedEntries: any[];
+  assets: any[];
 };
 
 export type Post = {

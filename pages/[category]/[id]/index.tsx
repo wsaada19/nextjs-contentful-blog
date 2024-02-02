@@ -9,7 +9,7 @@ import PageLayout from '@components/layouts/PageLayout';
 import { capitalizeFirstLetter } from '@utilities';
 import { ArticleLd } from '@components/schema/SchemaComponents';
 
-export default function PostPage({ post, image, includedEntries }: PostLayoutProps) {
+export default function PostPage({ post, image, includedEntries, assets }: PostLayoutProps) {
   const { title, shortSummary, summary, publishDate } = post;
   return (
     <PageLayout description={shortSummary} title={title} hideLinks>
@@ -23,7 +23,11 @@ export default function PostPage({ post, image, includedEntries }: PostLayoutPro
           ]}
         />
         <HeroBanner title={title} image={image} summary={shortSummary} />
-        <ContentfulRichTextRenderer richText={summary} includedEntries={includedEntries} />
+        <ContentfulRichTextRenderer
+          richText={summary}
+          includedEntries={includedEntries}
+          assets={assets}
+        />
       </article>
     </PageLayout>
   );
@@ -53,6 +57,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const blogPost = projectContentfulData.items.find((item) => {
     return item.slug == params.id;
   });
+
+  const assetsInSummary = blogPost.summary.content.filter(
+    (content) => content.nodeType === 'embedded-asset-block'
+  );
+  const assets = [];
+  for (let i = 0; i < assetsInSummary.length; i++) {
+    const id = assetsInSummary[i].data.target.sys.id;
+    const img = await getAssetById(id);
+    assets.push(img);
+  }
+
   let image: { fields: ContentfulImage };
   if (blogPost.summaryImage) {
     image = await getAssetById(blogPost.summaryImage.sys.id);
@@ -62,6 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       post: blogPost,
       image: image ? image.fields : {},
       includedEntries: projectContentfulData.includes?.Entry ?? [],
+      assets,
     },
   };
 };
