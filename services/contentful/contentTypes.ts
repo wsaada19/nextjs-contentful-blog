@@ -3,5 +3,4 @@ export enum ContentfulContentType {
   HomePage = 'homePage',
   CodeSnippet = 'codeSnippet',
   PageData = 'pageData',
-  D3Graph = 'd3Graphic',
 }

@@ -8,6 +8,7 @@ type EntriesResponse<T> = {
   items: T[];
   includes: any;
 };
+
 export async function getEntriesOfType<T>(
   contentType: ContentfulContentType
 ): Promise<EntriesResponse<T>> {

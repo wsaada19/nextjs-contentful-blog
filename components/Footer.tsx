@@ -12,7 +12,7 @@ export const Footer = (): JSX.Element => {
         Resume
       </Link>
       <span className="flex float-right">
-        <Link passHref className="px-2" href="https://github.com/wsaada19">
+        <Link passHref className="px-2" href="https://github.com">
           <Image
             src="/images/github.svg"
             height={24}
@@ -24,7 +24,7 @@ export const Footer = (): JSX.Element => {
             }}
           ></Image>
         </Link>
-        <Link passHref className="px-2" href="https://www.linkedin.com/in/william-saada/">
+        <Link passHref className="px-2" href="https://www.linkedin.com">
           <Image
             src="/images/linkedin.svg"
             height={24}

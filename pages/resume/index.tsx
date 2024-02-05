@@ -5,7 +5,7 @@ export default function Resume() {
   return (
     <Layout description="My resume" title="Resume">
       <div className="rounded-lg border p-4 border-solid border-gray-400 mt-2">
-        <h1 className="text-5xl pb-3 ">Will Saada</h1>
+        <h1 className="text-5xl pb-3 ">{yourName}</h1>
         <h2 className="text-2xl pb-2 text-blue-600">Full Stack Software Engineer</h2>
         <div className="text-lg md:grid grid-cols-3 gap-4">
           <div className="col-span-2">
@@ -33,7 +33,7 @@ export default function Resume() {
               <List items={['Game Dev & Modding', 'Collectibles', 'Cleveland Sports', 'Running']} />
             </Section>
             <Section title="Contact">
-              <a href="mailto:willsaada19@gmail.com">willsaada19@gmail.com</a>
+              <a href="mailto:youremail">youremail</a>
             </Section>
           </div>
         </div>
@@ -94,6 +94,7 @@ const List = ({ items }: ListProps) => {
 };
 
 // TODO: move data to Contentful
+const yourName = 'Jon Doe';
 const jobs = [
   {
     title: 'Principal Associate Software Engineer',

@@ -4,7 +4,6 @@ import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { atomOneDark, CopyBlock } from 'react-code-blocks';
 import { ContentfulContentType } from '@services/contentful';
-import { D3GraphContainer } from 'graphs/D3GraphContainer';
 import Image from 'next/image';
 import { contentfulLoader } from '@utilities';
 
@@ -16,7 +15,7 @@ const options = (linkedEntries, linkedAssets): any => ({
     ),
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-2 md:leading-8">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <p className="text-lg py-1 md:leading-7">{children}</p>,
     [BLOCKS.HEADING_3]: (node, children) => {
       return <h3 className="my-2 text-blue-800">{children}</h3>;
     },
@@ -80,8 +79,6 @@ const options = (linkedEntries, linkedAssets): any => ({
               />
             </div>
           );
-        } else if (entry.sys.contentType.sys.id === ContentfulContentType.D3Graph) {
-          return <D3GraphContainer graphId={entry.fields.graphId} data={entry.fields.graphData} />;
         }
       }
     },
