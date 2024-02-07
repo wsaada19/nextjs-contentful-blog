@@ -70,12 +70,13 @@ const options = (linkedEntries, linkedAssets): any => ({
       if (entry) {
         if (entry.sys.contentType.sys.id === ContentfulContentType.CodeSnippet) {
           return (
-            <div className="my-3">
+            <div className="my-3 text-sm leading-7">
               <CopyBlock
                 text={entry.fields.codeBlock}
                 language={entry.fields.language}
                 showLineNumbers={false}
                 theme={atomOneDark}
+                codeBlock={true}
               />
             </div>
           );
