@@ -25,10 +25,6 @@ export default function PageLayout({
           <meta name="description" content={description} />
           <meta name="og:title" content={title} />
           <meta name="og:image" content="/favicon.png" />
-          <meta
-            name="google-site-verification"
-            content="6vJhvAxISHZIcwJgzmbpHGvL6Op6sxHxJoNuyJWMIlw"
-          />
         </Head>
         <script
           dangerouslySetInnerHTML={{
