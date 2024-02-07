@@ -29,7 +29,7 @@ const options = (linkedEntries, linkedAssets): any => ({
       return <ul className="my-1 list-decimal list-inside">{children}</ul>;
     },
     [BLOCKS.LIST_ITEM]: (node, children) => {
-      return <li className="text-base py-1">{children[0].props.children[0]}</li>;
+      return <li className="text-lg py-1">{children[0].props.children[0]}</li>;
     },
     [INLINES.HYPERLINK]: (node, children) => {
       return <a href={node.data.uri}>{children}</a>;
@@ -57,7 +57,7 @@ const options = (linkedEntries, linkedAssets): any => ({
                 marginTop: '1rem',
               }}
             />
-            <p className="text-sm font-normal mt-1 mb-4 text-black font-sans dark:text-white">
+            <p className="text-sm font-normal my-1 text-black font-sans dark:text-white">
               {description}
             </p>
           </>
